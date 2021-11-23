@@ -1,4 +1,4 @@
-package test;
+package Brick.Break;
 
 import java.awt.*;
 import java.awt.Point;

@@ -1,4 +1,4 @@
-package test;
+package Brick.Break;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -25,6 +25,15 @@ abstract public class Ball {
     private int speedX;
     private int speedY;
 
+
+    /**
+     * This constructor is to initialize the default ball placement.
+     * @param center
+     * @param radiusA
+     * @param radiusB
+     * @param inner
+     * @param border
+     */
     public Ball(Point2D center,int radiusA,int radiusB,Color inner,Color border){
         this.center = center;
 

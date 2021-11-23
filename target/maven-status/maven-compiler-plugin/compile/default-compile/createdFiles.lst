@@ -1,0 +1,15 @@
+Brick\Break\GameBoard.class
+Brick\Break\SteelBrick.class
+Brick\Break\Brick.class
+Brick\Break\ClayBrick.class
+Brick\Break\Player.class
+Brick\Break\Ball.class
+Brick\Break\GraphicsMain.class
+Brick\Break\DebugConsole.class
+Brick\Break\HomeMenu.class
+Brick\Break\Brick$Crack.class
+Brick\Break\CementBrick.class
+Brick\Break\GameFrame.class
+Brick\Break\DebugPanel.class
+Brick\Break\RubberBall.class
+Brick\Break\Wall.class
