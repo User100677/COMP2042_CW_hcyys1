@@ -10,7 +10,7 @@ import java.util.Random;
  * Created by filippo on 04/09/16.
  *
  */
-abstract public class Brick  {
+abstract public class Brick extends Colour{
 
     public static final int MIN_CRACK = 1;
     public static final int DEF_CRACK_DEPTH = 1;
@@ -179,9 +179,6 @@ abstract public class Brick  {
     private String name;
     Shape brickFace;
 
-    private Color border;
-    private Color inner;
-
     private int fullStrength;
     private int strength;
 
@@ -193,8 +190,8 @@ abstract public class Brick  {
         broken = false;
         this.name = name;
         brickFace = makeBrickFace(pos,size);
-        this.border = border;
-        this.inner = inner;
+        setInnerColour(inner);
+        setBorderColour(border);
         this.fullStrength = this.strength = strength;
 
     }
@@ -210,15 +207,6 @@ abstract public class Brick  {
 
     public abstract Shape getBrick();
 
-
-
-    public Color getBorderColor(){
-        return  border;
-    }
-
-    public Color getInnerColor(){
-        return inner;
-    }
 
 
     public final int findImpact(Ball b){

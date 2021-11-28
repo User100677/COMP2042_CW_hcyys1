@@ -45,6 +45,7 @@ public class Wall {
     private int ballCount;
     private boolean ballLost;
 
+
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos){
 
         this.startPoint = new Point(ballPos);
@@ -189,7 +190,7 @@ public class Wall {
             brickCount--;
         }
         else if(impactBorder()) {
-            ball.reverseX();
+           ball.reverseX();
         }
         else if(ball.getPosition().getY() < area.getY()){
             ball.reverseY();

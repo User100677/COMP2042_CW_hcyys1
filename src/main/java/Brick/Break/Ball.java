@@ -1,5 +1,4 @@
 package Brick.Break;
-
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.RectangularShape;
@@ -8,7 +7,7 @@ import java.awt.geom.RectangularShape;
  * Created by filippo on 04/09/16.
  *
  */
-abstract public class Ball {
+abstract public class Ball extends Speed{
 
     private Shape ballFace;
 
@@ -19,20 +18,14 @@ abstract public class Ball {
     Point2D left;
     Point2D right;
 
-    private Color border;
-    private Color inner;
+    private int speedX  = 0;
+    private int speedY = 0;
 
-    private int speedX;
-    private int speedY;
+
 
 
     /**
      * This constructor is to initialize the default ball placement.
-     * @param center
-     * @param radiusA
-     * @param radiusB
-     * @param inner
-     * @param border
      */
     public Ball(Point2D center,int radiusA,int radiusB,Color inner,Color border){
         this.center = center;
@@ -50,17 +43,18 @@ abstract public class Ball {
 
 
         ballFace = makeBall(center,radiusA,radiusB);
-        this.border = border;
-        this.inner  = inner;
-        speedX = 0;
-        speedY = 0;
+        setBorderColour(border);
+        setInnerColour(inner);
+        setXSpeed(speedX);
+        setXSpeed(speedY);
     }
+
 
     protected abstract Shape makeBall(Point2D center,int radiusA,int radiusB);
 
     public void move(){
         RectangularShape tmp = (RectangularShape) ballFace;
-        center.setLocation((center.getX() + speedX),(center.getY() + speedY));
+        center.setLocation((center.getX() + getSpeedX()),(center.getY() + getSpeedY()));
         double w = tmp.getWidth();
         double h = tmp.getHeight();
 
@@ -71,40 +65,13 @@ abstract public class Ball {
         ballFace = tmp;
     }
 
-    public void setSpeed(int x,int y){
-        speedX = x;
-        speedY = y;
-    }
 
-    public void setXSpeed(int s){
-        speedX = s;
-    }
-
-    public void setYSpeed(int s){
-        speedY = s;
-    }
-
-    public void reverseX(){
-        speedX *= -1;
-    }
-
-    public void reverseY(){
-        speedY *= -1;
-    }
-
-    public Color getBorderColor(){
-        return border;
-    }
-
-    public Color getInnerColor(){
-        return inner;
-    }
 
     public Point2D getPosition(){
         return center;
     }
 
-    public Shape getBallFace(){
+    public Shape getBallFace()  {
         return ballFace;
     }
 
@@ -126,14 +93,5 @@ abstract public class Ball {
         left.setLocation(center.getX()-(width / 2),center.getY());
         right.setLocation(center.getX()+(width / 2),center.getY());
     }
-
-    public int getSpeedX(){
-        return speedX;
-    }
-
-    public int getSpeedY(){
-        return speedY;
-    }
-
 
 }
