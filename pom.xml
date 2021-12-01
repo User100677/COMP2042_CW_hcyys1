@@ -39,7 +39,7 @@
                                 true
                             </addClasspath>
                             <mainClass>
-                                Brick.Break.GraphicsMain
+                                Brick.Break.Main.GraphicsMain
                             </mainClass>
                         </manifest>
                     </archive>
