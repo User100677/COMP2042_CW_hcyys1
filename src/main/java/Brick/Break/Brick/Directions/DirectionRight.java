@@ -1,7 +1,5 @@
 package Brick.Break.Brick.Directions;
 
-import Brick.Break.Brick.Directions.Direction;
-
 import java.awt.*;
 
 public class DirectionRight implements Direction {

@@ -25,6 +25,7 @@ import Brick.Break.Brick.CementBrick;
 import Brick.Break.Brick.ClayBrick;
 import Brick.Break.Brick.SteelBrick;
 import Brick.Break.Player.Player;
+import Brick.Break.Player.PlayerController;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -44,7 +45,7 @@ public class Wall implements Move {
     Brick[] bricks;
     public Ball ball;
     Player player;
-
+    PlayerController playerController;
     private Brick[][] levels;
     private int level;
 
@@ -77,7 +78,7 @@ public class Wall implements Move {
 
         ball.setSpeed(speedX,speedY);
 
-        player = new Player((Point) ballPos.clone(),150,10, drawArea);
+        playerController = new PlayerController(new Player((Point) ballPos.clone(),150,10, drawArea));
 
         area = drawArea;
 
@@ -184,12 +185,12 @@ public class Wall implements Move {
 
     @Override
     public void move(){
-        player.move();
+        playerController.move();
         ball.move();
     }
 
     public void findImpacts(){
-        if(player.impact(ball)){
+        if(playerController.impact(ball)){
             ball.reverseY();
         }
         else if(impactWall()){
@@ -251,7 +252,7 @@ public class Wall implements Move {
     }
 
     public void ballReset(){
-        player.moveTo(startPoint);
+        playerController.moveTo(startPoint);
         ball.moveTo(startPoint);
         int speedX,speedY;
         do{
