@@ -2,6 +2,7 @@ package Brick.Break.Brick;
 
 import Brick.Break.Ball.Ball;
 import Brick.Break.Attribute.Colour;
+import Brick.Break.Ball.BallController;
 import Brick.Break.Brick.Directions.Direction;
 import Brick.Break.Brick.Directions.DirectionDown;
 import Brick.Break.Brick.Directions.DirectionFactory;
@@ -199,17 +200,17 @@ abstract public class Brick extends Colour {
 
 
 
-    public final int findImpact(Ball b){
+    public final int findImpact(BallController b){
         if(broken)
             return 0;
         int out  = 0;
-        if(brickFace.contains(b.right))
+        if(brickFace.contains(b.getBallRight()))
             out = LEFT_IMPACT;
-        else if(brickFace.contains(b.left))
+        else if(brickFace.contains(b.getBallLeft()))
             out = RIGHT_IMPACT;
-        else if(brickFace.contains(b.up))
+        else if(brickFace.contains(b.getBallUp()))
             out = DOWN_IMPACT;
-        else if(brickFace.contains(b.down))
+        else if(brickFace.contains(b.getBallDown()))
             out = UP_IMPACT;
         return out;
     }

@@ -1,17 +1,21 @@
 package Brick.Break.Ball;
 
 import Brick.Break.Attribute.Move;
+import Brick.Break.Attribute.Speed;
 
 import java.awt.*;
+import java.awt.geom.Point2D;
 import java.awt.geom.RectangularShape;
 
-public class BallController implements Move {
+public abstract class BallController extends Speed implements Move {
 
     private Ball ball;
 
     BallController(Ball ball){
         this.ball = ball;
     }
+
+
 
     @Override
     public void move(){
@@ -44,5 +48,23 @@ public class BallController implements Move {
 
         ball.getLeft().setLocation(ball.getPosition().getX()-(width / 2),ball.getPosition().getY());
         ball.getRight().setLocation(ball.getPosition().getX()+(width / 2),ball.getPosition().getY());
+    }
+
+    public Point2D getBallPosition(){
+        return ball.getPosition();
+    }
+
+    public Point2D getBallUp(){
+        return ball.getUp();
+    }
+
+    public Point2D getBallDown(){
+        return ball.getDown();
+    }
+    public Point2D getBallLeft(){
+        return ball.getLeft();
+    }
+    public Point2D getBallRight(){
+        return ball.getRight();
     }
 }

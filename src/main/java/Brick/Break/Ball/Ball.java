@@ -1,25 +1,24 @@
 package Brick.Break.Ball;
-import Brick.Break.Attribute.Move;
 import Brick.Break.Attribute.Speed;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.awt.geom.RectangularShape;
+
 
 /**
  * Created by filippo on 04/09/16.
  *
  */
-public abstract class Ball extends Speed implements Move {
+public abstract class Ball extends Speed {
 
     private Shape ballFace;
 
     private Point2D center;
 
-    public Point2D up;
-    public Point2D down;
-    public Point2D left;
-    public Point2D right;
+    private Point2D up;
+    private Point2D down;
+    private Point2D left;
+    private Point2D right;
 
     private int speedX  = 0;
     private int speedY = 0;
@@ -55,19 +54,6 @@ public abstract class Ball extends Speed implements Move {
 
     abstract Shape makeBall(Point2D center,int radiusA,int radiusB);
 
-    @Override
-    public void move(){
-        RectangularShape tmp = (RectangularShape) ballFace;
-        center.setLocation((center.getX() + getSpeedX()),(center.getY() + getSpeedY()));
-        double w = tmp.getWidth();
-        double h = tmp.getHeight();
-
-        tmp.setFrame((center.getX() -(w / 2)),(center.getY() - (h / 2)),w,h);
-        setPoints(w,h);
-
-
-        ballFace = tmp;
-    }
 
 
 
@@ -98,23 +84,6 @@ public abstract class Ball extends Speed implements Move {
         return right;
     }
 
-    public void moveTo(Point p){
-        center.setLocation(p);
 
-        RectangularShape tmp = (RectangularShape) ballFace;
-        double w = tmp.getWidth();
-        double h = tmp.getHeight();
-
-        tmp.setFrame((center.getX() -(w / 2)),(center.getY() - (h / 2)),w,h);
-        ballFace = tmp;
-    }
-
-    private void setPoints(double width,double height){
-        up.setLocation(center.getX(),center.getY()-(height / 2));
-        down.setLocation(center.getX(),center.getY()+(height / 2));
-
-        left.setLocation(center.getX()-(width / 2),center.getY());
-        right.setLocation(center.getX()+(width / 2),center.getY());
-    }
 
 }

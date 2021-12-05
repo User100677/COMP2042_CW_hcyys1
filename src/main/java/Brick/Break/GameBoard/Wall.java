@@ -19,6 +19,8 @@ package Brick.Break.GameBoard;
 
 import Brick.Break.Attribute.Move;
 import Brick.Break.Ball.Ball;
+import Brick.Break.Ball.RubberBallController;
+import Brick.Break.Ball.BallController;
 import Brick.Break.Ball.RubberBall;
 import Brick.Break.Brick.Brick;
 import Brick.Break.Brick.CementBrick;
@@ -43,7 +45,7 @@ public class Wall implements Move {
     private Rectangle area;
 
     Brick[] bricks;
-    public Ball ball;
+    public BallController ballController;
     PlayerController playerController;
     private Brick[][] levels;
     private int level;
@@ -75,7 +77,7 @@ public class Wall implements Move {
             speedY = -rnd.nextInt(3);
         }while(speedY == 0);
 
-        ball.setSpeed(speedX,speedY);
+        ballController.setSpeed(speedX,speedY);
 
         playerController = new PlayerController(new Player((Point) ballPos.clone(),150,10, drawArea));
 
@@ -170,7 +172,7 @@ public class Wall implements Move {
     }
 
     private void makeBall(Point2D ballPos){
-        ball = new RubberBall(ballPos);
+        ballController = new RubberBallController(new RubberBall(ballPos));
     }
 
     private Brick[][] makeLevels(Rectangle drawArea,int brickCount,int lineCount,double brickDimensionRatio){
@@ -185,12 +187,12 @@ public class Wall implements Move {
     @Override
     public void move(){
         playerController.move();
-        ball.move();
+        ballController.move();
     }
 
     public void findImpacts(){
-        if(playerController.impact(ball)){
-            ball.reverseY();
+        if(playerController.impact(ballController)){
+            ballController.reverseY();
         }
         else if(impactWall()){
             /*for efficiency reverse is done into method impactWall
@@ -199,12 +201,12 @@ public class Wall implements Move {
             brickCount--;
         }
         else if(impactBorder()) {
-           ball.reverseX();
+            ballController.reverseX();
         }
-        else if(ball.getPosition().getY() < area.getY()){
-            ball.reverseY();
+        else if(ballController.getBallPosition().getY() < area.getY()){
+            ballController.reverseY();
         }
-        else if(ball.getPosition().getY() > area.getY() + area.getHeight()){
+        else if(ballController.getBallPosition().getY() > area.getY() + area.getHeight()){
             ballCount--;
             ballLost = true;
         }
@@ -212,29 +214,29 @@ public class Wall implements Move {
 
     private boolean impactWall(){
         for(Brick b : bricks){
-            switch(b.findImpact(ball)) {
+            switch(b.findImpact(ballController)) {
                 //Vertical Impact
                 case Brick.UP_IMPACT:
-                    ball.reverseY();
-                    return b.setImpact(ball.down, Brick.Crack.UP);
+                    ballController.reverseY();
+                    return b.setImpact(ballController.getBallDown(), Brick.Crack.UP);
                 case Brick.DOWN_IMPACT:
-                    ball.reverseY();
-                    return b.setImpact(ball.up,Brick.Crack.DOWN);
+                    ballController.reverseY();
+                    return b.setImpact(ballController.getBallUp(),Brick.Crack.DOWN);
 
                 //Horizontal Impact
                 case Brick.LEFT_IMPACT:
-                    ball.reverseX();
-                    return b.setImpact(ball.right,Brick.Crack.RIGHT);
+                    ballController.reverseX();
+                    return b.setImpact(ballController.getBallRight(),Brick.Crack.RIGHT);
                 case Brick.RIGHT_IMPACT:
-                    ball.reverseX();
-                    return b.setImpact(ball.left,Brick.Crack.LEFT);
+                    ballController.reverseX();
+                    return b.setImpact(ballController.getBallLeft(),Brick.Crack.LEFT);
             }
         }
         return false;
     }
 
     private boolean impactBorder(){
-        Point2D p = ball.getPosition();
+        Point2D p = ballController.getBallPosition();
         return ((p.getX() < area.getX()) ||(p.getX() > (area.getX() + area.getWidth())));
     }
 
@@ -252,7 +254,7 @@ public class Wall implements Move {
 
     public void ballReset(){
         playerController.moveTo(startPoint);
-        ball.moveTo(startPoint);
+        ballController.moveTo(startPoint);
         int speedX,speedY;
         do{
             speedX = rnd.nextInt(5) - 2;
@@ -261,7 +263,7 @@ public class Wall implements Move {
             speedY = -rnd.nextInt(3);
         }while(speedY == 0);
 
-        ball.setSpeed(speedX,speedY);
+        ballController.setSpeed(speedX,speedY);
         ballLost = false;
     }
 
@@ -290,11 +292,11 @@ public class Wall implements Move {
     }
 
     public void setBallXSpeed(int s){
-        ball.setXSpeed(s);
+        ballController.setXSpeed(s);
     }
 
     public void setBallYSpeed(int s){
-        ball.setYSpeed(s);
+        ballController.setYSpeed(s);
     }
 
     public void resetBallCount(){

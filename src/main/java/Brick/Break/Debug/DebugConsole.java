@@ -18,6 +18,7 @@
 package Brick.Break.Debug;
 
 import Brick.Break.Ball.Ball;
+import Brick.Break.Ball.BallController;
 import Brick.Break.GameBoard.GameBoard;
 import Brick.Break.GameBoard.Wall;
 
@@ -96,7 +97,7 @@ public class DebugConsole extends JDialog implements WindowListener{
     @Override
     public void windowActivated(WindowEvent windowEvent) {
         setLocation();
-        Ball b = wall.ball;
+        BallController b = wall.ballController;
         debugPanel.setValues(b.getSpeedX(),b.getSpeedY());
     }
 

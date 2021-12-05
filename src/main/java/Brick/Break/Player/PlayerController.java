@@ -1,6 +1,7 @@
 package Brick.Break.Player;
 import Brick.Break.Ball.Ball;
 import Brick.Break.Attribute.Move;
+import Brick.Break.Ball.BallController;
 
 import java.awt.*;
 
@@ -14,8 +15,8 @@ public class PlayerController implements Move{
         playerView = new PlayerView(playerModel);
     }
 
-    public boolean impact(Ball b){
-        return playerModel.getPlayerFace().contains(b.getPosition()) && playerModel.getPlayerFace().contains(b.down) ;
+    public boolean impact(BallController b){
+        return playerModel.getPlayerFace().contains(b.getBallPosition()) && playerModel.getPlayerFace().contains(b.getBallDown()) ;
     }
 
     @Override
