@@ -44,4 +44,5 @@ public class RubberBall extends Ball {
 
         return new Ellipse2D.Double(x,y,radiusA,radiusB);
     }
+
 }

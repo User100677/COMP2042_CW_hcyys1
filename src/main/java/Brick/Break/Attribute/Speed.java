@@ -29,6 +29,7 @@ public abstract class Speed extends Colour {
         speedY *= -1;
     }
 
+
     public int getSpeedX(){
         return speedX;
     }

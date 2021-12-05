@@ -19,9 +19,9 @@ package Brick.Break.GameBoard;
 
 import Brick.Break.Attribute.Move;
 import Brick.Break.Ball.Ball;
-import Brick.Break.Ball.RubberBallController;
 import Brick.Break.Ball.BallController;
 import Brick.Break.Ball.RubberBall;
+import Brick.Break.Ball.RubberBallController;
 import Brick.Break.Brick.Brick;
 import Brick.Break.Brick.CementBrick;
 import Brick.Break.Brick.ClayBrick;
@@ -77,7 +77,7 @@ public class Wall implements Move {
             speedY = -rnd.nextInt(3);
         }while(speedY == 0);
 
-        ballController.setSpeed(speedX,speedY);
+        ballController.setSPEED(speedX,speedY);
 
         playerController = new PlayerController(new Player((Point) ballPos.clone(),150,10, drawArea));
 
@@ -192,7 +192,7 @@ public class Wall implements Move {
 
     public void findImpacts(){
         if(playerController.impact(ballController)){
-            ballController.reverseY();
+            ballController.ReverseY();
         }
         else if(impactWall()){
             /*for efficiency reverse is done into method impactWall
@@ -201,10 +201,10 @@ public class Wall implements Move {
             brickCount--;
         }
         else if(impactBorder()) {
-            ballController.reverseX();
+           ballController.ReverseX();
         }
         else if(ballController.getBallPosition().getY() < area.getY()){
-            ballController.reverseY();
+            ballController.ReverseY();
         }
         else if(ballController.getBallPosition().getY() > area.getY() + area.getHeight()){
             ballCount--;
@@ -217,18 +217,18 @@ public class Wall implements Move {
             switch(b.findImpact(ballController)) {
                 //Vertical Impact
                 case Brick.UP_IMPACT:
-                    ballController.reverseY();
+                    ballController.ReverseY();
                     return b.setImpact(ballController.getBallDown(), Brick.Crack.UP);
                 case Brick.DOWN_IMPACT:
-                    ballController.reverseY();
+                    ballController.ReverseY();
                     return b.setImpact(ballController.getBallUp(),Brick.Crack.DOWN);
 
                 //Horizontal Impact
                 case Brick.LEFT_IMPACT:
-                    ballController.reverseX();
+                    ballController.ReverseX();
                     return b.setImpact(ballController.getBallRight(),Brick.Crack.RIGHT);
                 case Brick.RIGHT_IMPACT:
-                    ballController.reverseX();
+                    ballController.ReverseX();
                     return b.setImpact(ballController.getBallLeft(),Brick.Crack.LEFT);
             }
         }
@@ -263,7 +263,7 @@ public class Wall implements Move {
             speedY = -rnd.nextInt(3);
         }while(speedY == 0);
 
-        ballController.setSpeed(speedX,speedY);
+        ballController.setSPEED(speedX,speedY);
         ballLost = false;
     }
 
@@ -292,11 +292,11 @@ public class Wall implements Move {
     }
 
     public void setBallXSpeed(int s){
-        ballController.setXSpeed(s);
+        ballController.setSpeedX(s);
     }
 
     public void setBallYSpeed(int s){
-        ballController.setYSpeed(s);
+        ballController.setSpeedY(s);
     }
 
     public void resetBallCount(){

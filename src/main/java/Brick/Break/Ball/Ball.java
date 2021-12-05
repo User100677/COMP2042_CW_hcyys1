@@ -1,15 +1,16 @@
 package Brick.Break.Ball;
+import Brick.Break.Attribute.Move;
 import Brick.Break.Attribute.Speed;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-
+import java.awt.geom.RectangularShape;
 
 /**
  * Created by filippo on 04/09/16.
  *
  */
-public abstract class Ball extends Speed {
+public abstract class Ball extends Speed{
 
     private Shape ballFace;
 
@@ -61,14 +62,13 @@ public abstract class Ball extends Speed {
         return center;
     }
 
-    public void setBallFace(Shape ballFace){
-        this.ballFace = ballFace;
-    }
-
     public Shape getBallFace()  {
         return ballFace;
     }
 
+    public void setBallFace(Shape ballFace){
+        this.ballFace = ballFace;
+    }
 
     public Point2D getUp(){
         return up;

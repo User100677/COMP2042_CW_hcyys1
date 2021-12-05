@@ -1,7 +1,7 @@
 package Brick.Break.Brick;
 
-import Brick.Break.Ball.Ball;
 import Brick.Break.Attribute.Colour;
+import Brick.Break.Ball.Ball;
 import Brick.Break.Ball.BallController;
 import Brick.Break.Brick.Directions.Direction;
 import Brick.Break.Brick.Directions.DirectionDown;

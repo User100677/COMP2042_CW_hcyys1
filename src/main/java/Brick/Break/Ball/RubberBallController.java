@@ -1,14 +1,13 @@
 package Brick.Break.Ball;
 
-import java.awt.*;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Point2D;
+public class RubberBallController extends BallController{
 
-public class RubberBallController extends BallController {
-    private RubberBall rubberBall;
+    private RubberBall rubberBallModel;
+    private Ball ballModel;
 
-    public RubberBallController(RubberBall rubberBall){
-        super(rubberBall);
+    public RubberBallController(RubberBall rubberBallModel){
+        super(rubberBallModel);
+        this.rubberBallModel = rubberBallModel;
     }
 
 
