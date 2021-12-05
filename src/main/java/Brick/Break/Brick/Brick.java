@@ -91,6 +91,7 @@ abstract public class Brick extends Colour {
             DirectionFactory directionFactory = new DirectionFactory();
 
             Direction directions = directionFactory.getDirection(direction);
+
             Point tmp = null;
             if (directions == new DirectionDown() || directions == new DirectionUp()) {
                 tmp = makeRandomPoint(directions.startLocation(start, bounds), directions.endLocation(end, bounds), HORIZONTAL);

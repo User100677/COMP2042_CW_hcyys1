@@ -19,6 +19,7 @@ package Brick.Break.GameBoard;
 
 import Brick.Break.GameBoard.GameBoard;
 import Brick.Break.HomeMenu.HomeMenu;
+import Brick.Break.HomeMenu.InstructionMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,6 +34,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     private GameBoard gameBoard;
     private HomeMenu homeMenu;
+    private InstructionMenu instructionMenu;
 
     private boolean gaming;
 
@@ -46,6 +48,8 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         gameBoard = new GameBoard(this);
 
         homeMenu = new HomeMenu(this,new Dimension(450,300));
+
+        instructionMenu = new InstructionMenu(this, new Dimension(450,300));
 
         this.add(homeMenu,BorderLayout.CENTER);
 
@@ -69,6 +73,16 @@ public class GameFrame extends JFrame implements WindowFocusListener {
         this.setUndecorated(false);
         initialize();
         /*to avoid problems with graphics focus controller is added here*/
+        this.addWindowFocusListener(this);
+
+    }
+
+    public void openInstructionMenu(){
+        this.dispose();
+        this.remove(homeMenu);
+        this.add(instructionMenu,BorderLayout.CENTER);
+        this.setUndecorated(false);
+        initialize();
         this.addWindowFocusListener(this);
 
     }

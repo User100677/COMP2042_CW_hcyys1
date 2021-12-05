@@ -28,8 +28,23 @@ ii)
 -I have organised all the classes into their own relevant packages.
  For example, Player class is put in a package call player.
 
-4)Deleted Method: 
+4)Deleted Method:
+From HomeMenu: 
+ @Override
+    public void mouseEntered(MouseEvent mouseEvent) {
 
+    }
+
+    @Override
+    public void mouseExited(MouseEvent mouseEvent) {
+
+    }
+
+
+    @Override
+    public void mouseDragged(MouseEvent mouseEvent) {
+
+    }
 
 
 
