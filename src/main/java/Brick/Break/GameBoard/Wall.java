@@ -44,7 +44,6 @@ public class Wall implements Move {
 
     Brick[] bricks;
     public Ball ball;
-    Player player;
     PlayerController playerController;
     private Brick[][] levels;
     private int level;

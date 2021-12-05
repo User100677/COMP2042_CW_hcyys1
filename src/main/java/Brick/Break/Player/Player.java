@@ -17,7 +17,6 @@
  */
 package Brick.Break.Player;
 
-import Brick.Break.Ball.Ball;
 
 
 import java.awt.*;
@@ -51,18 +50,14 @@ public class Player {
         return DEF_MOVE_AMOUNT;
     }
 
-    public void setPlayerFace(Rectangle playerFace){
-        this.playerFace = playerFace;
-    }
+
 
     public Rectangle getPlayerFace(){
         return  playerFace;
     }
 
 
-    public void setBallPoint(Point ballPoint){
-        this.ballPoint = ballPoint;
-    }
+
 
     public Point getBallPoint(){
         return ballPoint;
@@ -76,21 +71,18 @@ public class Player {
         return moveAmount;
     }
 
-    public void setMinimum(int min){
-        this.min = min;
-    }
+
 
     public int getMinimum(){
         return min;
     }
 
-    public void setMaximum(int max){
-        this.max = max;
-    }
+
 
     public int getMaximum(){
         return max;
     }
+
     private Rectangle makeRectangle(int width,int height){
         Point p = new Point((int)(ballPoint.getX() - (width / 2)),(int)ballPoint.getY());
         return  new Rectangle(p,new Dimension(width,height));

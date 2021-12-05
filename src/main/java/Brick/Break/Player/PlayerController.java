@@ -31,7 +31,7 @@ public class PlayerController implements Move{
         playerModel.setMoveAmount(-playerModel.getDefMoveAmount());
     }
 
-    public void movRight(){
+    public void moveRight(){
         playerModel.setMoveAmount(playerModel.getDefMoveAmount());
     }
 

@@ -75,8 +75,27 @@ public abstract class Ball extends Speed implements Move {
         return center;
     }
 
+    public void setBallFace(Shape ballFace){
+        this.ballFace = ballFace;
+    }
+
     public Shape getBallFace()  {
         return ballFace;
+    }
+
+
+    public Point2D getUp(){
+        return up;
+    }
+
+    public Point2D getDown(){
+        return down;
+    }
+    public Point2D getLeft(){
+        return left;
+    }
+    public Point2D getRight(){
+        return right;
     }
 
     public void moveTo(Point p){
