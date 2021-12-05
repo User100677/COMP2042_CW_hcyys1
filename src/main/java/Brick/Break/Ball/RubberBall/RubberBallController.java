@@ -1,6 +1,10 @@
-package Brick.Break.Ball;
+package Brick.Break.Ball.RubberBall;
 
-public class RubberBallController extends BallController{
+import Brick.Break.Ball.Ball;
+import Brick.Break.Ball.BallController;
+import Brick.Break.Ball.RubberBall.RubberBall;
+
+public class RubberBallController extends BallController {
 
     private RubberBall rubberBallModel;
     private Ball ballModel;

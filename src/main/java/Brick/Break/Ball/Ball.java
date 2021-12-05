@@ -53,7 +53,7 @@ public abstract class Ball extends Speed{
     }
 
 
-    abstract Shape makeBall(Point2D center,int radiusA,int radiusB);
+    public abstract Shape makeBall(Point2D center, int radiusA, int radiusB);
 
 
 

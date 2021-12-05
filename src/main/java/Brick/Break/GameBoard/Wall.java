@@ -18,10 +18,9 @@
 package Brick.Break.GameBoard;
 
 import Brick.Break.Attribute.Move;
-import Brick.Break.Ball.Ball;
 import Brick.Break.Ball.BallController;
-import Brick.Break.Ball.RubberBall;
-import Brick.Break.Ball.RubberBallController;
+import Brick.Break.Ball.RubberBall.RubberBall;
+import Brick.Break.Ball.RubberBall.RubberBallController;
 import Brick.Break.Brick.Brick;
 import Brick.Break.Brick.CementBrick;
 import Brick.Break.Brick.ClayBrick;

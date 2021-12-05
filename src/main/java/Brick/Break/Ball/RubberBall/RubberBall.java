@@ -15,7 +15,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package Brick.Break.Ball;
+package Brick.Break.Ball.RubberBall;
 
 import Brick.Break.Ball.Ball;
 
@@ -37,7 +37,7 @@ public class RubberBall extends Ball {
 
 
     @Override
-    protected Shape makeBall(Point2D center, int radiusA, int radiusB) {
+    public Shape makeBall(Point2D center, int radiusA, int radiusB) {
 
         double x = center.getX() - (radiusA / 2);
         double y = center.getY() - (radiusB / 2);
