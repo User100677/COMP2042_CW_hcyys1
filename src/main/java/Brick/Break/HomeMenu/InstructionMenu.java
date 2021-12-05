@@ -4,13 +4,15 @@ import Brick.Break.GameBoard.GameFrame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
-
 /**
  * This the class where I create the Instruction Menu page
  */
-public class InstructionMenu extends JComponent {
+public class InstructionMenu extends JComponent implements MouseListener, MouseMotionListener {
 
 
     private static final String moveLeft = "a : Move left";
@@ -49,6 +51,9 @@ public class InstructionMenu extends JComponent {
 
         this.setFocusable(true);
         this.requestFocusInWindow();
+
+        this.addMouseListener(this);
+        this.addMouseMotionListener(this);
 
         this.owner = owner;
 
@@ -192,6 +197,59 @@ public class InstructionMenu extends JComponent {
             g2d.drawString(back, x, y);
         }
 
+    }
+
+    public void mouseClicked(MouseEvent mouseEvent) {
+        Point p = mouseEvent.getPoint();
+        if(backButton.contains(p)){
+            owner.openMainMenu();
+
+        }
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent mouseEvent) {
+        Point p = mouseEvent.getPoint();
+        if(backButton.contains(p)){
+            backClicked = true;
+            repaint(backButton.x,backButton.y,backButton.width+1,backButton.height+1);
+
+        }
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent mouseEvent) {
+        if(backClicked ){
+            backClicked = false;
+            repaint(backButton.x,backButton.y,backButton.width+1,backButton.height+1);
+        }
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent mouseEvent) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent mouseEvent) {
+
+    }
+
+
+    @Override
+    public void mouseDragged(MouseEvent mouseEvent) {
+
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent mouseEvent) {
+        Point p = mouseEvent.getPoint();
+        if(backButton.contains(p) )
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        else
+            this.setCursor(Cursor.getDefaultCursor());
 
     }
 }
