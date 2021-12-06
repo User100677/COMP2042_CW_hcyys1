@@ -7,6 +7,7 @@ public class DirectionFactory {
     public static final int UP = 30;
     public static final int DOWN = 40;
 
+
     public Direction getDirection(int direction){
         if (direction == LEFT){
             return new DirectionLeft();

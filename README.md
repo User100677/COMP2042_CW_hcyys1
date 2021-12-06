@@ -48,18 +48,30 @@ i)Steel Class:
  brick doesn't show crack whenever the ball hit it.
 
 
-5) Encapsulation:
+5) Encapsulation or changed Access Modifier:
+i)Ball class:
 -I change the "up", "down", "left" and "right" variable in Ball class
- from public to private. After that I created a set and get method for 
+ from public to private. After that I created get method for 
  each of these private variables.
+*Reason of changing these variable to private variable so that other class
+ can't change their value accidentally or intentionally.
+
+ii) Brick Class:
+-I changed the "brickFace" variable to protected and added get method for
+ it.
+*Reason of changing it to protected is beacause other class from other packages 
+ can't change it values accidentally or intentionally.
 
 6)Extracted Class:
+-I extracted "Crack" class in "Brick" class to it own class.
+
+7)Refactor to other Design Pattern:
+i)Crack Class:
+- In "makeCrack" method, I refactor the switch statement to Factory design
+  pattern.
 
 
-5) Encapsulation:
--I change the "up", "down", "left" and "right" variable in Ball class
- from public to private. After that I created a set and get method for 
- each of these private variables.
+
 
 
 

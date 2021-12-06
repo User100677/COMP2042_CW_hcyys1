@@ -6,16 +6,18 @@ public class DirectionRight implements Direction {
     private Point start = new Point();
     private Point end = new Point();
     @Override
-    public void setStartLocation(Point start, Rectangle bounds){
+    public Point setStartLocation(Point start, Rectangle bounds){
         start.setLocation(bounds.getLocation());
+       return start;
 
 
 
     }
 
     @Override
-    public void setEndLocation(Point end, Rectangle bounds){
+    public Point setEndLocation(Point end, Rectangle bounds){
         end.setLocation(bounds.x, bounds.y + bounds.height);
+       return end;
 
     }
 

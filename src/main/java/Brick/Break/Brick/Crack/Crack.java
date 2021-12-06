@@ -1,6 +1,7 @@
 package Brick.Break.Brick.Crack;
 
 import Brick.Break.Brick.Brick;
+import Brick.Break.Brick.Directions.*;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
@@ -54,36 +55,32 @@ public class Crack {
         Point start = new Point();
         Point end = new Point();
 
-        switch (direction) {
-            case LEFT:
-                start.setLocation(bounds.x + bounds.width, bounds.y);
-                end.setLocation(bounds.x + bounds.width, bounds.y + bounds.height);
-                Point tmp = makeRandomPoint(start, end, VERTICAL);
-                makeCrack(impact, tmp);
-
-                break;
-            case RIGHT:
-                start.setLocation(bounds.getLocation());
-                end.setLocation(bounds.x, bounds.y + bounds.height);
-                tmp = makeRandomPoint(start, end, VERTICAL);
-                makeCrack(impact, tmp);
-
-                break;
-            case UP:
-                start.setLocation(bounds.x, bounds.y + bounds.height);
-                end.setLocation(bounds.x + bounds.width, bounds.y + bounds.height);
-                tmp = makeRandomPoint(start, end, HORIZONTAL);
-                makeCrack(impact, tmp);
-                break;
-            case DOWN:
-                start.setLocation(bounds.getLocation());
-                end.setLocation(bounds.x + bounds.width, bounds.y);
-                tmp = makeRandomPoint(start, end, HORIZONTAL);
-                makeCrack(impact, tmp);
-
-                break;
-
+        DirectionFactory directionFactory = new DirectionFactory();
+        Direction directions ;
+        if(direction == LEFT){
+            directions = directionFactory.getDirection(LEFT);
+            Point tmp = makeRandomPoint(directions.setStartLocation(start, bounds),directions.setEndLocation(end, bounds),VERTICAL);
+            makeCrack(impact,tmp);
         }
+        else if(direction == RIGHT){
+            directions = directionFactory.getDirection(RIGHT);
+            Point tmp = makeRandomPoint(directions.setStartLocation(start, bounds),directions.setEndLocation(end, bounds),VERTICAL);
+            makeCrack(impact,tmp);
+        }
+        else if(direction == UP){
+            directions = directionFactory.getDirection(UP);
+            Point tmp = makeRandomPoint(directions.setStartLocation(start, bounds),directions.setEndLocation(end, bounds),HORIZONTAL);
+            makeCrack(impact,tmp);
+        }
+        else if(direction == DOWN){
+            directions = directionFactory.getDirection(DOWN);
+            Point tmp = makeRandomPoint(directions.setStartLocation(start, bounds),directions.setEndLocation(end, bounds),HORIZONTAL);
+            makeCrack(impact,tmp);
+        }
+
+
+
+
     }
 
     protected void makeCrack(Point start, Point end) {
