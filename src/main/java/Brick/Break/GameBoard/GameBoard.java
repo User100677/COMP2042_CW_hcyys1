@@ -17,11 +17,10 @@
  */
 package Brick.Break.GameBoard;
 
-import Brick.Break.Ball.Ball;
-import Brick.Break.Ball.BallController;
+
 import Brick.Break.Brick.Brick;
 import Brick.Break.Debug.DebugConsole;
-import Brick.Break.Player.Player;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -132,7 +131,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         clear(g2d);
 
         g2d.setColor(Color.BLUE);
-        g2d.drawString(message,250,225);
+        g2d.drawString( message,250,225);
 
         wall.ballController.renderBall(g2d);
 

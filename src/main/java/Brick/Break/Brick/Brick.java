@@ -55,14 +55,13 @@ abstract public class Brick extends Colour {
         public static final int HORIZONTAL = 200;
 
 
-
         private GeneralPath crack;
 
         private int crackDepth;
         private int steps;
 
 
-        public Crack(int crackDepth, int steps){
+        public Crack(int crackDepth, int steps) {
 
             crack = new GeneralPath();
             this.crackDepth = crackDepth;
@@ -71,13 +70,12 @@ abstract public class Brick extends Colour {
         }
 
 
-
-        public GeneralPath draw(){
+        public GeneralPath draw() {
 
             return crack;
         }
 
-        public void reset(){
+        public void reset() {
             crack.reset();
         }
 
@@ -88,22 +86,36 @@ abstract public class Brick extends Colour {
             Point start = new Point();
             Point end = new Point();
 
-            DirectionFactory directionFactory = new DirectionFactory();
+            switch(direction){
+                case LEFT:
+                    start.setLocation(bounds.x + bounds.width, bounds.y);
+                    end.setLocation(bounds.x + bounds.width, bounds.y + bounds.height);
+                    Point tmp = makeRandomPoint(start,end,VERTICAL);
+                    makeCrack(impact,tmp);
 
-            Direction directions = directionFactory.getDirection(direction);
+                    break;
+                case RIGHT:
+                    start.setLocation(bounds.getLocation());
+                    end.setLocation(bounds.x, bounds.y + bounds.height);
+                    tmp = makeRandomPoint(start,end,VERTICAL);
+                    makeCrack(impact,tmp);
 
-            Point tmp = null;
-            if (directions == new DirectionDown() || directions == new DirectionUp()) {
-                tmp = makeRandomPoint(directions.startLocation(start, bounds), directions.endLocation(end, bounds), HORIZONTAL);
+                    break;
+                case UP:
+                    start.setLocation(bounds.x, bounds.y + bounds.height);
+                    end.setLocation(bounds.x + bounds.width, bounds.y + bounds.height);
+                    tmp = makeRandomPoint(start,end,HORIZONTAL);
+                    makeCrack(impact,tmp);
+                    break;
+                case DOWN:
+                    start.setLocation(bounds.getLocation());
+                    end.setLocation(bounds.x + bounds.width, bounds.y);
+                    tmp = makeRandomPoint(start,end,HORIZONTAL);
+                    makeCrack(impact,tmp);
+
+                    break;
 
             }
-            else{
-                tmp= makeRandomPoint(directions.startLocation(start, bounds), directions.endLocation(end, bounds), VERTICAL);
-            }
-
-            makeCrack(impact, tmp);
-
-
         }
 
         protected void makeCrack(Point start, Point end){

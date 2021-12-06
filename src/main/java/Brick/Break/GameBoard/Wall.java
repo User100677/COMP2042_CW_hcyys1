@@ -35,7 +35,7 @@ import java.util.Random;
 
 public class Wall implements Move {
 
-    private static final int LEVELS_COUNT = 4;
+    private static final int LEVELS_COUNT = 5;
     private static final int CLAY = 1;
     private static final int STEEL = 2;
     private static final int CEMENT = 3;
@@ -180,6 +180,7 @@ public class Wall implements Move {
         tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,CEMENT);
         tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,STEEL);
         tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,CEMENT);
+        tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,STEEL );
         return tmp;
     }
 
@@ -256,10 +257,10 @@ public class Wall implements Move {
         ballController.moveTo(startPoint);
         int speedX,speedY;
         do{
-            speedX = rnd.nextInt(5) - 2;
+            speedX = 3;
         }while(speedX == 0);
         do{
-            speedY = -rnd.nextInt(3);
+            speedY = -3;
         }while(speedY == 0);
 
         ballController.setSPEED(speedX,speedY);

@@ -4,7 +4,9 @@ import java.awt.*;
 
 public interface Direction {
 
-    public Point startLocation(Point start, Rectangle bounds);
-    public Point endLocation(Point end, Rectangle bounds);
+    public void setStartLocation(Point start, Rectangle bounds);
+    public Point getStartLocation();
+    public void setEndLocation(Point end, Rectangle bounds);
+    public Point getEndLocation();
 
 }

@@ -5,17 +5,28 @@ import java.awt.Point;
 
 
 public class DirectionUp implements Direction {
+    private Point start = new Point();
+    private Point end = new Point();
 
     @Override
-    public Point startLocation(Point start, Rectangle bounds){
+    public void setStartLocation(Point start, Rectangle bounds){
         start.setLocation(bounds.x, bounds.y + bounds.height);
-        return start;
+
 
     }
 
     @Override
-    public Point endLocation(Point end, Rectangle bounds){
+    public void setEndLocation(Point end, Rectangle bounds){
         end.setLocation(bounds.x + bounds.width, bounds.y + bounds.height);
+
+    }
+
+    @Override
+    public Point getStartLocation(){
+        return start;
+    }
+    @Override
+    public Point getEndLocation() {
         return end;
     }
 

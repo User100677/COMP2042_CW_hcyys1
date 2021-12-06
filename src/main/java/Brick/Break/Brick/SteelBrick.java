@@ -20,6 +20,7 @@ package Brick.Break.Brick;
 import Brick.Break.Brick.Brick;
 
 import java.awt.*;
+import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 import java.util.Random;
 
@@ -29,14 +30,18 @@ public class SteelBrick extends Brick {
     private static final String NAME = "Steel Brick";
     private static final Color DEF_INNER = new Color(203, 203, 201);
     private static final Color DEF_BORDER = Color.BLACK;
-    private static final int STEEL_STRENGTH = 1;
+    private static final int STEEL_STRENGTH = 3;
+    public static final int DEF_CRACK_DEPTH = 2;
+    public static final int DEF_STEPS = 35;
     private static final double STEEL_PROBABILITY = 0.4;
 
     private Random rnd;
+    private Crack crack;
     private Shape brickFace;
 
     public SteelBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
+        crack = new Crack(DEF_CRACK_DEPTH, DEF_STEPS);
         rnd = new Random();
         brickFace = super.brickFace;
     }
@@ -55,14 +60,30 @@ public class SteelBrick extends Brick {
     public  boolean setImpact(Point2D point , int dir){
         if(super.isBroken())
             return false;
-        impact();
-        return  super.isBroken();
+        super.impact();
+        if(!super.isBroken()){
+            crack.makeCrack(point,dir);
+            updateBrick();
+            return false;
+        }
+        return true;
     }
 
-    public void impact(){
-        if(rnd.nextDouble() < STEEL_PROBABILITY){
-            super.impact();
+    private void updateBrick(){
+        if(!super.isBroken()){
+            GeneralPath gp = crack.draw();
+            gp.append(super.brickFace,false);
+            brickFace = gp;
         }
     }
+
+    public void repair(){
+        super.repair();
+        crack.reset();
+        brickFace = super.brickFace;
+    }
+
+
+
 
 }

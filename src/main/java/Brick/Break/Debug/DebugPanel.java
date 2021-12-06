@@ -39,49 +39,52 @@ public class DebugPanel extends JPanel {
 
     private Wall wall;
 
-    public DebugPanel(Wall wall){
+
+    public DebugPanel(Wall wall) {
 
         this.wall = wall;
 
-        initialize();
+    }
 
-        skipLevel = makeButton("Skip Level",e -> wall.nextLevel());
-        resetBalls = makeButton("Reset Balls",e -> wall.resetBallCount());
-
-        ballXSpeed = makeSlider(-4,4,e -> wall.setBallXSpeed(ballXSpeed.getValue()));
-        ballYSpeed = makeSlider(-4,4,e -> wall.setBallYSpeed(ballYSpeed.getValue()));
-
-        this.add(skipLevel);
-        this.add(resetBalls);
-
-        this.add(ballXSpeed);
-        this.add(ballYSpeed);
+    public void setSkipLevel(JButton skipLevel) {
+        this.skipLevel = skipLevel;
 
     }
 
-    private void initialize(){
-        this.setBackground(DEF_BKG);
-        this.setLayout(new GridLayout(2,2));
+    public JButton getSkipLevel() {
+        return skipLevel;
     }
 
-    private JButton makeButton(String title, ActionListener e){
-        JButton out = new JButton(title);
-        out.addActionListener(e);
-        return  out;
+    public void setResetBalls(JButton resetBalls) {
+        this.resetBalls = resetBalls;
+
     }
 
-    private JSlider makeSlider(int min, int max, ChangeListener e){
-        JSlider out = new JSlider(min,max);
-        out.setMajorTickSpacing(1);
-        out.setSnapToTicks(true);
-        out.setPaintTicks(true);
-        out.addChangeListener(e);
-        return out;
+    public JButton getResetBalls() {
+        return resetBalls;
+
     }
 
-    public void setValues(int x,int y){
-        ballXSpeed.setValue(x);
-        ballYSpeed.setValue(y);
+    public void setBallXSpeed(JSlider ballXSpeed){
+        this.ballXSpeed = ballXSpeed;
     }
 
+    public JSlider getBallXSpeed(){
+        return ballXSpeed;
+    }
+    public void setBallYSpeed(JSlider ballYSpeed){
+        this.ballYSpeed = ballYSpeed;
+    }
+
+    public JSlider getBallYSpeed(){
+        return ballYSpeed;
+    }
+
+    public Wall getWall(){
+        return wall;
+    }
+
+    public Color getBackGroundColour(){
+        return DEF_BKG;
+    }
 }
