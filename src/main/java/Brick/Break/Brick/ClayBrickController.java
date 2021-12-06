@@ -11,7 +11,8 @@ public class ClayBrickController extends BrickController{
 
     }
 
-    public Shape BRICK(){
+
+    public Shape getBRICK(){
         return clayModel.getBrick();
     }
 }

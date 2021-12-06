@@ -34,7 +34,7 @@ public class SteelBrick extends Brick {
     public static final int DEF_CRACK_DEPTH = 2;
     public static final int DEF_STEPS = 35;
     private static final double STEEL_PROBABILITY = 0.4;
-    
+
     private Crack crack;
     private Shape brickFace;
 
