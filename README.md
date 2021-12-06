@@ -48,6 +48,7 @@ i)Steel Class:
  brick doesn't show crack whenever the ball hit it.
 
 -Deleted "rnd" variable because it is not used.
+-Deleted "STEEL_PROBABILITY" variable because it is not used.
 
 
 5) Encapsulation or changed Access Modifier:

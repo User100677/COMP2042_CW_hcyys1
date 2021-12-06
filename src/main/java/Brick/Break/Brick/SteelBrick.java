@@ -34,7 +34,6 @@ public class SteelBrick extends Brick {
     private static final int STEEL_STRENGTH = 3;
     public static final int DEF_CRACK_DEPTH = 2;
     public static final int DEF_STEPS = 35;
-    private static final double STEEL_PROBABILITY = 0.4;
 
     private CrackController crackController;
     private Shape brickFace;
@@ -81,6 +80,20 @@ public class SteelBrick extends Brick {
         crackController.reset();
         brickFace = super.brickFace;
     }
+
+    public CrackController getCrackController(){
+        return crackController;
+    }
+
+    public Shape getSteelBrickFace(){
+        return brickFace;
+    }
+
+    public void setSteelBrickFace(Shape brickFace){
+        this.brickFace = brickFace;
+    }
+
+
 
 
 
