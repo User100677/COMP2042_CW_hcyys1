@@ -37,7 +37,7 @@ iii) Debug Console Class:
 *Reason of organising the class to it own packages is to group related class
  into one package to let other user to find the code easily.
 
-4)Deleted, Changed and New Method:
+4)Deleted, Changed and New Method or Variable:
 i)Steel Class:
 -I deleted "impact" method in "Steel" class.
 -I added "updateBrick" and "repair" method to update and reset the steel 
@@ -46,6 +46,8 @@ i)Steel Class:
  the ball hit it.
 *Reason of doing this change is because in original brick destroy game, the steel
  brick doesn't show crack whenever the ball hit it.
+
+-Deleted "rnd" variable because it is not used.
 
 
 5) Encapsulation or changed Access Modifier:

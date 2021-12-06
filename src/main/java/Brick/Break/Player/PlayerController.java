@@ -1,5 +1,4 @@
 package Brick.Break.Player;
-import Brick.Break.Ball.Ball;
 import Brick.Break.Attribute.Move;
 import Brick.Break.Ball.BallController;
 

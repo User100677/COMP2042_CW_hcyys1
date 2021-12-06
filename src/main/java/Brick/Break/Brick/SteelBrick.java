@@ -18,6 +18,7 @@
 package Brick.Break.Brick;
 
 import Brick.Break.Brick.Crack.Crack;
+import Brick.Break.Brick.Crack.CrackController;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
@@ -35,12 +36,12 @@ public class SteelBrick extends Brick {
     public static final int DEF_STEPS = 35;
     private static final double STEEL_PROBABILITY = 0.4;
 
-    private Crack crack;
+    private CrackController crackController;
     private Shape brickFace;
 
     public SteelBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
-        crack = new Crack(this, DEF_CRACK_DEPTH, DEF_STEPS);
+        crackController = new CrackController(new Crack(this, DEF_CRACK_DEPTH, DEF_STEPS));
         brickFace = super.brickFace;
     }
 
@@ -60,7 +61,7 @@ public class SteelBrick extends Brick {
             return false;
         super.impact();
         if(!super.isBroken()){
-            crack.makeCrack(point,dir);
+            crackController.makeCrack(point,dir);
             updateBrick();
             return false;
         }
@@ -69,7 +70,7 @@ public class SteelBrick extends Brick {
 
     private void updateBrick(){
         if(!super.isBroken()){
-            GeneralPath gp = crack.draw();
+            GeneralPath gp = crackController.renderCrack();
             gp.append(super.brickFace,false);
             brickFace = gp;
         }
@@ -77,7 +78,7 @@ public class SteelBrick extends Brick {
 
     public void repair(){
         super.repair();
-        crack.reset();
+        crackController.reset();
         brickFace = super.brickFace;
     }
 

@@ -23,6 +23,7 @@ import Brick.Break.Ball.RubberBall.RubberBall;
 import Brick.Break.Ball.RubberBall.RubberBallController;
 import Brick.Break.Brick.*;
 import Brick.Break.Brick.Crack.Crack;
+import Brick.Break.Brick.Crack.CrackController;
 import Brick.Break.Player.Player;
 import Brick.Break.Player.PlayerController;
 
@@ -46,6 +47,8 @@ public class Wall implements Move {
     PlayerController playerController;
     private Brick[][] levels;
     private int level;
+
+
 
     private Point startPoint;
     private int brickCount;
@@ -216,18 +219,18 @@ public class Wall implements Move {
                 //Vertical Impact
                 case Brick.UP_IMPACT:
                     ballController.ReverseY();
-                    return b.setImpact(ballController.getBallDown(), Crack.UP);
+                    return b.setImpact(ballController.getBallDown(), CrackController.getUP());
                 case Brick.DOWN_IMPACT:
                     ballController.ReverseY();
-                    return b.setImpact(ballController.getBallUp(), Crack.DOWN);
+                    return b.setImpact(ballController.getBallUp(), CrackController.getDOWN());
 
                 //Horizontal Impact
                 case Brick.LEFT_IMPACT:
                     ballController.ReverseX();
-                    return b.setImpact(ballController.getBallRight(), Crack.RIGHT);
+                    return b.setImpact(ballController.getBallRight(), CrackController.getLEFT());
                 case Brick.RIGHT_IMPACT:
                     ballController.ReverseX();
-                    return b.setImpact(ballController.getBallLeft(), Crack.LEFT);
+                    return b.setImpact(ballController.getBallLeft(), CrackController.getCrackRIGHT());
             }
         }
         return false;
