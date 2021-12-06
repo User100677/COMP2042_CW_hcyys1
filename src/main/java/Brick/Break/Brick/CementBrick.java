@@ -1,7 +1,5 @@
 package Brick.Break.Brick;
 
-import Brick.Break.Brick.Brick;
-
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
@@ -23,7 +21,7 @@ public class CementBrick extends Brick {
 
     public CementBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CEMENT_STRENGTH);
-        crack = new Crack(DEF_CRACK_DEPTH,DEF_STEPS);
+        crack = new Crack(this, DEF_CRACK_DEPTH,DEF_STEPS);
         brickFace = super.brickFace;
     }
 

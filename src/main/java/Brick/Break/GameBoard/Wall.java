@@ -21,10 +21,7 @@ import Brick.Break.Attribute.Move;
 import Brick.Break.Ball.BallController;
 import Brick.Break.Ball.RubberBall.RubberBall;
 import Brick.Break.Ball.RubberBall.RubberBallController;
-import Brick.Break.Brick.Brick;
-import Brick.Break.Brick.CementBrick;
-import Brick.Break.Brick.ClayBrick;
-import Brick.Break.Brick.SteelBrick;
+import Brick.Break.Brick.*;
 import Brick.Break.Player.Player;
 import Brick.Break.Player.PlayerController;
 
@@ -218,18 +215,18 @@ public class Wall implements Move {
                 //Vertical Impact
                 case Brick.UP_IMPACT:
                     ballController.ReverseY();
-                    return b.setImpact(ballController.getBallDown(), Brick.Crack.UP);
+                    return b.setImpact(ballController.getBallDown(), Crack.UP);
                 case Brick.DOWN_IMPACT:
                     ballController.ReverseY();
-                    return b.setImpact(ballController.getBallUp(),Brick.Crack.DOWN);
+                    return b.setImpact(ballController.getBallUp(), Crack.DOWN);
 
                 //Horizontal Impact
                 case Brick.LEFT_IMPACT:
                     ballController.ReverseX();
-                    return b.setImpact(ballController.getBallRight(),Brick.Crack.RIGHT);
+                    return b.setImpact(ballController.getBallRight(), Crack.RIGHT);
                 case Brick.RIGHT_IMPACT:
                     ballController.ReverseX();
-                    return b.setImpact(ballController.getBallLeft(),Brick.Crack.LEFT);
+                    return b.setImpact(ballController.getBallLeft(), Crack.LEFT);
             }
         }
         return false;
