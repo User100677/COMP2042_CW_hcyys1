@@ -65,4 +65,16 @@ public class CementBrick extends Brick {
         crackController.reset();
         brickFace = super.brickFace;
     }
+
+    public CrackController getCrackController(){
+        return crackController;
+    }
+
+    public Shape getCementBrickFace(){
+        return brickFace;
+    }
+
+    public Shape setCementBrickFace(Shape brickFace){
+        return brickFace;
+    }
 }

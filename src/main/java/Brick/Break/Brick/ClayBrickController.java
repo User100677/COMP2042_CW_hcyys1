@@ -17,6 +17,7 @@ public class ClayBrickController extends BrickController{
         return new Rectangle(pos,size);
     }
 
+    @Override
     public Shape getBrick(){
         return super.getBRICKFace();
     }
