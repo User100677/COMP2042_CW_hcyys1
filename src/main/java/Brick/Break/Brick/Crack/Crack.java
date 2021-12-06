@@ -1,4 +1,6 @@
-package Brick.Break.Brick;
+package Brick.Break.Brick.Crack;
+
+import Brick.Break.Brick.Brick;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
@@ -45,8 +47,8 @@ public class Crack {
         crack.reset();
     }
 
-    protected void makeCrack(Point2D point, int direction) {
-        Rectangle bounds = brick.brickFace.getBounds();
+    public void makeCrack(Point2D point, int direction) {
+        Rectangle bounds = brick.getBrickFace().getBounds();
 
         Point impact = new Point((int) point.getX(), (int) point.getY());
         Point start = new Point();

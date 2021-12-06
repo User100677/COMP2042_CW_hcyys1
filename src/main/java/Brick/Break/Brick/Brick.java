@@ -1,18 +1,13 @@
 package Brick.Break.Brick;
 
 import Brick.Break.Attribute.Colour;
-import Brick.Break.Ball.Ball;
 import Brick.Break.Ball.BallController;
-import Brick.Break.Brick.Directions.Direction;
-import Brick.Break.Brick.Directions.DirectionDown;
-import Brick.Break.Brick.Directions.DirectionFactory;
-import Brick.Break.Brick.Directions.DirectionUp;
+
 
 import java.awt.*;
 import java.awt.Point;
-import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
-import java.util.Random;
+
 
 /**
  * Created by filippo on 04/09/16.
@@ -34,7 +29,7 @@ abstract public class Brick extends Colour {
 
 
     private String name;
-    Shape brickFace;
+    protected Shape brickFace;
 
     private int fullStrength;
     private int strength;
@@ -92,6 +87,10 @@ abstract public class Brick extends Colour {
     public void impact(){
         strength--;
         broken = (strength == 0);
+    }
+
+    public Shape getBrickFace(){
+        return brickFace;
     }
 
 

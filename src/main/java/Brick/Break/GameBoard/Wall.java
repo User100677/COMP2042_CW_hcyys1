@@ -22,6 +22,7 @@ import Brick.Break.Ball.BallController;
 import Brick.Break.Ball.RubberBall.RubberBall;
 import Brick.Break.Ball.RubberBall.RubberBallController;
 import Brick.Break.Brick.*;
+import Brick.Break.Brick.Crack.Crack;
 import Brick.Break.Player.Player;
 import Brick.Break.Player.PlayerController;
 

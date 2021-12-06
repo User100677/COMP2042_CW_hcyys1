@@ -17,6 +17,8 @@
  */
 package Brick.Break.Brick;
 
+import Brick.Break.Brick.Crack.Crack;
+
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
