@@ -1,4 +1,4 @@
-package Brick.Break.Brick;
+package Brick.Break.Brick.ClayBrick;
 
 import Brick.Break.Brick.Brick;
 

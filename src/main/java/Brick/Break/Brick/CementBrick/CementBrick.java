@@ -1,5 +1,6 @@
-package Brick.Break.Brick;
+package Brick.Break.Brick.CementBrick;
 
+import Brick.Break.Brick.Brick;
 import Brick.Break.Brick.Crack.Crack;
 import Brick.Break.Brick.Crack.CrackController;
 

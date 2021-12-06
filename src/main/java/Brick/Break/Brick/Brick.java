@@ -13,7 +13,7 @@ import java.awt.geom.Point2D;
  * Created by filippo on 04/09/16.
  *
  */
-abstract public class Brick extends Colour {
+public class Brick extends Colour {
 
     public static final int MIN_CRACK = 1;
     public static final int DEF_CRACK_DEPTH = 1;
@@ -101,6 +101,10 @@ abstract public class Brick extends Colour {
     }
     public Dimension getSize(){
         return size;
+    }
+
+    public String getName(){
+        return name;
     }
 
 

@@ -1,10 +1,12 @@
-package Brick.Break.Brick;
+package Brick.Break.Brick.CementBrick;
+
+import Brick.Break.Brick.BrickController;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 
-public class CementBrickController extends BrickController{
+public class CementBrickController extends BrickController {
     private CementBrick cementModel;
 
     public CementBrickController(CementBrick cementModel){

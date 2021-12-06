@@ -22,7 +22,13 @@ import Brick.Break.Ball.BallController;
 import Brick.Break.Ball.RubberBall.RubberBall;
 import Brick.Break.Ball.RubberBall.RubberBallController;
 import Brick.Break.Brick.*;
+import Brick.Break.Brick.CementBrick.CementBrick;
+import Brick.Break.Brick.CementBrick.CementBrickController;
+import Brick.Break.Brick.ClayBrick.ClayBrick;
+import Brick.Break.Brick.ClayBrick.ClayBrickController;
 import Brick.Break.Brick.Crack.CrackController;
+import Brick.Break.Brick.SteelBrick.SteelBrick;
+import Brick.Break.Brick.SteelBrick.SteelBrickController;
 import Brick.Break.Player.Player;
 import Brick.Break.Player.PlayerController;
 
@@ -42,6 +48,7 @@ public class Wall implements Move {
     private Rectangle area;
 
     BrickController[] bricks;
+    BrickController brickController;
     public BallController ballController;
     PlayerController playerController;
     private BrickController[][] levels;

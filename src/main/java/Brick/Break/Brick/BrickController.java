@@ -5,7 +5,7 @@ import Brick.Break.Ball.BallController;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
-public abstract class BrickController {
+public abstract class BrickController{
     private Brick brickModel;
 
     public BrickController(Brick brickModel){
@@ -21,9 +21,9 @@ public abstract class BrickController {
         impact();
         return  brickModel.getBroken();
     }
-
-    protected abstract Shape makeBrickFace(Point pos,Dimension size);
+    protected abstract Shape makeBrickFace(Point pos, Dimension size);
     public abstract Shape getBrick();
+
 
     public final int findImpact(BallController b){
         if(brickModel.getBroken())
@@ -62,6 +62,19 @@ public abstract class BrickController {
     }
     public Color getBORDERColour(){
         return brickModel.getBorderColour();
+    }
+
+    public void drawBrick( Graphics2D g2d){
+        Color tmp = g2d.getColor();
+
+        g2d.setColor(getINNERColour());
+        g2d.fill(getBrick());
+
+        g2d.setColor(getBORDERColour());
+        g2d.draw(getBrick());
+
+
+        g2d.setColor(tmp);
     }
 
 }

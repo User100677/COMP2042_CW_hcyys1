@@ -1,8 +1,10 @@
-package Brick.Break.Brick;
+package Brick.Break.Brick.ClayBrick;
+
+import Brick.Break.Brick.BrickController;
 
 import java.awt.*;
 
-public class ClayBrickController extends BrickController{
+public class ClayBrickController extends BrickController {
     private ClayBrick clayModel;
 
     public ClayBrickController(ClayBrick clayModel){

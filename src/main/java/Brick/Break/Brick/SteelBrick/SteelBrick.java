@@ -15,8 +15,9 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package Brick.Break.Brick;
+package Brick.Break.Brick.SteelBrick;
 
+import Brick.Break.Brick.Brick;
 import Brick.Break.Brick.Crack.Crack;
 import Brick.Break.Brick.Crack.CrackController;
 
