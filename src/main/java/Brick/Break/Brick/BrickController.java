@@ -5,12 +5,12 @@ import Brick.Break.Ball.BallController;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
-abstract class BrickController {
+public abstract class BrickController {
     private Brick brickModel;
 
-    BrickController(Brick brickModel){
+    public BrickController(Brick brickModel){
         this.brickModel = brickModel;
-        brickModel.setBrickFace(brickModel.makeBrickFace(brickModel.getPos(), brickModel.getSize()));
+        brickModel.setBrickFace(makeBrickFace(brickModel.getPos(), brickModel.getSize()));
     }
 
 
@@ -56,4 +56,12 @@ abstract class BrickController {
     public Shape getBRICKFace(){
         return brickModel.getBrickFace();
     }
+
+    public Color getINNERColour(){
+        return brickModel.getInnerColour();
+    }
+    public Color getBORDERColour(){
+        return brickModel.getBorderColour();
+    }
+
 }

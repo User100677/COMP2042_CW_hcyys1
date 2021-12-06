@@ -41,45 +41,10 @@ public class SteelBrick extends Brick {
     public SteelBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
         crackController = new CrackController(new Crack(this, DEF_CRACK_DEPTH, DEF_STEPS));
-        brickFace = super.brickFace;
     }
 
 
-    @Override
-    protected Shape makeBrickFace(Point pos, Dimension size) {
-        return new Rectangle(pos,size);
-    }
 
-    @Override
-    public Shape getBrick() {
-        return brickFace;
-    }
-
-    public  boolean setImpact(Point2D point , int dir){
-        if(super.isBroken())
-            return false;
-        super.impact();
-        if(!super.isBroken()){
-            crackController.makeCrack(point,dir);
-            updateBrick();
-            return false;
-        }
-        return true;
-    }
-
-    private void updateBrick(){
-        if(!super.isBroken()){
-            GeneralPath gp = crackController.renderCrack();
-            gp.append(super.brickFace,false);
-            brickFace = gp;
-        }
-    }
-
-    public void repair(){
-        super.repair();
-        crackController.reset();
-        brickFace = super.brickFace;
-    }
 
     public CrackController getCrackController(){
         return crackController;

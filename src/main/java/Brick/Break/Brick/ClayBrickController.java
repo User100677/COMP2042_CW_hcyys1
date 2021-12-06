@@ -5,7 +5,7 @@ import java.awt.*;
 public class ClayBrickController extends BrickController{
     private ClayBrick clayModel;
 
-    ClayBrickController(ClayBrick clayModel){
+    public ClayBrickController(ClayBrick clayModel){
         super(clayModel);
         this.clayModel = clayModel;
 
@@ -19,6 +19,6 @@ public class ClayBrickController extends BrickController{
 
     @Override
     public Shape getBrick(){
-        return super.getBRICKFace();
+        return getBRICKFace();
     }
 }

@@ -19,6 +19,7 @@ package Brick.Break.GameBoard;
 
 
 import Brick.Break.Brick.Brick;
+import Brick.Break.Brick.BrickController;
 import Brick.Break.Debug.DebugConsole;
 import Brick.Break.Debug.DebugController;
 import Brick.Break.Debug.DebugPanel;
@@ -135,7 +136,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         wall.ballController.renderBall(g2d);
 
-        for(Brick b : wall.bricks)
+        for(BrickController b : wall.bricks)
             if(!b.isBroken())
                 drawBrick(b,g2d);
 
@@ -154,14 +155,14 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(tmp);
     }
 
-    private void drawBrick(Brick brick,Graphics2D g2d){
+    private void drawBrick(BrickController brickController,Graphics2D g2d){
         Color tmp = g2d.getColor();
 
-        g2d.setColor(brick.getInnerColour());
-        g2d.fill(brick.getBrick());
+        g2d.setColor(brickController.getINNERColour());
+        g2d.fill(brickController.getBrick());
 
-        g2d.setColor(brick.getBorderColour());
-        g2d.draw(brick.getBrick());
+        g2d.setColor(brickController.getBORDERColour());
+        g2d.draw(brickController.getBrick());
 
 
         g2d.setColor(tmp);

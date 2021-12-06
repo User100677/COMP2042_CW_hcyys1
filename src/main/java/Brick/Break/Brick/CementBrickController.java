@@ -7,7 +7,7 @@ import java.awt.geom.Point2D;
 public class CementBrickController extends BrickController{
     private CementBrick cementModel;
 
-    CementBrickController(CementBrick cementModel){
+    public CementBrickController(CementBrick cementModel){
         super(cementModel);
         this.cementModel = cementModel;
         cementModel.setCementBrickFace(super.getBRICKFace());

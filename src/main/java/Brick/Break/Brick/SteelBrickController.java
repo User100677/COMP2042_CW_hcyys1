@@ -7,7 +7,7 @@ import java.awt.geom.Point2D;
 public class SteelBrickController extends BrickController{
     private SteelBrick steelModel;
 
-    SteelBrickController(SteelBrick steelModel){
+    public SteelBrickController(SteelBrick steelModel){
         super(steelModel);
         this.steelModel = steelModel;
         steelModel.setSteelBrickFace(super.getBRICKFace());

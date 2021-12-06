@@ -22,7 +22,6 @@ import Brick.Break.Ball.BallController;
 import Brick.Break.Ball.RubberBall.RubberBall;
 import Brick.Break.Ball.RubberBall.RubberBallController;
 import Brick.Break.Brick.*;
-import Brick.Break.Brick.Crack.Crack;
 import Brick.Break.Brick.Crack.CrackController;
 import Brick.Break.Player.Player;
 import Brick.Break.Player.PlayerController;
@@ -42,10 +41,10 @@ public class Wall implements Move {
     private Random rnd;
     private Rectangle area;
 
-    Brick[] bricks;
+    BrickController[] bricks;
     public BallController ballController;
     PlayerController playerController;
-    private Brick[][] levels;
+    private BrickController[][] levels;
     private int level;
 
 
@@ -86,7 +85,7 @@ public class Wall implements Move {
 
     }
 
-    private Brick[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
+    private BrickController[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
           multiple of lineCount smaller then brickCount
@@ -100,7 +99,7 @@ public class Wall implements Move {
 
         brickCnt += lineCnt / 2;
 
-        Brick[] tmp  = new Brick[brickCnt];
+        BrickController[] tmp  = new BrickController[brickCnt];
 
         Dimension brickSize = new Dimension((int) brickLen,(int) brickHgt);
         Point p = new Point();
@@ -120,13 +119,13 @@ public class Wall implements Move {
         for(double y = brickHgt;i < tmp.length;i++, y += 2*brickHgt){
             double x = (brickOnLine * brickLen) - (brickLen / 2);
             p.setLocation(x,y);
-            tmp[i] = new ClayBrick(p,brickSize);
+            tmp[i] = new ClayBrickController(new ClayBrick(p,brickSize));
         }
         return tmp;
 
     }
 
-    private Brick[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int typeA, int typeB){
+    private BrickController[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int typeA, int typeB){
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
           multiple of lineCount smaller then brickCount
@@ -143,7 +142,7 @@ public class Wall implements Move {
 
         brickCnt += lineCnt / 2;
 
-        Brick[] tmp  = new Brick[brickCnt];
+        BrickController[] tmp  = new BrickController[brickCnt];
 
         Dimension brickSize = new Dimension((int) brickLen,(int) brickHgt);
         Point p = new Point();
@@ -175,8 +174,8 @@ public class Wall implements Move {
         ballController = new RubberBallController(new RubberBall(ballPos));
     }
 
-    private Brick[][] makeLevels(Rectangle drawArea,int brickCount,int lineCount,double brickDimensionRatio){
-        Brick[][] tmp = new Brick[LEVELS_COUNT][];
+    private BrickController[][] makeLevels(Rectangle drawArea,int brickCount,int lineCount,double brickDimensionRatio){
+        BrickController[][] tmp = new BrickController[LEVELS_COUNT][];
         tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY);
         tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,CEMENT);
         tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,STEEL);
@@ -214,7 +213,7 @@ public class Wall implements Move {
     }
 
     private boolean impactWall(){
-        for(Brick b : bricks){
+        for(BrickController b : bricks){
             switch(b.findImpact(ballController)) {
                 //Vertical Impact
                 case Brick.UP_IMPACT:
@@ -269,7 +268,7 @@ public class Wall implements Move {
     }
 
     public void wallReset(){
-        for(Brick b : bricks)
+        for(BrickController b : bricks)
             b.repair();
         brickCount = bricks.length;
         ballCount = 3;
@@ -304,17 +303,17 @@ public class Wall implements Move {
         ballCount = 3;
     }
 
-    private Brick makeBrick(Point point, Dimension size, int type){
-        Brick out;
+    private BrickController makeBrick(Point point, Dimension size, int type){
+        BrickController out;
         switch(type){
             case CLAY:
-                out = new ClayBrick(point,size);
+                out = new ClayBrickController(new ClayBrick(point,size));
                 break;
             case STEEL:
-                out = new SteelBrick(point,size);
+                out = new SteelBrickController(new SteelBrick(point,size));
                 break;
             case CEMENT:
-                out = new CementBrick(point, size);
+                out = new CementBrickController(new CementBrick(point, size));
                 break;
             default:
                 throw  new IllegalArgumentException(String.format("Unknown Type:%d\n",type));
