@@ -96,11 +96,11 @@ abstract public class Brick extends Colour {
         broken = (strength == 0);
     }
 
-    public Shape getBRICKFace(){
+    public Shape getBrickFace(){
         return brickFace;
     }
 
-    public void setBRICKFace(Shape brickFace){
+    public void setBrickFace(Shape brickFace){
         this.brickFace = brickFace;
 
     }

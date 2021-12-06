@@ -10,7 +10,7 @@ abstract class BrickController {
 
     BrickController(Brick brickModel){
         this.brickModel = brickModel;
-        brickModel.setBRICKFace(brickModel.makeBrickFace(brickModel.getPos(), brickModel.getSize()));
+        brickModel.setBrickFace(brickModel.makeBrickFace(brickModel.getPos(), brickModel.getSize()));
     }
 
 
@@ -29,13 +29,13 @@ abstract class BrickController {
         if(brickModel.getBroken())
             return 0;
         int out  = 0;
-        if(brickModel.getBRICKFace().contains(b.getBallRight()))
+        if(brickModel.getBrickFace().contains(b.getBallRight()))
             out = brickModel.getLeftImpact();
-        else if(brickModel.getBRICKFace().contains(b.getBallLeft()))
+        else if(brickModel.getBrickFace().contains(b.getBallLeft()))
             out = brickModel.getRightImpact();
-        else if(brickModel.getBRICKFace().contains(b.getBallUp()))
+        else if(brickModel.getBrickFace().contains(b.getBallUp()))
             out = brickModel.getDownImpact();
-        else if(brickModel.getBRICKFace().contains(b.getBallDown()))
+        else if(brickModel.getBrickFace().contains(b.getBallDown()))
             out = brickModel.getUpImpact();
         return out;
     }
@@ -52,5 +52,8 @@ abstract class BrickController {
     public void impact(){
         brickModel.setStrength(brickModel.getStrength() - 1);
         brickModel.setBroken(brickModel.getStrength() == 0);
+    }
+    public Shape getBRICKFace(){
+        return brickModel.getBrickFace();
     }
 }

@@ -2,16 +2,22 @@ package Brick.Break.Brick;
 
 import java.awt.*;
 
-public class ClayBrickController {
+public class ClayBrickController extends BrickController{
     private ClayBrick clayModel;
 
     ClayBrickController(ClayBrick clayModel){
-       
+        super(clayModel);
         this.clayModel = clayModel;
 
     }
 
-    public Shape BRICK(){
-        return clayModel.getBrick();
+
+    @Override
+    protected Shape makeBrickFace(Point pos, Dimension size) {
+        return new Rectangle(pos,size);
+    }
+
+    public Shape getBrick(){
+        return super.getBRICKFace();
     }
 }

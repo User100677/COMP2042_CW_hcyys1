@@ -146,11 +146,6 @@ public class CrackController{
 
     }
 
-    public static int geHORIZONTAL(){
-        return Crack.getHorizontal();
-    }
-    public int getVERTICAL(){
-        return Crack.getVertical();
-    }
+
 
 }
