@@ -20,6 +20,8 @@ package Brick.Break.GameBoard;
 
 import Brick.Break.Brick.Brick;
 import Brick.Break.Debug.DebugConsole;
+import Brick.Break.Debug.DebugController;
+import Brick.Break.Debug.DebugPanel;
 
 
 import javax.swing.*;
@@ -59,7 +61,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private Rectangle restartButtonRect;
     private int strLen;
 
-    private DebugConsole debugConsole;
+    private DebugConsole debugController;
 
 
     public GameBoard(JFrame owner){
@@ -68,8 +70,6 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         strLen = 0;
         showPauseMenu = false;
 
-
-
         menuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
 
 
@@ -77,7 +77,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         message = "";
         wall = new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430));
 
-        debugConsole = new DebugConsole(owner,wall,this);
+        debugController = new DebugConsole(owner, wall, this);
         //initialize the first level
         wall.nextLevel();
 
@@ -270,7 +270,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 break;
             case KeyEvent.VK_F1:
                 if(keyEvent.isAltDown() && keyEvent.isShiftDown())
-                    debugConsole.setVisible(true);
+                    debugController.setVisible(true);
             default:
                 wall.playerController.stop();
         }

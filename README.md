@@ -30,6 +30,11 @@ ii)
 
 4)Deleted Method:
 
+5) Encapsulation:
+-I change the "up", "down", "left" and "right" variable in Ball class
+ from public to private. After that I created a set and get method for 
+ each of these private variables.
+
 
 
 

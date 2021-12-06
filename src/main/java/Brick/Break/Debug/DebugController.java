@@ -1,16 +1,22 @@
 package Brick.Break.Debug;
 
+import Brick.Break.Ball.BallController;
+
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class DebugController extends JPanel {
 
     private DebugPanel debugModel;
 
-    DebugController(DebugPanel debugModel){
+
+    public DebugController(DebugPanel debugModel){
         this.debugModel = debugModel;
+
 
         initialize();
         debugModel.setSkipLevel(makeButton("Skip Level", e -> debugModel.getWall().nextLevel()));
@@ -50,4 +56,7 @@ public class DebugController extends JPanel {
         debugModel.getBallXSpeed().setValue(x);
         debugModel.getBallYSpeed().setValue(y);
     }
+
+
+
 }

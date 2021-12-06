@@ -45,7 +45,7 @@ public class DebugConsole extends JDialog implements WindowListener{
         this.gameBoard = gameBoard;
         initialize();
 
-        debugController =new DebugController( new DebugPanel(wall));
+        debugController =new DebugController(new DebugPanel(wall));
         this.add(debugController,BorderLayout.CENTER);
 
 
@@ -90,9 +90,7 @@ public class DebugConsole extends JDialog implements WindowListener{
     }
 
     @Override
-    public void windowDeiconified(WindowEvent windowEvent) {
-
-    }
+    public void windowDeiconified(WindowEvent windowEvent) {}
 
     @Override
     public void windowActivated(WindowEvent windowEvent) {
@@ -104,5 +102,18 @@ public class DebugConsole extends JDialog implements WindowListener{
     @Override
     public void windowDeactivated(WindowEvent windowEvent) {
 
+    }
+
+    public JFrame getOwner(){
+        return owner;
+    }
+
+    public Wall getWall(){
+        return wall;
+    }
+
+
+    public GameBoard getGameBoard(){
+        return gameBoard;
     }
 }
