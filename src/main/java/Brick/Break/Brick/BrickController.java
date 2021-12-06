@@ -10,6 +10,8 @@ abstract class BrickController {
 
     BrickController(Brick brickModel){
         this.brickModel = brickModel;
+        brickModel.setBRICKFace(makeBrickFace(brickModel.getPos(), brickModel.getSize()));
+
     }
 
     protected abstract Shape makeBrickFace(Point pos, Dimension size);
@@ -26,16 +28,18 @@ abstract class BrickController {
         if(brickModel.getBroken())
             return 0;
         int out  = 0;
-        if(brickModel.getBrickFace().contains(b.getBallRight()))
+        if(brickModel.getBRICKFace().contains(b.getBallRight()))
             out = brickModel.getLeftImpact();
-        else if(brickModel.getBrickFace().contains(b.getBallLeft()))
+        else if(brickModel.getBRICKFace().contains(b.getBallLeft()))
             out = brickModel.getRightImpact();
-        else if(brickModel.getBrickFace().contains(b.getBallUp()))
+        else if(brickModel.getBRICKFace().contains(b.getBallUp()))
             out = brickModel.getDownImpact();
-        else if(brickModel.getBrickFace().contains(b.getBallDown()))
+        else if(brickModel.getBrick().contains(b.getBallDown()))
             out = brickModel.getUpImpact();
         return out;
     }
+
+    public abstract Shape getBrick();
 
     public final boolean isBroken(){
         return brickModel.getBroken();
