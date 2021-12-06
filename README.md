@@ -29,23 +29,16 @@ ii)
  For example, Player class is put in a package call player.
 
 4)Deleted Method:
-From HomeMenu: 
- @Override
-    public void mouseEntered(MouseEvent mouseEvent) {
 
-    }
-
-    @Override
-    public void mouseExited(MouseEvent mouseEvent) {
-
-    }
-
-
-    @Override
-    public void mouseDragged(MouseEvent mouseEvent) {
-
-    }
 
 
 
 ----------------------Additions------------------------------------
+
+
+1)Added instruction menu.
+2)Added new level.
+3) I change the reset ball speed to fix value.
+4) added crack onto steel brick.
+5) change the start ball speed to fix value.
+
