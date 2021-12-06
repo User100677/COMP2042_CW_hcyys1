@@ -12,7 +12,6 @@ abstract class BrickController {
         this.brickModel = brickModel;
     }
 
-    protected abstract Shape makeBrickFace(Point pos, Dimension size);
 
     public  boolean setImpact(Point2D point , int dir){
         if(brickModel.getBroken()) {

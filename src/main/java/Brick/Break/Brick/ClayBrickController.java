@@ -1,7 +1,17 @@
 package Brick.Break.Brick;
 
-public class ClayBrickController extends BrickController{
-    private ClayBrick
+import java.awt.*;
 
-    ClayController()
+public class ClayBrickController extends BrickController{
+    private ClayBrick clayModel;
+
+    ClayBrickController(ClayBrick clayModel){
+        super(clayModel);
+        this.clayModel = clayModel;
+
+    }
+
+    public Shape BRICK(){
+        return clayModel.getBrick();
+    }
 }

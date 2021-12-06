@@ -34,15 +34,13 @@ public class SteelBrick extends Brick {
     public static final int DEF_CRACK_DEPTH = 2;
     public static final int DEF_STEPS = 35;
     private static final double STEEL_PROBABILITY = 0.4;
-
-    private Random rnd;
+    
     private Crack crack;
     private Shape brickFace;
 
     public SteelBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
         crack = new Crack(this, DEF_CRACK_DEPTH, DEF_STEPS);
-        rnd = new Random();
         brickFace = super.brickFace;
     }
 

@@ -95,6 +95,11 @@ abstract public class Brick extends Colour {
     public Shape getBrickFace(){
         return brickFace;
     }
+
+    public void setBrickFace(Shape brickFace){
+        this.brickFace = brickFace;
+
+    }
     public int getUpImpact(){
         return UP_IMPACT;
     }
