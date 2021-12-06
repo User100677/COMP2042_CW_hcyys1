@@ -30,6 +30,8 @@ abstract public class Brick extends Colour {
 
     private String name;
     protected Shape brickFace;
+    private Point pos;
+    private Dimension size;
 
     private int fullStrength;
     private int strength;
@@ -40,6 +42,8 @@ abstract public class Brick extends Colour {
     public Brick(String name, Point pos,Dimension size,Color border,Color inner,int strength){
         broken = false;
         this.name = name;
+        this.pos = pos;
+        this.size = size;
         brickFace = makeBrickFace(pos,size);
         setInnerColour(inner);
         setBorderColour(border);
@@ -92,11 +96,11 @@ abstract public class Brick extends Colour {
         broken = (strength == 0);
     }
 
-    public Shape getBrickFace(){
+    public Shape getBRICKFace(){
         return brickFace;
     }
 
-    public void setBrickFace(Shape brickFace){
+    public void setBRICKFace(Shape brickFace){
         this.brickFace = brickFace;
 
     }
@@ -134,6 +138,13 @@ abstract public class Brick extends Colour {
 
     public int getFullStrength(){
         return fullStrength;
+    }
+
+    public Point getPos(){
+        return pos;
+    }
+    public Dimension getSize(){
+        return size;
     }
 
 
