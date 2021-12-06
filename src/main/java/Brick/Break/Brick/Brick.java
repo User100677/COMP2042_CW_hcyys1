@@ -52,8 +52,11 @@ abstract public class Brick extends Colour {
     public  boolean setImpact(Point2D point , int dir){
         if(broken)
             return false;
+
+
         impact();
         return  broken;
+
     }
 
     public abstract Shape getBrick();
@@ -92,7 +95,41 @@ abstract public class Brick extends Colour {
     public Shape getBrickFace(){
         return brickFace;
     }
+    public int getUpImpact(){
+        return UP_IMPACT;
+    }
 
+    public int getDownImpact(){
+        return DOWN_IMPACT;
+    }
+
+    public int getLeftImpact(){
+        return LEFT_IMPACT;
+    }
+
+    public int getRightImpact(){
+        return RIGHT_IMPACT;
+    }
+
+    public void setBroken(boolean broken){
+        this.broken = broken;
+    }
+
+    public boolean getBroken(){
+        return broken;
+    }
+    public void setStrength(int strength){
+        this.strength = strength;
+    }
+
+
+    public int getStrength(){
+        return strength;
+    }
+
+    public int getFullStrength(){
+        return fullStrength;
+    }
 
 
 }
