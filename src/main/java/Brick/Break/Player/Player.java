@@ -19,14 +19,16 @@ package Brick.Break.Player;
 
 
 
+import Brick.Break.Attribute.Colour;
+
 import java.awt.*;
 
 
-public class Player {
+public class Player extends Colour {
 
 
-    public static final Color BORDER_COLOR = Color.GREEN.darker().darker();
-    public static final Color INNER_COLOR = Color.GREEN;
+    private static final Color BORDER_COLOR = Color.GREEN.darker().darker();
+    private static final Color INNER_COLOR = Color.GREEN;
 
     private static final int DEF_MOVE_AMOUNT = 5;
 
@@ -35,14 +37,19 @@ public class Player {
     private int moveAmount;
     private int min;
     private int max;
+    private Rectangle container;
+    private int width;
+    private int height;
 
 
     public Player(Point ballPoint,int width,int height,Rectangle container) {
         this.ballPoint = ballPoint;
-        moveAmount = 0;
-        playerFace = makeRectangle(width, height);
-        min = container.x + (width / 2);
-        max = min + container.width - width;
+        this.container = container;
+        this.width = width;
+        this.height = height;
+        setInnerColour(INNER_COLOR);
+        setBorderColour(BORDER_COLOR);
+
 
     }
 
@@ -54,6 +61,10 @@ public class Player {
 
     public Rectangle getPlayerFace(){
         return  playerFace;
+    }
+
+    public void setPlayerFace(Rectangle playerFace){
+        this.playerFace = playerFace;
     }
 
 
@@ -76,6 +87,9 @@ public class Player {
     public int getMinimum(){
         return min;
     }
+    public void setMinimum(int min){
+        this.min = min;
+    }
 
 
 
@@ -83,9 +97,20 @@ public class Player {
         return max;
     }
 
-    private Rectangle makeRectangle(int width,int height){
-        Point p = new Point((int)(ballPoint.getX() - (width / 2)),(int)ballPoint.getY());
-        return  new Rectangle(p,new Dimension(width,height));
+    public void setMaximum(int max){
+        this.max = max;
+    }
+
+    public int getWidth(){
+        return width;
+    }
+
+    public int getHeight(){
+        return height;
+    }
+
+    public Rectangle getContainer(){
+        return container;
     }
 
 

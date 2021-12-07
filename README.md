@@ -59,6 +59,11 @@ i)Ball class:
 *Reason of changing these variable to private variable so that other class
  can't change their value accidentally or intentionally.
 
+ii) Player Class:
+- I changed "BORDER_COLOR" and "INNER_COLOR" variable to private variable.
+ *Reason of changing these variable to private variable so that other class
+ can't change their value accidentally or intentionally.
+
 ii) Brick Class:
 -I changed the "brickFace" variable to protected and added get method for
  it.

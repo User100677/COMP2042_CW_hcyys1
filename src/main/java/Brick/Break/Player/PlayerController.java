@@ -11,7 +11,19 @@ public class PlayerController implements Move{
 
     public PlayerController(Player playerModel){
         this.playerModel = playerModel;
-        playerView = new PlayerView(playerModel);
+        playerView = new PlayerView(this);
+        playerModel.setMoveAmount(0);
+        playerModel.setPlayerFace(makeRectangle(playerModel.getWidth(), playerModel.getHeight()));
+        playerModel.setMinimum(playerModel.getContainer().x + (playerModel.getWidth()/2) );
+        playerModel.setMaximum(playerModel.getMinimum() + playerModel.getContainer().width - playerModel.getWidth());
+
+
+    }
+
+
+    private Rectangle makeRectangle(int width,int height){
+        Point p = new Point((int)(playerModel.getBallPoint().getX() - (width / 2)),(int)playerModel.getBallPoint().getY());
+        return  new Rectangle(p,new Dimension(width,height));
     }
 
     public boolean impact(BallController b){
@@ -48,5 +60,18 @@ public class PlayerController implements Move{
         playerView.drawPlayer(g2d);
 
     }
+
+    public Color getPlayerInnerColour(){
+        return playerModel.getInnerColour();
+    }
+
+    public Color getPlayerBorderColour(){
+        return playerModel.getBorderColour();
+    }
+
+    public Rectangle getPlayerControllerFace(){
+        return playerModel.getPlayerFace();
+    }
+
 
 }
