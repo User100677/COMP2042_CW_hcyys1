@@ -10,7 +10,7 @@ import java.awt.geom.RectangularShape;
  * Created by filippo on 04/09/16.
  *
  */
-public abstract class Ball extends Speed{
+public class Ball extends Speed{
 
     private Shape ballFace;
 
@@ -23,6 +23,10 @@ public abstract class Ball extends Speed{
 
     private int speedX  = 0;
     private int speedY = 0;
+    private int radiusA;
+    private int radiusB;
+    private Color inner;
+    private Color border;
 
 
 
@@ -32,28 +36,13 @@ public abstract class Ball extends Speed{
      */
     public Ball(Point2D center,int radiusA,int radiusB,Color inner,Color border){
         this.center = center;
-
-        up = new Point2D.Double();
-        down = new Point2D.Double();
-        left = new Point2D.Double();
-        right = new Point2D.Double();
-
-        up.setLocation(center.getX(),center.getY()-(radiusB / 2));
-        down.setLocation(center.getX(),center.getY()+(radiusB / 2));
-
-        left.setLocation(center.getX()-(radiusA /2),center.getY());
-        right.setLocation(center.getX()+(radiusA /2),center.getY());
-
-        ballFace = makeBall(center,radiusA,radiusB);
-
-        setBorderColour(border);
-        setInnerColour(inner);
-        setXSpeed(speedX);
-        setXSpeed(speedY);
+        this.radiusA =radiusA;
+        this.radiusB = radiusB;
+        this.inner = inner;
+        this.border = border;
     }
 
 
-    public abstract Shape makeBall(Point2D center, int radiusA, int radiusB);
 
 
 
@@ -74,14 +63,56 @@ public abstract class Ball extends Speed{
         return up;
     }
 
+    public void setUp(Point2D up){
+        this.up = up;
+    }
+
     public Point2D getDown(){
         return down;
+    }
+
+    public void setDown(Point2D down){
+        this.down = down;
     }
     public Point2D getLeft(){
         return left;
     }
+
+    public void setLeft(Point2D left){
+        this.left = left;
+    }
     public Point2D getRight(){
         return right;
+    }
+    public void setRight(Point2D right){
+        this.right = right;
+    }
+    public Point2D getCenter(){
+        return center;
+    }
+    public int getRadiusA(){
+        return radiusA;
+    }
+
+    public int getRadiusB(){
+        return radiusB;
+    }
+
+    public Color getInColour(){
+        return inner;
+
+    }
+
+    public Color getOutColour(){
+        return border;
+    }
+
+    public int getXS(){
+        return speedX;
+    }
+
+    public int getYS(){
+        return speedY;
     }
 
 

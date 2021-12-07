@@ -16,6 +16,8 @@ public class PlayerController implements Move{
         playerModel.setPlayerFace(makeRectangle(playerModel.getWidth(), playerModel.getHeight()));
         playerModel.setMinimum(playerModel.getContainer().x + (playerModel.getWidth()/2) );
         playerModel.setMaximum(playerModel.getMinimum() + playerModel.getContainer().width - playerModel.getWidth());
+        playerModel.setInnerColour(playerModel.getINNER_COLOR());
+        playerModel.setBorderColour(playerModel.getBORDER_COLOR());
 
 
     }

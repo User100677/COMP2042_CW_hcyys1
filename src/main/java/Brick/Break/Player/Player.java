@@ -47,9 +47,6 @@ public class Player extends Colour {
         this.container = container;
         this.width = width;
         this.height = height;
-        setInnerColour(INNER_COLOR);
-        setBorderColour(BORDER_COLOR);
-
 
     }
 
@@ -111,6 +108,12 @@ public class Player extends Colour {
 
     public Rectangle getContainer(){
         return container;
+    }
+    public Color getINNER_COLOR(){
+        return INNER_COLOR;
+    }
+    public Color getBORDER_COLOR(){
+        return BORDER_COLOR;
     }
 
 

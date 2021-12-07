@@ -6,15 +6,34 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 import java.awt.geom.RectangularShape;
 
-public class BallController implements Move {
+public abstract class BallController implements Move {
     private Ball ballModel;
     private BallView ballView;
 
     public BallController(Ball ballModel){
         this.ballModel = ballModel;
-        ballView = new BallView(ballModel);
+        ballView = new BallView(this);
+        ballModel.setUp(new Point2D.Double());
+        ballModel.setDown(new Point2D.Double());
+        ballModel.setLeft(new Point2D.Double());
+        ballModel.setRight(new Point2D.Double());
+
+        ballModel.getUp().setLocation(ballModel.getCenter().getX(), ballModel.getCenter().getY()-(ballModel.getRadiusB()/2) );
+        ballModel.getDown().setLocation(ballModel.getCenter().getX(), ballModel.getCenter().getY()+(ballModel.getRadiusB()/2) );
+        ballModel.getLeft().setLocation(ballModel.getCenter().getX() - (ballModel.getRadiusA())/2, ballModel.getCenter().getY() );
+        ballModel.getRight().setLocation(ballModel.getCenter().getX() + (ballModel.getRadiusA())/2, ballModel.getCenter().getY());
+
+        ballModel.setBallFace(makeBall(ballModel.getCenter(), ballModel.getRadiusA(), ballModel.getRadiusB()));
+        ballModel.setInnerColour(ballModel.getInColour());
+        ballModel.setBorderColour(ballModel.getOutColour());
+
+        ballModel.setXSpeed(ballModel.getXS());
+        ballModel.setYSpeed(ballModel.getYS());
+
 
     }
+
+    public abstract Shape makeBall(Point2D center, int radiusA, int radiusB);
 
 
     @Override
@@ -114,7 +133,7 @@ public class BallController implements Move {
 
     public void renderBall(Graphics2D g2d){
 
-        ballView.drawBall(ballModel, g2d);
+        ballView.drawBall(g2d);
 
     }
 }

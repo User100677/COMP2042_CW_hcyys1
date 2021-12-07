@@ -3,21 +3,21 @@ package Brick.Break.Ball;
 import java.awt.*;
 
 public class BallView {
-    private Ball ballModel;
+    private BallController ballController;
 
-    BallView(Ball ballModel){
-        this.ballModel = ballModel;
+    BallView(BallController ballController){
+        this.ballController = ballController;
     }
 
-    public void drawBall(Ball ballModel, Graphics2D g2d){
+    public void drawBall( Graphics2D g2d){
         Color tmp = g2d.getColor();
 
-        Shape s = ballModel.getBallFace();;
+        Shape s = ballController.getFaceBall();
 
-        g2d.setColor(ballModel.getInnerColour());
+        g2d.setColor(ballController.getBallInnerColour());
         g2d.fill(s);
 
-        g2d.setColor(ballModel.getBorderColour());
+        g2d.setColor(ballController.getBallBorderColour());
         g2d.draw(s);
 
         g2d.setColor(tmp);
