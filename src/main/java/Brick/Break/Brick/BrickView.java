@@ -1,4 +1,4 @@
-package Brick.Break;
+package Brick.Break.Brick;
 
 import Brick.Break.Brick.BrickController;
 

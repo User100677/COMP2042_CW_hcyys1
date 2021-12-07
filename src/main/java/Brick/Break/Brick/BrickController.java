@@ -1,7 +1,6 @@
 package Brick.Break.Brick;
 
 import Brick.Break.Ball.BallController;
-import Brick.Break.BrickView;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
