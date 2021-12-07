@@ -1,15 +1,18 @@
 package Brick.Break.Brick;
 
 import Brick.Break.Ball.BallController;
+import Brick.Break.BrickView;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
 
 public abstract class BrickController{
     private Brick brickModel;
+    private BrickView brickView;
 
     public BrickController(Brick brickModel){
         this.brickModel = brickModel;
+        brickView = new BrickView(this);
         brickModel.setBrickFace(makeBrickFace(brickModel.getPos(), brickModel.getSize()));
     }
 
@@ -64,17 +67,9 @@ public abstract class BrickController{
         return brickModel.getBorderColour();
     }
 
-    public void drawBrick( Graphics2D g2d){
-        Color tmp = g2d.getColor();
+    public void renderBrick( Graphics2D g2d){
+        brickView.drawBrick(g2d);
 
-        g2d.setColor(getINNERColour());
-        g2d.fill(getBrick());
-
-        g2d.setColor(getBORDERColour());
-        g2d.draw(getBrick());
-
-
-        g2d.setColor(tmp);
     }
 
 }

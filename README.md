@@ -66,7 +66,13 @@ ii) Brick Class:
  can't change it values accidentally or intentionally.
 
 6)Extracted Class:
+i)Brick Class:
 -I extracted "Crack" class in "Brick" class to it own class.
+*Reason of extracting the inner class is to make the "Brick" easy
+to read and cleaner.
+
+
+ 
 
 7)Refactor to other Design Pattern:
 i)Crack Class:
