@@ -51,12 +51,13 @@ public class Wall implements Move {
 
     private Rectangle area;
 
-    public BrickController[] bricks;
-    public BallController ballController;
-    public PlayerController playerController;
+    private BrickController[] bricks;
+    private BallController ballController;
+    private PlayerController playerController;
     private BrickController[][] levels;
     private int level;
-    public BallAmount ballAmount;
+    private BallAmount ballAmount;
+    private BrickAmount brickAmount;
 
 
 
@@ -64,7 +65,7 @@ public class Wall implements Move {
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
-    public BrickAmount brickAmount;
+
 
 
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos){
@@ -319,6 +320,25 @@ public class Wall implements Move {
                 throw  new IllegalArgumentException(String.format("Unknown Type:%d\n",type));
         }
         return  out;
+    }
+
+    public BrickController[] getBricks(){
+        return bricks;
+    }
+    public BallController getBallController(){
+        return ballController;
+    }
+
+    public PlayerController getPlayerController(){
+        return playerController;
+    }
+
+    public BrickAmount getBrickAmount(){
+        return brickAmount;
+    }
+
+    public BallAmount getBallAmount(){
+        return ballAmount;
     }
 
 }

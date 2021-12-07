@@ -83,6 +83,9 @@ iv)CementBrick Class, SteelBrick Class and GoldBrick Class:
 *Reason of changing these variable to private variable so that other class
  can't change their value accidentally or intentionally.
 
+v)Wall Class:
+-changed all the variable to private variable and created get method for it.
+
 6)Extracted Class:
 i)Brick Class:
 -I extracted "Crack" class in "Brick" class to its own class.

@@ -6,8 +6,7 @@ import javax.swing.*;
 import javax.swing.event.ChangeListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+
 
 public class DebugController extends JPanel {
 
@@ -20,7 +19,7 @@ public class DebugController extends JPanel {
 
         initialize();
         debugModel.setSkipLevel(makeButton("Skip Level", e -> debugModel.getWall().nextLevel()));
-        debugModel.setResetBalls(makeButton("Reset Balls", e ->  debugModel.getWall().ballAmount.resetBallCount()));
+        debugModel.setResetBalls(makeButton("Reset Balls", e ->  debugModel.getWall().getBallAmount().resetBallCount()));
 
         debugModel.setBallXSpeed(makeSlider(-4, 4, e -> debugModel.getWall().setBallXSpeed(debugModel.getBallXSpeed().getValue())));
         debugModel.setBallYSpeed(makeSlider(-4, 4, e -> debugModel.getWall().setBallYSpeed(debugModel.getBallYSpeed().getValue())));

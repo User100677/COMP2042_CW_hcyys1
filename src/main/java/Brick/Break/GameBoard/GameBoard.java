@@ -83,16 +83,16 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         gameTimer = new Timer(10,e ->{
             wall.move();
             wall.findImpacts();
-            message = String.format("Bricks: %d Balls %d",wall.brickAmount.getBrickCount(),wall.ballAmount.getBallCount());
-            if(wall.ballAmount.isBallLost()){
-                if(wall.ballAmount.ballEnd()){
+            message = String.format("Bricks: %d Balls %d",wall.getBrickAmount().getBrickCount(),wall.getBallAmount().getBallCount());
+            if(wall.getBallAmount().isBallLost()){
+                if(wall.getBallAmount().ballEnd()){
                     wall.wallReset();
                     message = "Game over";
                 }
                 wall.ballReset();
                 gameTimer.stop();
             }
-            else if(wall.brickAmount.isDone()){
+            else if(wall.getBrickAmount().isDone()){
                 if(wall.hasLevel()){
                     message = "Go to Next Level";
                     gameTimer.stop();
@@ -132,13 +132,13 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         g2d.setColor(Color.BLUE);
         g2d.drawString( message,250,225);
 
-        wall.ballController.renderBall(g2d);
+        wall.getBallController().renderBall(g2d);
 
-        for(BrickController b : wall.bricks)
+        for(BrickController b : wall.getBricks())
             if(!b.isBroken())
                 b.renderBrick(g2d);
 
-        wall.playerController.renderPlayer(g2d);
+        wall.getPlayerController().renderPlayer(g2d);
 
         if(showPauseMenu)
             drawMenu(g2d);
@@ -238,10 +238,10 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     public void keyPressed(KeyEvent keyEvent) {
         switch(keyEvent.getKeyCode()){
             case KeyEvent.VK_A:
-                wall.playerController.moveLeft();
+                wall.getPlayerController().moveLeft();
                 break;
             case KeyEvent.VK_D:
-                wall.playerController.moveRight();
+                wall.getPlayerController().moveRight();
                 break;
             case KeyEvent.VK_ESCAPE:
                 showPauseMenu = !showPauseMenu;
@@ -259,13 +259,13 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
                 if(keyEvent.isAltDown() && keyEvent.isShiftDown())
                     debugController.setVisible(true);
             default:
-                wall.playerController.stop();
+                wall.getPlayerController().stop();
         }
     }
 
     @Override
     public void keyReleased(KeyEvent keyEvent) {
-        wall.playerController.stop();
+        wall.getPlayerController().stop();
     }
 
     @Override
