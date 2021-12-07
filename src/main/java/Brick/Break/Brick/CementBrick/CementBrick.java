@@ -20,8 +20,8 @@ public class CementBrick extends Brick {
     private CrackController crackController;
     private Shape brickFace;
 
-    public static final int DEF_CRACK_DEPTH = 1;
-    public static final int DEF_STEPS = 35;
+    private static final int DEF_CRACK_DEPTH = 1;
+    private static final int DEF_STEPS = 35;
 
     public CementBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CEMENT_STRENGTH);

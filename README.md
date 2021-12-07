@@ -50,6 +50,9 @@ i)Steel Class:
 -Deleted "rnd" variable because it is not used.
 -Deleted "STEEL_PROBABILITY" variable because it is not used.
 
+ii)Wall Class:
+-I deleted "rnd"variable in the wall class because it is not used.
+
 
 5) Encapsulation or changed Access Modifier:
 i)Ball class:
@@ -59,20 +62,26 @@ i)Ball class:
 *Reason of changing these variable to private variable so that other class
  can't change their value accidentally or intentionally.
 
+
 ii) Player Class:
 - I changed "BORDER_COLOR" and "INNER_COLOR" variable to private variable.
  *Reason of changing these variable to private variable so that other class
  can't change their value accidentally or intentionally.
 
-ii) Brick Class:
+iii) Brick Class:
 -I changed the "brickFace" variable to protected and added get method for
  it.
 *Reason of changing it to protected is beacause other class from other packages 
  can't change it values accidentally or intentionally.
 
+iv)CementBrick Class, SteelBrick Class and GoldBrick Class:
+-I changed "DEF_CRACK_DEPTH" variable and "DEF_STEPS" variable from public to private.
+*Reason of changing these variable to private variable so that other class
+ can't change their value accidentally or intentionally.
+
 6)Extracted Class:
 i)Brick Class:
--I extracted "Crack" class in "Brick" class to it own class.
+-I extracted "Crack" class in "Brick" class to its own class.
 *Reason of extracting the inner class is to make the "Brick" easy
 to read and cleaner.
 
@@ -94,11 +103,14 @@ i)Crack Class:
 
 
 1)Added instruction menu.
-2)Added new level.
+2)Added two new level.
+-one is full steel.
+-another one is gold brick and steel brick and gold brick is the new brick I
+ created.
 3) I change the reset ball speed to fix value.
--change beacuse the speed is randomize
+-change because the speed is randomized
 4) added crack onto steel brick.
 -doesn't show crack
 5) change the start ball speed to fix value.
- -change beacuse the speed is randomize
+ -change because the speed is randomized
 

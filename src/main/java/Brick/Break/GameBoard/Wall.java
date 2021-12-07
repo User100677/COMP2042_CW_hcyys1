@@ -27,6 +27,8 @@ import Brick.Break.Brick.CementBrick.CementBrickController;
 import Brick.Break.Brick.ClayBrick.ClayBrick;
 import Brick.Break.Brick.ClayBrick.ClayBrickController;
 import Brick.Break.Brick.Crack.CrackController;
+import Brick.Break.Brick.GoldBrick.GoldBrick;
+import Brick.Break.Brick.GoldBrick.GoldBrickController;
 import Brick.Break.Brick.SteelBrick.SteelBrick;
 import Brick.Break.Brick.SteelBrick.SteelBrickController;
 import Brick.Break.Player.Player;
@@ -39,16 +41,16 @@ import java.util.Random;
 
 public class Wall implements Move {
 
-    private static final int LEVELS_COUNT = 5;
+    private static final int LEVELS_COUNT = 6;
     private static final int CLAY = 1;
     private static final int STEEL = 2;
     private static final int CEMENT = 3;
+    private static final int GOLD = 4;
 
     private Random rnd;
     private Rectangle area;
 
     BrickController[] bricks;
-    BrickController brickController;
     public BallController ballController;
     PlayerController playerController;
     private BrickController[][] levels;
@@ -187,7 +189,8 @@ public class Wall implements Move {
         tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,CEMENT);
         tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,CLAY,STEEL);
         tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,CEMENT);
-        tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,STEEL );
+        tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,STEEL,STEEL);
+        tmp[5] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,GOLD,STEEL);
         return tmp;
     }
 
@@ -321,6 +324,9 @@ public class Wall implements Move {
                 break;
             case CEMENT:
                 out = new CementBrickController(new CementBrick(point, size));
+                break;
+            case GOLD:
+                out = new GoldBrickController(new GoldBrick(point, size));
                 break;
             default:
                 throw  new IllegalArgumentException(String.format("Unknown Type:%d\n",type));
