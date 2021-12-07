@@ -4,6 +4,7 @@ import Brick.Break.Ball.BallController;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
+import java.awt.image.AbstractMultiResolutionImage;
 
 public abstract class BrickController{
     private Brick brickModel;
@@ -32,13 +33,13 @@ public abstract class BrickController{
             return 0;
         int out  = 0;
         if(brickModel.getBrickFace().contains(b.getBallRight()))
-            out = brickModel.getLeftImpact();
+            out = Brick.getLeftImpact();
         else if(brickModel.getBrickFace().contains(b.getBallLeft()))
-            out = brickModel.getRightImpact();
+            out = Brick.getRightImpact();
         else if(brickModel.getBrickFace().contains(b.getBallUp()))
-            out = brickModel.getDownImpact();
+            out = Brick.getDownImpact();
         else if(brickModel.getBrickFace().contains(b.getBallDown()))
-            out = brickModel.getUpImpact();
+            out = Brick.getUpImpact();
         return out;
     }
 
@@ -69,6 +70,21 @@ public abstract class BrickController{
     public void renderBrick( Graphics2D g2d){
         brickView.drawBrick(g2d);
 
+    }
+
+    public static int getImpactUp(){
+        return Brick.getUpImpact();
+    }
+    public static int getImpactDown(){
+        return Brick.getDownImpact();
+    }
+
+    public static int getImpactRight(){
+        return Brick.getRightImpact();
+    }
+
+    public static int getImpactLeft(){
+        return Brick.getLeftImpact();
     }
 
 }

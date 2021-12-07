@@ -75,6 +75,7 @@ ii) Player Class:
 iii) Brick Class:
 -I changed the "brickFace" variable to protected and added get method for
  it.
+-I changed "UP_IMPACT", "DOWN_IMPACT", "RIGHT_IMPACT" and "LEFT_IMPACT"  variable to private.
 *Reason of changing it to protected is beacause other class from other packages 
  can't change it values accidentally or intentionally.
 

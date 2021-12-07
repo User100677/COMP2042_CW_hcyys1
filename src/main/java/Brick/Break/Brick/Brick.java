@@ -18,10 +18,10 @@ public class Brick extends Colour {
 
 
 
-    public static final int UP_IMPACT = 100;
-    public static final int DOWN_IMPACT = 200;
-    public static final int LEFT_IMPACT = 300;
-    public static final int RIGHT_IMPACT = 400;
+    private static final int UP_IMPACT = 100;
+    private static final int DOWN_IMPACT = 200;
+    private static final int LEFT_IMPACT = 300;
+    private static final int RIGHT_IMPACT = 400;
 
 
 
@@ -58,19 +58,19 @@ public class Brick extends Colour {
         this.brickFace = brickFace;
 
     }
-    public int getUpImpact(){
+    public static int getUpImpact(){
         return UP_IMPACT;
     }
 
-    public int getDownImpact(){
+    public static int getDownImpact(){
         return DOWN_IMPACT;
     }
 
-    public int getLeftImpact(){
+    public static int getLeftImpact(){
         return LEFT_IMPACT;
     }
 
-    public int getRightImpact(){
+    public static int getRightImpact(){
         return RIGHT_IMPACT;
     }
 

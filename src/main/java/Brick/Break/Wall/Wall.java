@@ -231,22 +231,22 @@ public class Wall implements Move {
 
     private boolean impactWall(){
         for(BrickController b : bricks){
-            switch(b.findImpact(ballController)) {
-                //Vertical Impact
-                case Brick.UP_IMPACT:
-                    ballController.ReverseY();
-                    return b.setImpact(ballController.getBallDown(), CrackController.getUP());
-                case Brick.DOWN_IMPACT:
-                    ballController.ReverseY();
-                    return b.setImpact(ballController.getBallUp(), CrackController.getDOWN());
-
-                //Horizontal Impact
-                case Brick.LEFT_IMPACT:
-                    ballController.ReverseX();
-                    return b.setImpact(ballController.getBallRight(), CrackController.getLEFT());
-                case Brick.RIGHT_IMPACT:
-                    ballController.ReverseX();
-                    return b.setImpact(ballController.getBallLeft(), CrackController.getCrackRIGHT());
+            //Vertical Impact
+            if (b.findImpact(ballController) == BrickController.getImpactUp()){
+                ballController.ReverseY();
+                return b.setImpact(ballController.getBallDown(), CrackController.getUP());
+            }
+            else if(b.findImpact(ballController) == BrickController.getImpactDown()){
+                ballController.ReverseY();
+                return b.setImpact(ballController.getBallUp(), CrackController.getDOWN());
+            }//Horizontal Impact
+            else if(b.findImpact(ballController) == BrickController.getImpactLeft()){
+                ballController.ReverseX();
+                return b.setImpact(ballController.getBallRight(), CrackController.getLEFT());
+            }
+            else if(b.findImpact(ballController)== BrickController.getImpactRight()){
+                ballController.ReverseX();
+                return b.setImpact(ballController.getBallLeft(), CrackController.getCrackRIGHT());
             }
         }
         return false;
