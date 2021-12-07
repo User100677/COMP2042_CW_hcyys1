@@ -108,13 +108,5 @@ public class DebugConsole extends JDialog implements WindowListener{
         return owner;
     }
 
-    public Wall getWall(){
-        return wall;
-    }
-
-
-    public GameBoard getGameBoard(){
-        return gameBoard;
-    }
 }
 

@@ -20,6 +20,7 @@ package Brick.Break.GameBoard;
 
 import Brick.Break.Brick.BrickController;
 import Brick.Break.Debug.DebugConsole;
+
 import Brick.Break.Wall.Wall;
 
 
