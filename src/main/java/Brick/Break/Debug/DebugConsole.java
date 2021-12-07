@@ -17,10 +17,9 @@
  */
 package Brick.Break.Debug;
 
-import Brick.Break.Ball.Ball;
 import Brick.Break.Ball.BallController;
-import Brick.Break.GameBoard.GameBoard;
-import Brick.Break.GameBoard.Wall;
+import Brick.Break.Wall.GameBoard;
+import Brick.Break.Wall.Wall;
 
 import javax.swing.*;
 import java.awt.*;

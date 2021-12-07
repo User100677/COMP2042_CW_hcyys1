@@ -15,14 +15,11 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package Brick.Break.GameBoard;
+package Brick.Break.Wall;
 
 
-import Brick.Break.Brick.Brick;
 import Brick.Break.Brick.BrickController;
 import Brick.Break.Debug.DebugConsole;
-import Brick.Break.Debug.DebugController;
-import Brick.Break.Debug.DebugPanel;
 
 
 import javax.swing.*;

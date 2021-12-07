@@ -17,7 +17,7 @@
  */
 package Brick.Break.HomeMenu;
 
-import Brick.Break.GameBoard.GameFrame;
+import Brick.Break.Wall.GameFrame;
 
 import javax.swing.*;
 import java.awt.*;

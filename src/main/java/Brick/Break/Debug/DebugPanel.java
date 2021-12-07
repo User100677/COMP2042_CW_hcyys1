@@ -17,13 +17,10 @@
  */
 package Brick.Break.Debug;
 
-import Brick.Break.GameBoard.Wall;
+import Brick.Break.Wall.Wall;
 
 import javax.swing.*;
-import javax.swing.event.ChangeListener;
 import java.awt.*;
-import java.awt.event.ActionListener;
-
 
 
 public class DebugPanel extends JPanel {

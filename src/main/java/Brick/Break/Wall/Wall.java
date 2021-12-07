@@ -15,7 +15,7 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package Brick.Break.GameBoard;
+package Brick.Break.Wall;
 
 import Brick.Break.Attribute.Move;
 import Brick.Break.Ball.BallController;
@@ -31,6 +31,8 @@ import Brick.Break.Brick.GoldBrick.GoldBrick;
 import Brick.Break.Brick.GoldBrick.GoldBrickController;
 import Brick.Break.Brick.SteelBrick.SteelBrick;
 import Brick.Break.Brick.SteelBrick.SteelBrickController;
+import Brick.Break.GameBoard.BallAmount;
+import Brick.Break.GameBoard.BrickAmount;
 import Brick.Break.Player.Player;
 import Brick.Break.Player.PlayerController;
 

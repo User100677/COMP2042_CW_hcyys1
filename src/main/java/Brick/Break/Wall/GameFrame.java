@@ -15,9 +15,8 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package Brick.Break.GameBoard;
+package Brick.Break.Wall;
 
-import Brick.Break.GameBoard.GameBoard;
 import Brick.Break.HomeMenu.HomeMenu;
 import Brick.Break.HomeMenu.InstructionMenu;
 
