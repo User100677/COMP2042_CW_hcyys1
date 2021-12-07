@@ -18,13 +18,14 @@
 package Brick.Break.Debug;
 
 import Brick.Break.Ball.BallController;
-import Brick.Break.Wall.GameBoard;
+import Brick.Break.GameBoard.GameBoard;
 import Brick.Break.Wall.Wall;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+
 
 public class DebugConsole extends JDialog implements WindowListener{
 
@@ -116,3 +117,4 @@ public class DebugConsole extends JDialog implements WindowListener{
         return gameBoard;
     }
 }
+

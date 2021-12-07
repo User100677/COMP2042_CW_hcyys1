@@ -1,4 +1,4 @@
-package Brick.Break.GameBoard;
+package Brick.Break.Wall;
 
 public class BrickAmount {
 

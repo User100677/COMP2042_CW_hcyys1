@@ -15,11 +15,12 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package Brick.Break.Wall;
+package Brick.Break.GameBoard;
 
 
 import Brick.Break.Brick.BrickController;
 import Brick.Break.Debug.DebugConsole;
+import Brick.Break.Wall.Wall;
 
 
 import javax.swing.*;
@@ -135,7 +136,7 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
 
         for(BrickController b : wall.bricks)
             if(!b.isBroken())
-               b.renderBrick(g2d);
+                b.renderBrick(g2d);
 
         wall.playerController.renderPlayer(g2d);
 

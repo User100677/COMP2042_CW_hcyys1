@@ -17,7 +17,7 @@
  */
 package Brick.Break.Main;
 
-import Brick.Break.Wall.GameFrame;
+import Brick.Break.GameBoard.GameFrame;
 
 import java.awt.*;
 

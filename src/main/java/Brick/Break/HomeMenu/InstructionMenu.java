@@ -1,6 +1,6 @@
 package Brick.Break.HomeMenu;
 
-import Brick.Break.Wall.GameFrame;
+import Brick.Break.GameBoard.GameFrame;
 
 import javax.swing.*;
 import java.awt.*;

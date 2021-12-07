@@ -53,6 +53,10 @@ i)Steel Class:
 ii)Wall Class:
 -I deleted "rnd"variable in the wall class because it is not used.
 
+iii)Brick Class:
+-Deleted "MIN_CRACK","DEF_CRACK_DEPTH" and "DEF_CRACK_DEPTH" variable
+ in "Brick" class because they are not used.
+
 
 5) Encapsulation or changed Access Modifier:
 i)Ball class:
@@ -92,6 +96,12 @@ to read and cleaner.
 i)Crack Class:
 - In "makeCrack" method, I refactor the switch statement to Factory design
   pattern.
+
+8)Extract method to it own class:
+i)Wall Class:
+-I extracted "getBallCount", "isBallLost", "ballEnd" and "resetBallCount"
+ method from Wall class and into "BallAmount" class which I created.
+*Single responsibility class.
 
 
 

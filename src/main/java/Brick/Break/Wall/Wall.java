@@ -31,14 +31,13 @@ import Brick.Break.Brick.GoldBrick.GoldBrick;
 import Brick.Break.Brick.GoldBrick.GoldBrickController;
 import Brick.Break.Brick.SteelBrick.SteelBrick;
 import Brick.Break.Brick.SteelBrick.SteelBrickController;
-import Brick.Break.GameBoard.BallAmount;
-import Brick.Break.GameBoard.BrickAmount;
 import Brick.Break.Player.Player;
 import Brick.Break.Player.PlayerController;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.util.Random;
+
+
 
 
 public class Wall implements Move {
@@ -49,12 +48,12 @@ public class Wall implements Move {
     private static final int CEMENT = 3;
     private static final int GOLD = 4;
 
-    private Random rnd;
+
     private Rectangle area;
 
-    BrickController[] bricks;
+    public BrickController[] bricks;
     public BallController ballController;
-    PlayerController playerController;
+    public PlayerController playerController;
     private BrickController[][] levels;
     private int level;
     public BallAmount ballAmount;
@@ -65,7 +64,7 @@ public class Wall implements Move {
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
-    BrickAmount brickAmount;
+    public BrickAmount brickAmount;
 
 
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos){
@@ -81,7 +80,6 @@ public class Wall implements Move {
 
         brickAmount = new BrickAmount(brickCount);
 
-        rnd = new Random();
 
         makeBall(ballPos);
         int speedX,speedY;
@@ -214,19 +212,19 @@ public class Wall implements Move {
         }
         else if(impactWall()){
             /*for efficiency reverse is done into method impactWall
-            * because for every brick program checks for horizontal and vertical impacts
-            */
+             * because for every brick program checks for horizontal and vertical impacts
+             */
             brickAmount.setBrickCount(brickAmount.getBrickCount() - 1);
         }
         else if(impactBorder()) {
-           ballController.ReverseX();
+            ballController.ReverseX();
         }
         else if(ballController.getBallPosition().getY() < area.getY()){
             ballController.ReverseY();
         }
         else if(ballController.getBallPosition().getY() > area.getY() + area.getHeight()){
             ballAmount.setBallCount(ballAmount.getBallCount() - 1);
-           ballAmount.setBallLost(true);
+            ballAmount.setBallLost(true);
         }
     }
 
@@ -272,7 +270,7 @@ public class Wall implements Move {
         }while(speedY == 0);
 
         ballController.setSPEED(speedX,speedY);
-       ballAmount.setBallLost(false);
+        ballAmount.setBallLost(false);
     }
 
     public void wallReset(){
