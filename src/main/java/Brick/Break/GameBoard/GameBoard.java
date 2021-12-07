@@ -85,16 +85,16 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
         gameTimer = new Timer(10,e ->{
             wall.move();
             wall.findImpacts();
-            message = String.format("Bricks: %d Balls %d",wall.getBrickCount(),wall.getBallCount());
-            if(wall.isBallLost()){
-                if(wall.ballEnd()){
+            message = String.format("Bricks: %d Balls %d",wall.brickAmount.getBrickCount(),wall.ballAmount.getBallCount());
+            if(wall.ballAmount.isBallLost()){
+                if(wall.ballAmount.ballEnd()){
                     wall.wallReset();
                     message = "Game over";
                 }
                 wall.ballReset();
                 gameTimer.stop();
             }
-            else if(wall.isDone()){
+            else if(wall.brickAmount.isDone()){
                 if(wall.hasLevel()){
                     message = "Go to Next Level";
                     gameTimer.stop();

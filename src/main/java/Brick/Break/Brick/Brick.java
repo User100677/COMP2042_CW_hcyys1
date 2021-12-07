@@ -15,9 +15,7 @@ import java.awt.geom.Point2D;
  */
 public class Brick extends Colour {
 
-    public static final int MIN_CRACK = 1;
-    public static final int DEF_CRACK_DEPTH = 1;
-    public static final int DEF_STEPS = 35;
+
 
 
     public static final int UP_IMPACT = 100;

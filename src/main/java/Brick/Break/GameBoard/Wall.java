@@ -55,6 +55,7 @@ public class Wall implements Move {
     PlayerController playerController;
     private BrickController[][] levels;
     private int level;
+    public BallAmount ballAmount;
 
 
 
@@ -62,6 +63,7 @@ public class Wall implements Move {
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
+    BrickAmount brickAmount;
 
 
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos){
@@ -71,8 +73,11 @@ public class Wall implements Move {
         levels = makeLevels(drawArea,brickCount,lineCount,brickDimensionRatio);
         level = 0;
 
-        ballCount = 3;
-        ballLost = false;
+        ballAmount = new BallAmount(ballCount, ballLost);
+        ballAmount.setBallCount(3);
+        ballAmount.setBallLost(false);
+
+        brickAmount = new BrickAmount(brickCount);
 
         rnd = new Random();
 
@@ -90,6 +95,7 @@ public class Wall implements Move {
         playerController = new PlayerController(new Player((Point) ballPos.clone(),150,10, drawArea));
 
         area = drawArea;
+
 
 
     }
@@ -208,7 +214,7 @@ public class Wall implements Move {
             /*for efficiency reverse is done into method impactWall
             * because for every brick program checks for horizontal and vertical impacts
             */
-            brickCount--;
+            brickAmount.setBrickCount(brickAmount.getBrickCount() - 1);
         }
         else if(impactBorder()) {
            ballController.ReverseX();
@@ -217,8 +223,8 @@ public class Wall implements Move {
             ballController.ReverseY();
         }
         else if(ballController.getBallPosition().getY() > area.getY() + area.getHeight()){
-            ballCount--;
-            ballLost = true;
+            ballAmount.setBallCount(ballAmount.getBallCount() - 1);
+           ballAmount.setBallLost(true);
         }
     }
 
@@ -250,17 +256,7 @@ public class Wall implements Move {
         return ((p.getX() < area.getX()) ||(p.getX() > (area.getX() + area.getWidth())));
     }
 
-    public int getBrickCount(){
-        return brickCount;
-    }
 
-    public int getBallCount(){
-        return ballCount;
-    }
-
-    public boolean isBallLost(){
-        return ballLost;
-    }
 
     public void ballReset(){
         playerController.moveTo(startPoint);
@@ -274,27 +270,21 @@ public class Wall implements Move {
         }while(speedY == 0);
 
         ballController.setSPEED(speedX,speedY);
-        ballLost = false;
+       ballAmount.setBallLost(false);
     }
 
     public void wallReset(){
         for(BrickController b : bricks)
             b.repair();
         brickCount = bricks.length;
-        ballCount = 3;
+        ballAmount.setBallCount(3);
     }
 
-    public boolean ballEnd(){
-        return ballCount == 0;
-    }
 
-    public boolean isDone(){
-        return brickCount == 0;
-    }
 
     public void nextLevel(){
         bricks = levels[level++];
-        this.brickCount = bricks.length;
+        brickAmount.setBrickCount(bricks.length);
     }
 
     public boolean hasLevel(){
@@ -309,9 +299,6 @@ public class Wall implements Move {
         ballController.setSpeedY(s);
     }
 
-    public void resetBallCount(){
-        ballCount = 3;
-    }
 
     private BrickController makeBrick(Point point, Dimension size, int type){
         BrickController out;
