@@ -20,6 +20,9 @@ iii) Debug Console Class:
 - "DebugConsole" class will act as the view of "DebugPanel" class.
 - I added a "DebugController" class which will be the controller of 
   "DebugPanel" class.
+iv)Brick CLass:
+
+v)Wall Class:
 
 
 2)New Classes:

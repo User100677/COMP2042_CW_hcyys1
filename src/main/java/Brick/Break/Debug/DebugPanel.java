@@ -18,6 +18,7 @@
 package Brick.Break.Debug;
 
 import Brick.Break.Wall.Wall;
+import Brick.Break.Wall.WallController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,12 +35,11 @@ public class DebugPanel extends JPanel {
     private JSlider ballXSpeed;
     private JSlider ballYSpeed;
 
-    private Wall wall;
+    private WallController wallController;
 
 
-    public DebugPanel(Wall wall) {
-
-        this.wall = wall;
+    public DebugPanel(WallController wallController) {
+        this.wallController = wallController;
 
     }
 
@@ -77,8 +77,8 @@ public class DebugPanel extends JPanel {
         return ballYSpeed;
     }
 
-    public Wall getWall(){
-        return wall;
+    public WallController getWallController(){
+        return wallController;
     }
 
     public Color getBackGroundColour(){
