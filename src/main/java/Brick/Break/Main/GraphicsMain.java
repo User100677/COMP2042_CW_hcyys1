@@ -17,7 +17,8 @@
  */
 package Brick.Break.Main;
 
-import Brick.Break.GameBoard.GameFrame;
+import Brick.Break.GameFrame.GameFrame;
+import Brick.Break.GameFrame.GameFrameController;
 
 import java.awt.*;
 
@@ -25,7 +26,7 @@ import java.awt.*;
 public class GraphicsMain {
 
     public static void main(String[] args){
-        EventQueue.invokeLater(() -> new GameFrame().initialize());
+        EventQueue.invokeLater(() -> new GameFrameController(new GameFrame()).initialize());
     }
 
 }

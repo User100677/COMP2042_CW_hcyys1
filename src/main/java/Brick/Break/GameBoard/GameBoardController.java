@@ -13,7 +13,7 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
     private GameBoard gameBoardModel;
     private GameBoardView gameBoardView;
 
-    GameBoardController(GameBoard gameBoardModel){
+    public GameBoardController(GameBoard gameBoardModel){
         super();
         this.gameBoardModel = gameBoardModel;
         gameBoardView = new GameBoardView(this);

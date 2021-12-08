@@ -1,22 +1,7 @@
-/*
- *  Brick Destroy - A simple Arcade video game
- *   Copyright (C) 2017  Filippo Ranza
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-package Brick.Break.GameBoard;
+package Brick.Break.GameFrame;
 
+import Brick.Break.GameBoard.GameBoard;
+import Brick.Break.GameBoard.GameBoardController;
 import Brick.Break.MenuPage.HomeMenu.HomeMenu;
 import Brick.Break.MenuPage.HomeMenu.HomeMenuController;
 import Brick.Break.MenuPage.InstructionMenu.InstructionMenu;
@@ -27,40 +12,27 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 
+public class GameFrameController extends JFrame implements WindowFocusListener {
+    private GameFrame gameFrameModel;
 
-
-public class GameFrame extends JFrame implements WindowFocusListener {
-
-    private static final String DEF_TITLE = "Brick Destroy";
-
-    private GameBoardController gameBoardController;
-    private HomeMenuController homeMenuController;
-    private InstructionMenuController instructionMenuController;
-
-    private boolean gaming;
-
-    public GameFrame(){
+    public GameFrameController(GameFrame gameFrameModel){
         super();
+        this.gameFrameModel = gameFrameModel;
 
-        gaming = false;
-
+        gameFrameModel.setGaming(false);
         this.setLayout(new BorderLayout());
 
-        gameBoardController = new GameBoardController(new GameBoard(this));
-
-        homeMenuController = new HomeMenuController(new HomeMenu(this,new Dimension(450,300)));
-
-        instructionMenuController =new InstructionMenuController( new InstructionMenu(this, new Dimension(450,300)));
-
-        this.add(homeMenuController,BorderLayout.CENTER);
+        gameFrameModel.setGameBoardController(new GameBoardController(new GameBoard(this)));
+        gameFrameModel.setHomeMenuController(new HomeMenuController(new HomeMenu(this,new Dimension(450,300))));
+        gameFrameModel.setInstructionMenuController(new InstructionMenuController( new InstructionMenu(this, new Dimension(450,300))));
+        this.add(gameFrameModel.getHomeMenuController(),BorderLayout.CENTER);
 
         this.setUndecorated(true);
-
 
     }
 
     public void initialize(){
-        this.setTitle(DEF_TITLE);
+        this.setTitle(GameFrame.getDefTitle());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.pack();
         this.autoLocate();
@@ -69,8 +41,8 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     public void enableGameBoard(){
         this.dispose();
-        this.remove(homeMenuController);
-        this.add(gameBoardController,BorderLayout.CENTER);
+        this.remove(gameFrameModel.getHomeMenuController());
+        this.add(gameFrameModel.getGameBoardController(), BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
         /*to avoid problems with graphics focus controller is added here*/
@@ -80,8 +52,8 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     public void openInstructionMenu(){
         this.dispose();
-        this.remove(homeMenuController);
-        this.add(instructionMenuController,BorderLayout.CENTER);
+        this.remove(gameFrameModel.getHomeMenuController());
+        this.add(gameFrameModel.getInstructionMenuController(),BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
         this.addWindowFocusListener(this);
@@ -89,8 +61,8 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     }
     public void openMainMenu(){
         this.dispose();
-        this.remove(instructionMenuController);
-        this.add(homeMenuController,BorderLayout.CENTER);
+        this.remove(gameFrameModel.getInstructionMenuController());
+        this.add(gameFrameModel.getHomeMenuController(),BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
         this.addWindowFocusListener(this);
@@ -115,13 +87,13 @@ public class GameFrame extends JFrame implements WindowFocusListener {
             is useful only if the GameBoard as been displayed
             at least once
          */
-        gaming = true;
+        gameFrameModel.setGaming(true);
     }
 
     @Override
     public void windowLostFocus(WindowEvent windowEvent) {
-        if(gaming)
-            gameBoardController.onLostFocus();
+        if(gameFrameModel.getGaming())
+            gameFrameModel.getGameBoardController().onLostFocus();
 
     }
 }

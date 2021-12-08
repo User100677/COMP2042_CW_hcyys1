@@ -24,6 +24,8 @@ iv)Brick CLass:
 
 v)Wall Class:
 
+vi) GameBoard Class:
+
 
 2)New Classes:
 -Extracted move method from Player class and Brick class to one

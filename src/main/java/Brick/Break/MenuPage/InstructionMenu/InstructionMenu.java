@@ -1,14 +1,10 @@
 package Brick.Break.MenuPage.InstructionMenu;
 
-import Brick.Break.GameBoard.GameFrame;
+import Brick.Break.GameFrame.GameFrame;
+import Brick.Break.GameFrame.GameFrameController;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.font.FontRenderContext;
-import java.awt.geom.Rectangle2D;
+
 /**
  * This the class where I create the Instruction Menu page
  */
@@ -24,11 +20,11 @@ public class InstructionMenu {
     private boolean backClicked;
 
 
-    private GameFrame owner;
+    private GameFrameController owner;
     private Dimension area;
 
 
-    public InstructionMenu(GameFrame owner, Dimension area) {
+    public InstructionMenu(GameFrameController owner, Dimension area) {
 
 
         this.owner = owner;
@@ -49,7 +45,7 @@ public class InstructionMenu {
         this.backButton = backButton;
     }
 
-    public GameFrame getOwner(){
+    public GameFrameController getOwner(){
         return owner;
     }
     public Dimension getArea(){

@@ -10,7 +10,7 @@ public class GoldBrick extends Brick{
 
     private static final String NAME = "Gold Brick";
     private static final Color DEF_INNER = new Color(245, 237, 4, 255);
-    private static final Color DEF_BORDER = DEF_INNER.darker();
+    private static final Color DEF_BORDER = DEF_INNER.darker().darker().darker();
     private static final int CEMENT_STRENGTH = 4;
 
     private CrackController crackController;

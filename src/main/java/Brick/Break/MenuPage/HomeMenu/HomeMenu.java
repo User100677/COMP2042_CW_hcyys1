@@ -17,15 +17,10 @@
  */
 package Brick.Break.MenuPage.HomeMenu;
 
-import Brick.Break.GameBoard.GameFrame;
+import Brick.Break.GameFrame.GameFrame;
+import Brick.Break.GameFrame.GameFrameController;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.font.FontRenderContext;
-import java.awt.geom.Rectangle2D;
 
 
 public class HomeMenu {
@@ -38,7 +33,7 @@ public class HomeMenu {
 
 
 
-    private GameFrame owner;
+    private GameFrameController owner;
     private Dimension area;
 
     private boolean startClicked;
@@ -46,7 +41,7 @@ public class HomeMenu {
     private boolean menuClicked;
 
 
-    public HomeMenu(GameFrame owner,Dimension area){
+    public HomeMenu(GameFrameController owner, Dimension area){
 
         this.owner = owner;
         this.area = area;
@@ -80,7 +75,7 @@ public class HomeMenu {
         this.menuButton = menuButton;
     }
 
-    public GameFrame getOwner(){
+    public GameFrameController getOwner(){
         return owner;
     }
     public Dimension getArea(){
