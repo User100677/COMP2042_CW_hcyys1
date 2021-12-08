@@ -112,7 +112,10 @@ i)Wall Class:
 -I extracted "makeSingleTypeLevel" method, "makeChessboardLevel" method and
  "makeLevels" method from "Wall Class" to it own class call "LevelCreation"
  class.
-
+-I extracted "makeBrick" method from "Wall" class to it own class call 
+ "CreateBrickType".
+-I extracted "nextLevel" method and "hasLevel" method from "Wall" class to
+ it own class I created call "LevelProgression".
 
 
 

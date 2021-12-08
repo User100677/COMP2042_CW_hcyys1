@@ -1,4 +1,4 @@
-package Brick.Break.Wall;
+package Brick.Break.Wall.Levels;
 
 import Brick.Break.Brick.BrickController;
 import Brick.Break.Brick.CementBrick.CementBrick;
@@ -9,6 +9,7 @@ import Brick.Break.Brick.GoldBrick.GoldBrick;
 import Brick.Break.Brick.GoldBrick.GoldBrickController;
 import Brick.Break.Brick.SteelBrick.SteelBrick;
 import Brick.Break.Brick.SteelBrick.SteelBrickController;
+import Brick.Break.Wall.Wall;
 
 import java.awt.*;
 

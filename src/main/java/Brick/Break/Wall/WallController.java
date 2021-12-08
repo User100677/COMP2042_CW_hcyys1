@@ -5,17 +5,11 @@ import Brick.Break.Ball.BallController;
 import Brick.Break.Ball.RubberBall.RubberBall;
 import Brick.Break.Ball.RubberBall.RubberBallController;
 import Brick.Break.Brick.BrickController;
-import Brick.Break.Brick.CementBrick.CementBrick;
-import Brick.Break.Brick.CementBrick.CementBrickController;
-import Brick.Break.Brick.ClayBrick.ClayBrick;
-import Brick.Break.Brick.ClayBrick.ClayBrickController;
 import Brick.Break.Brick.Crack.CrackController;
-import Brick.Break.Brick.GoldBrick.GoldBrick;
-import Brick.Break.Brick.GoldBrick.GoldBrickController;
-import Brick.Break.Brick.SteelBrick.SteelBrick;
-import Brick.Break.Brick.SteelBrick.SteelBrickController;
 import Brick.Break.Player.Player;
 import Brick.Break.Player.PlayerController;
+import Brick.Break.Wall.Levels.LevelProgression;
+import Brick.Break.Wall.Levels.LevelsCreation;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
@@ -27,8 +21,7 @@ public class WallController implements Move {
     public WallController(Wall wallModel){
         this.wallModel = wallModel;
         wallModel.setLevelsCreation(new LevelsCreation());
-        wallModel.setLevels( wallModel.getLevelsCreation().makeLevels(wallModel.getDrawArea(),wallModel.getBrickCount(),wallModel.getLineCount(),wallModel.getBrickDimensionRatio()));
-        wallModel.setLevel(0);
+        wallModel.setLevelProgress(new LevelProgression(wallModel));
         makeBall(wallModel.getBallPos());
         level = wallModel.getLevel();
         wallModel.setStartPoint(new Point(wallModel.getBallPos()));
@@ -140,16 +133,6 @@ public class WallController implements Move {
     }
 
 
-
-    public void nextLevel(){
-        wallModel.setBricks(wallModel.getLevels()[level++]);
-        wallModel.getBrickAmount().setBrickCount(wallModel.getBricks().length);
-    }
-
-    public boolean hasLevel(){
-        return wallModel.getLevel() < wallModel.getLevels().length;
-    }
-
     public void setBallXSpeed(int s){
         wallModel.getBallController().setSpeedX(s);
     }
@@ -176,6 +159,9 @@ public class WallController implements Move {
     }
     public BrickController[] getWallBricks(){
         return wallModel.getBricks();
+    }
+    public LevelProgression getWallLeveProgress(){
+        return wallModel.getLevelProgress();
     }
 
 }

@@ -18,7 +18,7 @@ public class DebugController extends JPanel {
 
 
         initialize();
-        debugModel.setSkipLevel(makeButton("Skip Level", e -> debugModel.getWallController().nextLevel()));
+        debugModel.setSkipLevel(makeButton("Skip Level", e -> debugModel.getWallController().getWallLeveProgress().nextLevel()));
         debugModel.setResetBalls(makeButton("Reset Balls", e ->  debugModel.getWallController().getWallBallAmount().resetBallCount()));
 
         debugModel.setBallXSpeed(makeSlider(-4, 4, e -> debugModel.getWallController().setBallXSpeed(debugModel.getBallXSpeed().getValue())));

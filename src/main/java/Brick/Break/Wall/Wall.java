@@ -20,6 +20,9 @@ package Brick.Break.Wall;
 import Brick.Break.Ball.BallController;
 import Brick.Break.Brick.*;
 import Brick.Break.Player.PlayerController;
+import Brick.Break.Wall.Levels.LevelProgression;
+import Brick.Break.Wall.Levels.LevelsCreation;
+
 import java.awt.*;
 
 
@@ -47,6 +50,7 @@ public class Wall{
     private double brickDimensionRatio;
     private Point ballPos;
     private Rectangle drawArea;
+    private LevelProgression levelProgress;
 
 
 
@@ -66,9 +70,12 @@ public class Wall{
         this.ballPos = ballPos;
 
 
-
-
-
+    }
+    public LevelProgression getLevelProgress(){
+        return levelProgress;
+    }
+    public void setLevelProgress(LevelProgression levelProgress){
+        this.levelProgress = levelProgress;
     }
     public int getBallCount(){
         return ballCount;
