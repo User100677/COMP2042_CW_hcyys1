@@ -42,8 +42,6 @@ public class Wall{
     private BrickController[] bricks;
     private BallController ballController;
     private PlayerController playerController;
-    private BrickController[][] levels;
-    private int level;
     private BallAmount ballAmount;
     private BrickAmount brickAmount;
     private int lineCount;
@@ -107,19 +105,7 @@ public class Wall{
     public void setArea(Rectangle area){
         this.area = area;
     }
-    public BrickController[][] getLevels(){
-        return levels;
-    }
-    public void setLevels(BrickController[][] levels){
-        this.levels = levels;
-    }
 
-    public int getLevel(){
-        return level;
-    }
-    public void setLevel(int level){
-        this.level= level;
-    }
 
     public int getLineCount(){
         return lineCount;
@@ -178,9 +164,6 @@ public class Wall{
         this.ballAmount = ballAmount;
     }
 
-    public LevelsCreation getLevelsCreation(){
-        return levelsCreate;
-    }
     public void setLevelsCreation(LevelsCreation levelsCreate){
         this.levelsCreate = levelsCreate;
     }

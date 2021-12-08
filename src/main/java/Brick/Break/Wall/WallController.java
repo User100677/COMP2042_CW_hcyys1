@@ -16,14 +16,12 @@ import java.awt.geom.Point2D;
 
 public class WallController implements Move {
     private Wall wallModel;
-    private int level;
 
     public WallController(Wall wallModel){
         this.wallModel = wallModel;
         wallModel.setLevelsCreation(new LevelsCreation());
         wallModel.setLevelProgress(new LevelProgression(wallModel));
         makeBall(wallModel.getBallPos());
-        level = wallModel.getLevel();
         wallModel.setStartPoint(new Point(wallModel.getBallPos()));
         wallModel.setBallAmount(new BallAmount(wallModel.getBallCount(), wallModel.getBallLost()));
         wallModel.getBallAmount().setBallCount(3);
