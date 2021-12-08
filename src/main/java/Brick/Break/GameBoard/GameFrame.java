@@ -20,6 +20,7 @@ package Brick.Break.GameBoard;
 import Brick.Break.MenuPage.HomeMenu.HomeMenu;
 import Brick.Break.MenuPage.HomeMenu.HomeMenuController;
 import Brick.Break.MenuPage.InstructionMenu.InstructionMenu;
+import Brick.Break.MenuPage.InstructionMenu.InstructionMenuController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,7 +35,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     private GameBoardController gameBoardController;
     private HomeMenuController homeMenuController;
-    private InstructionMenu instructionMenu;
+    private InstructionMenuController instructionMenuController;
 
     private boolean gaming;
 
@@ -49,7 +50,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
         homeMenuController = new HomeMenuController(new HomeMenu(this,new Dimension(450,300)));
 
-        instructionMenu = new InstructionMenu(this, new Dimension(450,300));
+        instructionMenuController =new InstructionMenuController( new InstructionMenu(this, new Dimension(450,300)));
 
         this.add(homeMenuController,BorderLayout.CENTER);
 
@@ -80,7 +81,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     public void openInstructionMenu(){
         this.dispose();
         this.remove(homeMenuController);
-        this.add(instructionMenu,BorderLayout.CENTER);
+        this.add(instructionMenuController,BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
         this.addWindowFocusListener(this);
@@ -88,7 +89,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     }
     public void openMainMenu(){
         this.dispose();
-        this.remove(instructionMenu);
+        this.remove(instructionMenuController);
         this.add(homeMenuController,BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
