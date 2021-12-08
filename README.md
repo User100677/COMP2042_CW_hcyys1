@@ -117,6 +117,11 @@ i)Wall Class:
 -I extracted "nextLevel" method and "hasLevel" method from "Wall" class to
  it own class I created call "LevelProgression".
 
+ii) GameBoard Class:
+-I extracted "drawMenu", "obscureGameBoard" and "drawPauseMenu" method from
+ "GameBoard" to it own class call "PauseMenu" class which this class purpose is
+to draw PauseMenu.
+
 
 
 

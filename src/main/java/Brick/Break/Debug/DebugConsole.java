@@ -19,6 +19,7 @@ package Brick.Break.Debug;
 
 import Brick.Break.Ball.BallController;
 import Brick.Break.GameBoard.GameBoard;
+import Brick.Break.GameBoard.GameBoardController;
 import Brick.Break.Wall.Wall;
 import Brick.Break.Wall.WallController;
 
@@ -35,15 +36,15 @@ public class DebugConsole extends JDialog implements WindowListener{
 
     private JFrame owner;
     private DebugController debugController;
-    private GameBoard gameBoard;
+    private GameBoardController gameBoardController;
     private WallController wallController;
 
 
-    public DebugConsole(JFrame owner,WallController wallController,GameBoard gameBoard){
+    public DebugConsole(JFrame owner,WallController wallController,GameBoardController gameBoardController){
 
         this.wallController = wallController;
         this.owner = owner;
-        this.gameBoard = gameBoard;
+        this.gameBoardController = gameBoardController;
         initialize();
 
         debugController =new DebugController(new DebugPanel(wallController));
@@ -77,7 +78,7 @@ public class DebugConsole extends JDialog implements WindowListener{
 
     @Override
     public void windowClosing(WindowEvent windowEvent) {
-        gameBoard.repaint();
+        gameBoardController.repaint();
     }
 
     @Override

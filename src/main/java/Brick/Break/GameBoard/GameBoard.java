@@ -32,14 +32,9 @@ import java.awt.font.FontRenderContext;
 
 
 
-public class GameBoard extends JComponent implements KeyListener,MouseListener,MouseMotionListener {
+public class GameBoard{
 
-    private static final String CONTINUE = "Continue";
-    private static final String RESTART = "Restart";
-    private static final String EXIT = "Exit";
-    private static final String PAUSE = "Pause Menu";
-    private static final int TEXT_SIZE = 30;
-    private static final Color MENU_COLOR = new Color(0,255,0);
+
 
 
     private static final int DEF_WIDTH = 600;
@@ -54,287 +49,66 @@ public class GameBoard extends JComponent implements KeyListener,MouseListener,M
     private String message;
 
     private boolean showPauseMenu;
-
-    private Font menuFont;
-
-    private Rectangle continueButtonRect;
-    private Rectangle exitButtonRect;
-    private Rectangle restartButtonRect;
-    private int strLen;
+    private PauseMenu pauseMenu;
 
     private DebugConsole debugController;
+    private JFrame owner;
 
 
     public GameBoard(JFrame owner){
         super();
+        this.owner = owner;
 
-        strLen = 0;
-        showPauseMenu = false;
-
-        menuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
-
-
-        this.initialize();
-        message = "";
-        wallController =new WallController( new Wall(new Rectangle(0,0,DEF_WIDTH,DEF_HEIGHT),30,3,6/2,new Point(300,430)));
-
-        debugController = new DebugConsole(owner, wallController, this);
-        //initialize the first level
-        wallController.getWallLeveProgress().nextLevel();
-
-        gameTimer = new Timer(10,e ->{
-            wallController.move();
-            wallController.findImpacts();
-            message = String.format("Bricks: %d Balls %d",wallController.getWallBrickAmount().getBrickCount(),wallController.getWallBallAmount().getBallCount());
-            if(wallController.getWallBallAmount().isBallLost()){
-                if(wallController.getWallBallAmount().ballEnd()){
-                    wallController.wallReset();
-                    message = "Game over";
-                }
-                wallController.ballReset();
-                gameTimer.stop();
-            }
-            else if(wallController.getWallBrickAmount().isDone()){
-                if(wallController.getWallLeveProgress().hasLevel()){
-                    message = "Go to Next Level";
-                    gameTimer.stop();
-                    wallController.ballReset();
-                    wallController.wallReset();
-                    wallController.getWallLeveProgress().nextLevel();
-                }
-                else{
-                    message = "ALL WALLS DESTROYED";
-                    gameTimer.stop();
-                }
-            }
-
-            repaint();
-        });
 
     }
 
-
-
-    private void initialize(){
-        this.setPreferredSize(new Dimension(DEF_WIDTH,DEF_HEIGHT));
-        this.setFocusable(true);
-        this.requestFocusInWindow();
-        this.addKeyListener(this);
-        this.addMouseListener(this);
-        this.addMouseMotionListener(this);
+    public static int getDefWidth(){
+        return DEF_WIDTH;
     }
-
-
-    public void paint(Graphics g){
-
-        Graphics2D g2d = (Graphics2D) g;
-
-        clear(g2d);
-
-        g2d.setColor(Color.BLUE);
-        g2d.drawString( message,250,225);
-
-        wallController.getWallBallController().renderBall(g2d);
-
-        for(BrickController b : wallController.getWallBricks())
-            if(!b.isBroken())
-                b.renderBrick(g2d);
-
-        wallController.getWallPlayerController().renderPlayer(g2d);
-
-        if(showPauseMenu)
-            drawMenu(g2d);
-
-        Toolkit.getDefaultToolkit().sync();
+    public static int getDefHeight(){
+        return DEF_HEIGHT;
     }
-
-    private void clear(Graphics2D g2d){
-        Color tmp = g2d.getColor();
-        g2d.setColor(BG_COLOR);
-        g2d.fillRect(0,0,getWidth(),getHeight());
-        g2d.setColor(tmp);
+    public static Color getBackGroundColour(){
+        return BG_COLOR;
     }
-
-
-
-
-    private void drawMenu(Graphics2D g2d){
-        obscureGameBoard(g2d);
-        drawPauseMenu(g2d);
+    public Timer getGameTimer(){
+        return gameTimer;
     }
-
-    private void obscureGameBoard(Graphics2D g2d){
-
-        Composite tmp = g2d.getComposite();
-        Color tmpColor = g2d.getColor();
-
-        AlphaComposite ac = AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.55f);
-        g2d.setComposite(ac);
-
-        g2d.setColor(Color.BLACK);
-        g2d.fillRect(0,0,DEF_WIDTH,DEF_HEIGHT);
-
-        g2d.setComposite(tmp);
-        g2d.setColor(tmpColor);
+    public void setGameTimer(Timer gameTimer){
+        this.gameTimer = gameTimer;
     }
-
-    private void drawPauseMenu(Graphics2D g2d){
-        Font tmpFont = g2d.getFont();
-        Color tmpColor = g2d.getColor();
-
-
-        g2d.setFont(menuFont);
-        g2d.setColor(MENU_COLOR);
-
-        if(strLen == 0){
-            FontRenderContext frc = g2d.getFontRenderContext();
-            strLen = menuFont.getStringBounds(PAUSE,frc).getBounds().width;
-        }
-
-        int x = (this.getWidth() - strLen) / 2;
-        int y = this.getHeight() / 10;
-
-        g2d.drawString(PAUSE,x,y);
-
-        x = this.getWidth() / 8;
-        y = this.getHeight() / 4;
-
-
-        if(continueButtonRect == null){
-            FontRenderContext frc = g2d.getFontRenderContext();
-            continueButtonRect = menuFont.getStringBounds(CONTINUE,frc).getBounds();
-            continueButtonRect.setLocation(x,y-continueButtonRect.height);
-        }
-
-        g2d.drawString(CONTINUE,x,y);
-
-        y *= 2;
-
-        if(restartButtonRect == null){
-            restartButtonRect = (Rectangle) continueButtonRect.clone();
-            restartButtonRect.setLocation(x,y-restartButtonRect.height);
-        }
-
-        g2d.drawString(RESTART,x,y);
-
-        y *= 3.0/2;
-
-        if(exitButtonRect == null){
-            exitButtonRect = (Rectangle) continueButtonRect.clone();
-            exitButtonRect.setLocation(x,y-exitButtonRect.height);
-        }
-
-        g2d.drawString(EXIT,x,y);
-
-
-
-        g2d.setFont(tmpFont);
-        g2d.setColor(tmpColor);
+    public WallController getWallController(){
+        return wallController;
     }
-
-    @Override
-    public void keyTyped(KeyEvent keyEvent) {
+    public void setWallController(WallController wallController){
+        this.wallController = wallController;
     }
-
-    @Override
-    public void keyPressed(KeyEvent keyEvent) {
-        switch(keyEvent.getKeyCode()){
-            case KeyEvent.VK_A:
-                wallController.getWallPlayerController().moveLeft();
-                break;
-            case KeyEvent.VK_D:
-                wallController.getWallPlayerController().moveRight();
-                break;
-            case KeyEvent.VK_ESCAPE:
-                showPauseMenu = !showPauseMenu;
-                repaint();
-                gameTimer.stop();
-                break;
-            case KeyEvent.VK_SPACE:
-                if(!showPauseMenu)
-                    if(gameTimer.isRunning())
-                        gameTimer.stop();
-                    else
-                        gameTimer.start();
-                break;
-            case KeyEvent.VK_F1:
-                if(keyEvent.isAltDown() && keyEvent.isShiftDown())
-                    debugController.setVisible(true);
-            default:
-                wallController.getWallPlayerController().stop();
-        }
+    public String getMessage(){
+        return message;
     }
-
-    @Override
-    public void keyReleased(KeyEvent keyEvent) {
-        wallController.getWallPlayerController().stop();
+    public void setMessage(String message){
+        this.message = message;
     }
-
-    @Override
-    public void mouseClicked(MouseEvent mouseEvent) {
-        Point p = mouseEvent.getPoint();
-        if(!showPauseMenu)
-            return;
-        if(continueButtonRect.contains(p)){
-            showPauseMenu = false;
-            repaint();
-        }
-        else if(restartButtonRect.contains(p)){
-            message = "Restarting Game...";
-            wallController.ballReset();
-            wallController.wallReset();
-            showPauseMenu = false;
-            repaint();
-        }
-        else if(exitButtonRect.contains(p)){
-            System.exit(0);
-        }
-
+    public boolean getShowPauseMenu(){
+        return showPauseMenu;
     }
-
-    @Override
-    public void mousePressed(MouseEvent mouseEvent) {
-
+    public  void setShowPauseMenu(boolean showPauseMenu){
+        this.showPauseMenu = showPauseMenu;
     }
-
-    @Override
-    public void mouseReleased(MouseEvent mouseEvent) {
-
+    public PauseMenu getPauseMenu(){
+        return pauseMenu;
     }
-
-    @Override
-    public void mouseEntered(MouseEvent mouseEvent) {
-
+    public void setPauseMenu(PauseMenu pauseMenu){
+        this.pauseMenu = pauseMenu;
     }
-
-    @Override
-    public void mouseExited(MouseEvent mouseEvent) {
-
+    public DebugConsole getDebugController(){
+        return debugController;
     }
-
-    @Override
-    public void mouseDragged(MouseEvent mouseEvent) {
-
+    public void setDebugController(DebugConsole debugController){
+        this.debugController = debugController;
     }
-
-    @Override
-    public void mouseMoved(MouseEvent mouseEvent) {
-        Point p = mouseEvent.getPoint();
-        if(exitButtonRect != null && showPauseMenu) {
-            if (exitButtonRect.contains(p) || continueButtonRect.contains(p) || restartButtonRect.contains(p))
-                this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-            else
-                this.setCursor(Cursor.getDefaultCursor());
-        }
-        else{
-            this.setCursor(Cursor.getDefaultCursor());
-        }
-    }
-
-    public void onLostFocus(){
-        gameTimer.stop();
-        message = "Focus Lost";
-        repaint();
+    public JFrame getOwner(){
+        return owner;
     }
 
 }
