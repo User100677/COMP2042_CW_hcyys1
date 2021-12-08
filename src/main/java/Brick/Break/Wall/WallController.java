@@ -22,11 +22,13 @@ import java.awt.geom.Point2D;
 
 public class WallController implements Move {
     private Wall wallModel;
+    private LevelsCreation levelsCreation;
     private int level;
 
     public WallController(Wall wallModel){
         this.wallModel = wallModel;
-        wallModel.setLevels( makeLevels(wallModel.getDrawArea(),wallModel.getBrickCount(),wallModel.getLineCount(),wallModel.getBrickDimensionRatio()));
+        this.levelsCreation = new LevelsCreation(this);
+        wallModel.setLevels( levelsCreation.makeLevels(wallModel.getDrawArea(),wallModel.getBrickCount(),wallModel.getLineCount(),wallModel.getBrickDimensionRatio()));
         wallModel.setLevel(0);
         makeBall(wallModel.getBallPos());
         level = wallModel.getLevel();
@@ -52,104 +54,10 @@ public class WallController implements Move {
        wallModel.setArea(wallModel.getDrawArea());
     }
 
-    private BrickController[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
-        /*
-          if brickCount is not divisible by line count,brickCount is adjusted to the biggest
-          multiple of lineCount smaller then brickCount
-         */
-        brickCnt -= brickCnt % lineCnt;
 
-        int brickOnLine = brickCnt / lineCnt;
-
-        double brickLen = drawArea.getWidth() / brickOnLine;
-        double brickHgt = brickLen / brickSizeRatio;
-
-        brickCnt += lineCnt / 2;
-
-        BrickController[] tmp  = new BrickController[brickCnt];
-
-        Dimension brickSize = new Dimension((int) brickLen,(int) brickHgt);
-        Point p = new Point();
-
-        int i;
-        for(i = 0; i < tmp.length; i++){
-            int line = i / brickOnLine;
-            if(line == lineCnt)
-                break;
-            double x = (i % brickOnLine) * brickLen;
-            x =(line % 2 == 0) ? x : (x - (brickLen / 2));
-            double y = (line) * brickHgt;
-            p.setLocation(x,y);
-            tmp[i] = makeBrick(p,brickSize,type);
-        }
-
-        for(double y = brickHgt;i < tmp.length;i++, y += 2*brickHgt){
-            double x = (brickOnLine * brickLen) - (brickLen / 2);
-            p.setLocation(x,y);
-            tmp[i] = new ClayBrickController(new ClayBrick(p,brickSize));
-        }
-        return tmp;
-
-    }
-
-    private BrickController[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int typeA, int typeB){
-        /*
-          if brickCount is not divisible by line count,brickCount is adjusted to the biggest
-          multiple of lineCount smaller then brickCount
-         */
-        brickCnt -= brickCnt % lineCnt;
-
-        int brickOnLine = brickCnt / lineCnt;
-
-        int centerLeft = brickOnLine / 2 - 1;
-        int centerRight = brickOnLine / 2 + 1;
-
-        double brickLen = drawArea.getWidth() / brickOnLine;
-        double brickHgt = brickLen / brickSizeRatio;
-
-        brickCnt += lineCnt / 2;
-
-        BrickController[] tmp  = new BrickController[brickCnt];
-
-        Dimension brickSize = new Dimension((int) brickLen,(int) brickHgt);
-        Point p = new Point();
-
-        int i;
-        for(i = 0; i < tmp.length; i++){
-            int line = i / brickOnLine;
-            if(line == lineCnt)
-                break;
-            int posX = i % brickOnLine;
-            double x = posX * brickLen;
-            x =(line % 2 == 0) ? x : (x - (brickLen / 2));
-            double y = (line) * brickHgt;
-            p.setLocation(x,y);
-
-            boolean b = ((line % 2 == 0 && i % 2 == 0) || (line % 2 != 0 && posX > centerLeft && posX <= centerRight));
-            tmp[i] = b ?  makeBrick(p,brickSize,typeA) : makeBrick(p,brickSize,typeB);
-        }
-
-        for(double y = brickHgt;i < tmp.length;i++, y += 2*brickHgt){
-            double x = (brickOnLine * brickLen) - (brickLen / 2);
-            p.setLocation(x,y);
-            tmp[i] = makeBrick(p,brickSize,typeA);
-        }
-        return tmp;
-    }
 
     private void makeBall(Point2D ballPos){
         wallModel.setBallController(new RubberBallController(new RubberBall(ballPos)));
-    }
-
-    private BrickController[][] makeLevels(Rectangle drawArea,int brickCount,int lineCount,double brickDimensionRatio){
-        BrickController[][] tmp = new BrickController[Wall.getLevelsCount()][];
-        tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getClay());
-        tmp[1] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getClay(),Wall.getCement());
-        tmp[2] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getClay(),Wall.getSteel());
-        tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getSteel(),Wall.getCement());
-        tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getSteel(),Wall.getSteel());
-        tmp[5] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getGold(),Wall.getSteel());
-        return tmp;
     }
 
     @Override
@@ -252,7 +160,7 @@ public class WallController implements Move {
     }
 
 
-    private BrickController makeBrick(Point point, Dimension size, int type){
+    protected BrickController makeBrick(Point point, Dimension size, int type){
         BrickController out;
         if (type == Wall.getClay()) {
             out = new ClayBrickController(new ClayBrick(point, size));
