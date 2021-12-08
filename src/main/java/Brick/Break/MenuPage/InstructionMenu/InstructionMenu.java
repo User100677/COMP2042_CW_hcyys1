@@ -1,4 +1,4 @@
-package Brick.Break.HomeMenu;
+package Brick.Break.MenuPage.InstructionMenu;
 
 import Brick.Break.GameBoard.GameFrame;
 

@@ -17,9 +17,9 @@
  */
 package Brick.Break.GameBoard;
 
-import Brick.Break.GameBoard.GameBoard;
-import Brick.Break.HomeMenu.HomeMenu;
-import Brick.Break.HomeMenu.InstructionMenu;
+import Brick.Break.MenuPage.HomeMenu.HomeMenu;
+import Brick.Break.MenuPage.HomeMenu.HomeMenuController;
+import Brick.Break.MenuPage.InstructionMenu.InstructionMenu;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +33,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     private static final String DEF_TITLE = "Brick Destroy";
 
     private GameBoardController gameBoardController;
-    private HomeMenu homeMenu;
+    private HomeMenuController homeMenuController;
     private InstructionMenu instructionMenu;
 
     private boolean gaming;
@@ -47,11 +47,11 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
         gameBoardController = new GameBoardController(new GameBoard(this));
 
-        homeMenu = new HomeMenu(this,new Dimension(450,300));
+        homeMenuController = new HomeMenuController(new HomeMenu(this,new Dimension(450,300)));
 
         instructionMenu = new InstructionMenu(this, new Dimension(450,300));
 
-        this.add(homeMenu,BorderLayout.CENTER);
+        this.add(homeMenuController,BorderLayout.CENTER);
 
         this.setUndecorated(true);
 
@@ -68,7 +68,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     public void enableGameBoard(){
         this.dispose();
-        this.remove(homeMenu);
+        this.remove(homeMenuController);
         this.add(gameBoardController,BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
@@ -79,7 +79,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
 
     public void openInstructionMenu(){
         this.dispose();
-        this.remove(homeMenu);
+        this.remove(homeMenuController);
         this.add(instructionMenu,BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
@@ -89,7 +89,7 @@ public class GameFrame extends JFrame implements WindowFocusListener {
     public void openMainMenu(){
         this.dispose();
         this.remove(instructionMenu);
-        this.add(homeMenu,BorderLayout.CENTER);
+        this.add(homeMenuController,BorderLayout.CENTER);
         this.setUndecorated(false);
         initialize();
         this.addWindowFocusListener(this);
