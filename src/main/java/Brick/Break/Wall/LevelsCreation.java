@@ -4,14 +4,11 @@ import Brick.Break.Brick.BrickController;
 import Brick.Break.Brick.ClayBrick.ClayBrick;
 import Brick.Break.Brick.ClayBrick.ClayBrickController;
 
+
 import java.awt.*;
 
 public class LevelsCreation {
-    private WallController wallController;
-
-    LevelsCreation(WallController wallController){
-        this.wallController = wallController;
-    }
+    private CreateBrickType createBrickType = new CreateBrickType();
 
 
     private BrickController[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
@@ -42,7 +39,7 @@ public class LevelsCreation {
             x =(line % 2 == 0) ? x : (x - (brickLen / 2));
             double y = (line) * brickHgt;
             p.setLocation(x,y);
-            tmp[i] = wallController.makeBrick(p,brickSize,type);
+            tmp[i] = createBrickType.makeBrick(p,brickSize,type);
         }
 
         for(double y = brickHgt;i < tmp.length;i++, y += 2*brickHgt){
@@ -88,13 +85,13 @@ public class LevelsCreation {
             p.setLocation(x,y);
 
             boolean b = ((line % 2 == 0 && i % 2 == 0) || (line % 2 != 0 && posX > centerLeft && posX <= centerRight));
-            tmp[i] = b ?  wallController.makeBrick(p,brickSize,typeA) : wallController.makeBrick(p,brickSize,typeB);
+            tmp[i] = b ?  createBrickType.makeBrick(p,brickSize,typeA) : createBrickType.makeBrick(p,brickSize,typeB);
         }
 
         for(double y = brickHgt;i < tmp.length;i++, y += 2*brickHgt){
             double x = (brickOnLine * brickLen) - (brickLen / 2);
             p.setLocation(x,y);
-            tmp[i] = wallController.makeBrick(p,brickSize,typeA);
+            tmp[i] = createBrickType.makeBrick(p,brickSize,typeA);
         }
         return tmp;
     }
@@ -109,4 +106,5 @@ public class LevelsCreation {
         tmp[5] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getGold(),Wall.getSteel());
         return tmp;
     }
+
 }

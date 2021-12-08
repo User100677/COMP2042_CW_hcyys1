@@ -22,13 +22,12 @@ import java.awt.geom.Point2D;
 
 public class WallController implements Move {
     private Wall wallModel;
-    private LevelsCreation levelsCreation;
     private int level;
 
     public WallController(Wall wallModel){
         this.wallModel = wallModel;
-        this.levelsCreation = new LevelsCreation(this);
-        wallModel.setLevels( levelsCreation.makeLevels(wallModel.getDrawArea(),wallModel.getBrickCount(),wallModel.getLineCount(),wallModel.getBrickDimensionRatio()));
+        wallModel.setLevelsCreation(new LevelsCreation());
+        wallModel.setLevels( wallModel.getLevelsCreation().makeLevels(wallModel.getDrawArea(),wallModel.getBrickCount(),wallModel.getLineCount(),wallModel.getBrickDimensionRatio()));
         wallModel.setLevel(0);
         makeBall(wallModel.getBallPos());
         level = wallModel.getLevel();
@@ -160,25 +159,7 @@ public class WallController implements Move {
     }
 
 
-    protected BrickController makeBrick(Point point, Dimension size, int type){
-        BrickController out;
-        if (type == Wall.getClay()) {
-            out = new ClayBrickController(new ClayBrick(point, size));
-        }
-        else if (type == Wall.getSteel()) {
-            out = new SteelBrickController(new SteelBrick(point, size));
-        }
-        else if (type == Wall.getCement()) {
-            out = new CementBrickController(new CementBrick(point, size));
-        }
-        else if (type == Wall.getGold()) {
-            out = new GoldBrickController(new GoldBrick(point, size));
-        }
-        else{
-                throw  new IllegalArgumentException(String.format("Unknown Type:%d\n",type));
-        }
-        return  out;
-    }
+
 
     public BallController getWallBallController(){
         return wallModel.getBallController();

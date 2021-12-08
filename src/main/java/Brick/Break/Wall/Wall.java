@@ -17,25 +17,10 @@
  */
 package Brick.Break.Wall;
 
-import Brick.Break.Attribute.Move;
 import Brick.Break.Ball.BallController;
-import Brick.Break.Ball.RubberBall.RubberBall;
-import Brick.Break.Ball.RubberBall.RubberBallController;
 import Brick.Break.Brick.*;
-import Brick.Break.Brick.CementBrick.CementBrick;
-import Brick.Break.Brick.CementBrick.CementBrickController;
-import Brick.Break.Brick.ClayBrick.ClayBrick;
-import Brick.Break.Brick.ClayBrick.ClayBrickController;
-import Brick.Break.Brick.Crack.CrackController;
-import Brick.Break.Brick.GoldBrick.GoldBrick;
-import Brick.Break.Brick.GoldBrick.GoldBrickController;
-import Brick.Break.Brick.SteelBrick.SteelBrick;
-import Brick.Break.Brick.SteelBrick.SteelBrickController;
-import Brick.Break.Player.Player;
 import Brick.Break.Player.PlayerController;
-
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 
 
@@ -69,6 +54,7 @@ public class Wall{
     private int brickCount;
     private int ballCount;
     private boolean ballLost;
+    private LevelsCreation levelsCreate;
 
 
 
@@ -80,11 +66,6 @@ public class Wall{
         this.ballPos = ballPos;
 
 
-        ballAmount = new BallAmount(ballCount, ballLost);
-        ballAmount.setBallCount(3);
-        ballAmount.setBallLost(false);
-
-        brickAmount = new BrickAmount(brickCount);
 
 
 
@@ -92,6 +73,7 @@ public class Wall{
     public int getBallCount(){
         return ballCount;
     }
+
     public boolean getBallLost(){
         return ballLost;
     }
@@ -140,7 +122,6 @@ public class Wall{
     }
     public Point getBallPos(){
         return ballPos;
-
     }
     public int getBrickCount(){
         return brickCount;
@@ -188,6 +169,13 @@ public class Wall{
     }
     public void setBallAmount(BallAmount ballAmount){
         this.ballAmount = ballAmount;
+    }
+
+    public LevelsCreation getLevelsCreation(){
+        return levelsCreate;
+    }
+    public void setLevelsCreation(LevelsCreation levelsCreate){
+        this.levelsCreate = levelsCreate;
     }
 
 }

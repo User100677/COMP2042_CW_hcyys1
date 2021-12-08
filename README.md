@@ -109,6 +109,10 @@ i)Wall Class:
 -I extracted "getBallCount", "isBallLost", "ballEnd" and "resetBallCount"
  method from Wall class and into "BallAmount" class which I created.
 *Single responsibility class.
+-I extracted "makeSingleTypeLevel" method, "makeChessboardLevel" method and
+ "makeLevels" method from "Wall Class" to it own class call "LevelCreation"
+ class.
+
 
 
 
