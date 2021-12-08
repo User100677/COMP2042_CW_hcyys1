@@ -1,6 +1,8 @@
-package Brick.Break.Debug;
+package Brick.Break.Debug.DebugConsole;
 
 import Brick.Break.Ball.BallController;
+import Brick.Break.Debug.DebugPanel.DebugPanel;
+import Brick.Break.Debug.DebugPanel.DebugPanelController;
 
 import javax.swing.*;
 import java.awt.*;

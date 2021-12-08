@@ -18,19 +18,12 @@
 package Brick.Break.GameBoard;
 
 
-import Brick.Break.Brick.BrickController;
-import Brick.Break.Debug.DebugConsole;
-
-import Brick.Break.Debug.DebugConsoleController;
-import Brick.Break.Wall.Wall;
+import Brick.Break.Debug.DebugConsole.DebugConsoleController;
 import Brick.Break.Wall.WallController;
 
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.font.FontRenderContext;
-
 
 
 public class GameBoard{

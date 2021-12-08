@@ -1,14 +1,13 @@
 package Brick.Break.GameBoard;
 
-import Brick.Break.Debug.DebugConsole;
-import Brick.Break.Debug.DebugConsoleController;
+import Brick.Break.Debug.DebugConsole.DebugConsole;
+import Brick.Break.Debug.DebugConsole.DebugConsoleController;
 import Brick.Break.Wall.Wall;
 import Brick.Break.Wall.WallController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.sql.Time;
 
 public class GameBoardController extends JComponent implements KeyListener, MouseListener, MouseMotionListener {
     private GameBoard gameBoardModel;

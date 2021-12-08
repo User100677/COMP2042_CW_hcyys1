@@ -15,17 +15,14 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package Brick.Break.Debug;
+package Brick.Break.Debug.DebugConsole;
 
-import Brick.Break.Ball.BallController;
-import Brick.Break.GameBoard.GameBoard;
+import Brick.Break.Debug.DebugPanel.DebugPanel;
+import Brick.Break.Debug.DebugPanel.DebugPanelController;
 import Brick.Break.GameBoard.GameBoardController;
 import Brick.Break.Wall.WallController;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 
 
 public class DebugConsole{

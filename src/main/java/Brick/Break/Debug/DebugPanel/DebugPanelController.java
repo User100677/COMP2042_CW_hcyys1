@@ -1,6 +1,4 @@
-package Brick.Break.Debug;
-
-import Brick.Break.Ball.BallController;
+package Brick.Break.Debug.DebugPanel;
 
 import javax.swing.*;
 import javax.swing.event.ChangeListener;
