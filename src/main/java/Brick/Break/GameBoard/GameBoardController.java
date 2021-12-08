@@ -1,6 +1,7 @@
 package Brick.Break.GameBoard;
 
 import Brick.Break.Debug.DebugConsole;
+import Brick.Break.Debug.DebugConsoleController;
 import Brick.Break.Wall.Wall;
 import Brick.Break.Wall.WallController;
 
@@ -22,7 +23,7 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
         this.initialize();
         gameBoardModel.setMessage("");
         gameBoardModel.setWallController(new WallController( new Wall(new Rectangle(0,0,GameBoard.getDefWidth(),GameBoard.getDefHeight()),30,3,6/2,new Point(300,430))));
-        gameBoardModel.setDebugController(new DebugConsole(gameBoardModel.getOwner(), gameBoardModel.getWallController(), this));
+        gameBoardModel.setDebugConsoleController(new DebugConsoleController (new DebugConsole(gameBoardModel.getOwner(), gameBoardModel.getWallController(), this)));
 
         //initialize the first level
         gameBoardModel.getWallController().getWallLeveProgress().nextLevel();
@@ -96,7 +97,7 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
                 break;
             case KeyEvent.VK_F1:
                 if(keyEvent.isAltDown() && keyEvent.isShiftDown())
-                    gameBoardModel.getDebugController().setVisible(true);
+                    gameBoardModel.getDebugConsoleController().setVisible(true);
             default:
                 gameBoardModel.getWallController().getWallPlayerController().stop();
         }

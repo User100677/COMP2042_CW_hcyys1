@@ -8,12 +8,12 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 
-public class DebugController extends JPanel {
+public class DebugPanelController extends JPanel {
 
     private DebugPanel debugModel;
 
 
-    public DebugController(DebugPanel debugModel){
+    public DebugPanelController(DebugPanel debugModel){
         this.debugModel = debugModel;
 
 

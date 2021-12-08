@@ -21,6 +21,7 @@ package Brick.Break.GameBoard;
 import Brick.Break.Brick.BrickController;
 import Brick.Break.Debug.DebugConsole;
 
+import Brick.Break.Debug.DebugConsoleController;
 import Brick.Break.Wall.Wall;
 import Brick.Break.Wall.WallController;
 
@@ -51,7 +52,7 @@ public class GameBoard{
     private boolean showPauseMenu;
     private PauseMenu pauseMenu;
 
-    private DebugConsole debugController;
+    private DebugConsoleController debugConsoleController;
     private JFrame owner;
 
 
@@ -101,11 +102,11 @@ public class GameBoard{
     public void setPauseMenu(PauseMenu pauseMenu){
         this.pauseMenu = pauseMenu;
     }
-    public DebugConsole getDebugController(){
-        return debugController;
+    public DebugConsoleController getDebugConsoleController(){
+        return debugConsoleController;
     }
-    public void setDebugController(DebugConsole debugController){
-        this.debugController = debugController;
+    public void setDebugConsoleController(DebugConsoleController debugConsoleController){
+        this.debugConsoleController = debugConsoleController;
     }
     public JFrame getOwner(){
         return owner;

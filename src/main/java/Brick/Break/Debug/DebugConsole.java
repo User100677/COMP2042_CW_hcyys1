@@ -20,7 +20,6 @@ package Brick.Break.Debug;
 import Brick.Break.Ball.BallController;
 import Brick.Break.GameBoard.GameBoard;
 import Brick.Break.GameBoard.GameBoardController;
-import Brick.Break.Wall.Wall;
 import Brick.Break.Wall.WallController;
 
 import javax.swing.*;
@@ -29,13 +28,13 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 
-public class DebugConsole extends JDialog implements WindowListener{
+public class DebugConsole{
 
     private static final String TITLE = "Debug Console";
 
 
     private JFrame owner;
-    private DebugController debugController;
+    private DebugPanelController debugPanelController;
     private GameBoardController gameBoardController;
     private WallController wallController;
 
@@ -45,68 +44,31 @@ public class DebugConsole extends JDialog implements WindowListener{
         this.wallController = wallController;
         this.owner = owner;
         this.gameBoardController = gameBoardController;
-        initialize();
-
-        debugController =new DebugController(new DebugPanel(wallController));
-        this.add(debugController,BorderLayout.CENTER);
 
 
-        this.pack();
-    }
+        debugPanelController =new DebugPanelController(new DebugPanel(wallController));
 
-    private void initialize(){
-        this.setModal(true);
-        this.setTitle(TITLE);
-        this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-        this.setLayout(new BorderLayout());
-        this.addWindowListener(this);
-        this.setFocusable(true);
-    }
-
-
-    private void setLocation(){
-        int x = ((owner.getWidth() - this.getWidth()) / 2) + owner.getX();
-        int y = ((owner.getHeight() - this.getHeight()) / 2) + owner.getY();
-        this.setLocation(x,y);
-    }
-
-
-    @Override
-    public void windowOpened(WindowEvent windowEvent) {
 
     }
 
-    @Override
-    public void windowClosing(WindowEvent windowEvent) {
-        gameBoardController.repaint();
+    public DebugPanelController getDebugPanelController(){
+        return debugPanelController;
+    }
+    public void setDebugPanelController(DebugPanelController debugPanelController){
+        this.debugPanelController =debugPanelController;
+    }
+    public GameBoardController getGameBoardController(){
+        return gameBoardController;
+    }
+    public WallController getWallController(){
+        return wallController;
+    }
+    public static String getTITLE(){
+        return TITLE;
     }
 
-    @Override
-    public void windowClosed(WindowEvent windowEvent) {
 
-    }
-
-    @Override
-    public void windowIconified(WindowEvent windowEvent) {
-
-    }
-
-    @Override
-    public void windowDeiconified(WindowEvent windowEvent) {}
-
-    @Override
-    public void windowActivated(WindowEvent windowEvent) {
-        setLocation();
-        BallController b = wallController.getWallBallController();
-        debugController.setValues(b.getXSpeed(),b.getYSpeed());
-    }
-
-    @Override
-    public void windowDeactivated(WindowEvent windowEvent) {
-
-    }
-
-    public JFrame getOwner(){
+    public JFrame getFrameOwner(){
         return owner;
     }
 
