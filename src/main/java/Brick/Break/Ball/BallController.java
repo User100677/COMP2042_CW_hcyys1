@@ -77,10 +77,6 @@ public abstract class BallController implements Move {
         return ballModel.getBallFace();
     }
 
-    public void setFaceBall(Shape ballFace){
-       ballModel.setBallFace(ballFace);
-    }
-
     public Point2D getBallUp(){
         return ballModel.getUp();
     }

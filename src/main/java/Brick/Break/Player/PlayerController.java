@@ -23,7 +23,7 @@ public class PlayerController implements Move{
     }
 
 
-    private Rectangle makeRectangle(int width,int height){
+     public Rectangle makeRectangle(int width,int height){
         Point p = new Point((int)(playerModel.getBallPoint().getX() - (width / 2)),(int)playerModel.getBallPoint().getY());
         return  new Rectangle(p,new Dimension(width,height));
     }
@@ -75,5 +75,15 @@ public class PlayerController implements Move{
         return playerModel.getPlayerFace();
     }
 
+
+    public int getControllerMoveAmount() {
+        return playerModel.getMoveAmount();
+    }
+    public int getControllerMinimum(){
+        return playerModel.getMinimum();
+    }
+    public int getControllerMaximum(){
+        return playerModel.getMaximum();
+    }
 
 }

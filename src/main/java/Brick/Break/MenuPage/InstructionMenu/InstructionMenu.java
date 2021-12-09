@@ -10,15 +10,10 @@ import java.awt.*;
  */
 public class InstructionMenu {
 
-
-
-
     private Rectangle instructionMenuFace;
     private Rectangle backButton;
 
-
     private boolean backClicked;
-
 
     private GameFrameController owner;
     private Dimension area;

@@ -4,7 +4,6 @@ import Brick.Break.Ball.BallController;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.awt.image.AbstractMultiResolutionImage;
 
 public abstract class BrickController{
     private Brick brickModel;

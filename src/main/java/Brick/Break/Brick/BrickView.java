@@ -1,7 +1,5 @@
 package Brick.Break.Brick;
 
-import Brick.Break.Brick.BrickController;
-
 import java.awt.*;
 
 public class BrickView {
