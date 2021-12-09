@@ -12,6 +12,7 @@ public abstract class BrickController{
     public BrickController(Brick brickModel){
         this.brickModel = brickModel;
         brickView = new BrickView(this);
+        brickModel.setBroken(false);
         brickModel.setBrickFace(makeBrickFace(brickModel.getPos(), brickModel.getSize()));
     }
 
@@ -84,6 +85,12 @@ public abstract class BrickController{
 
     public static int getImpactLeft(){
         return Brick.getLeftImpact();
+    }
+    public void setIsBroken(boolean broken){
+        brickModel.setBroken(broken);
+    }
+    public int getSTRENGTH(){
+        return brickModel.getStrength();
     }
 
 }

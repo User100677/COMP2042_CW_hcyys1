@@ -38,7 +38,6 @@ public class Brick extends Colour {
 
 
     public Brick(String name, Point pos,Dimension size,Color border,Color inner,int strength){
-        broken = false;
         this.name = name;
         this.pos = pos;
         this.size = size;
@@ -101,9 +100,6 @@ public class Brick extends Colour {
         return size;
     }
 
-    public String getName(){
-        return name;
-    }
 
 
 

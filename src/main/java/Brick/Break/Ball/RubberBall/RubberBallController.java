@@ -22,8 +22,8 @@ public class RubberBallController extends BallController {
 
         double x = center.getX() - (radiusA / 2);
         double y = center.getY() - (radiusB / 2);
-
         return new Ellipse2D.Double(x,y,radiusA,radiusB);
+
     }
 
 

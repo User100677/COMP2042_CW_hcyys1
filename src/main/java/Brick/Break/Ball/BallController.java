@@ -18,9 +18,9 @@ public abstract class BallController implements Move {
         ballModel.setLeft(new Point2D.Double());
         ballModel.setRight(new Point2D.Double());
 
-        ballModel.getUp().setLocation(ballModel.getCenter().getX(), ballModel.getCenter().getY()-(ballModel.getRadiusB()/2) );
-        ballModel.getDown().setLocation(ballModel.getCenter().getX(), ballModel.getCenter().getY()+(ballModel.getRadiusB()/2) );
-        ballModel.getLeft().setLocation(ballModel.getCenter().getX() - (ballModel.getRadiusA())/2, ballModel.getCenter().getY() );
+        ballModel.getUp().setLocation(ballModel.getCenter().getX(), ballModel.getCenter().getY()-(ballModel.getRadiusB()/2));
+        ballModel.getDown().setLocation(ballModel.getCenter().getX(), ballModel.getCenter().getY()+(ballModel.getRadiusB()/2));
+        ballModel.getLeft().setLocation(ballModel.getCenter().getX() - (ballModel.getRadiusA())/2, ballModel.getCenter().getY());
         ballModel.getRight().setLocation(ballModel.getCenter().getX() + (ballModel.getRadiusA())/2, ballModel.getCenter().getY());
 
         ballModel.setBallFace(makeBall(ballModel.getCenter(), ballModel.getRadiusA(), ballModel.getRadiusB()));
