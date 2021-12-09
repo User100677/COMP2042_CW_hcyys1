@@ -1,4 +1,4 @@
-package Brick.Break.Player;
+package Brick.Break.UnitTest;
 
 import java.awt.*;
 

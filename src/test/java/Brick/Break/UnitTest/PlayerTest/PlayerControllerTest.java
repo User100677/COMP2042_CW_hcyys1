@@ -1,11 +1,12 @@
-package Brick.Break.Player;
+package Brick.Break.UnitTest.PlayerTest;
 
 
 import Brick.Break.Ball.BallController;
 import Brick.Break.Ball.RubberBall.RubberBall;
 import Brick.Break.Ball.RubberBall.RubberBallController;
+import Brick.Break.UnitTest.Player;
+import Brick.Break.UnitTest.PlayerController;
 import org.junit.jupiter.api.Test;
-import org.testng.Assert;
 
 
 import java.awt.*;
@@ -14,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerControllerTest {
 
-    PlayerController  playerController = new PlayerController(new Player(new Point(300, 430), 150, 10, new Rectangle(0, 0, 600, 450)));
+    PlayerController playerController = new PlayerController(new Player(new Point(300, 430), 150, 10, new Rectangle(0, 0, 600, 450)));
     BallController ballController = new RubberBallController(new RubberBall(new Point(300,430)));
 
     @Test
@@ -57,5 +58,21 @@ public class PlayerControllerTest {
     @Test
     void getMaximumTest(){
         assertEquals(525, playerController.getControllerMaximum());
+    }
+
+    @Test
+    void getMoveAmountTest_AfterMoveLeft(){
+        playerController.moveLeft();
+        assertEquals(-5 , playerController.getControllerMoveAmount());
+    }
+    @Test
+    void getMoveAmountTest_AfterMoveRight(){
+        playerController.moveRight();
+        assertEquals(5 , playerController.getControllerMoveAmount());
+    }
+    @Test
+    void getMoveAmountTest_StopMoving(){
+        playerController.stop();
+        assertEquals(0, playerController.getControllerMoveAmount());
     }
 }

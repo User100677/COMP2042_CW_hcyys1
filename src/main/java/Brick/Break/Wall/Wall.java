@@ -19,7 +19,7 @@ package Brick.Break.Wall;
 
 import Brick.Break.Ball.BallController;
 import Brick.Break.Brick.*;
-import Brick.Break.Player.PlayerController;
+import Brick.Break.UnitTest.PlayerController;
 import Brick.Break.Wall.Levels.LevelProgression;
 import Brick.Break.Wall.Levels.LevelsCreation;
 

@@ -6,8 +6,8 @@ import Brick.Break.Ball.RubberBall.RubberBall;
 import Brick.Break.Ball.RubberBall.RubberBallController;
 import Brick.Break.Brick.BrickController;
 import Brick.Break.Brick.Crack.CrackController;
-import Brick.Break.Player.Player;
-import Brick.Break.Player.PlayerController;
+import Brick.Break.UnitTest.Player;
+import Brick.Break.UnitTest.PlayerController;
 import Brick.Break.Wall.Levels.LevelProgression;
 import Brick.Break.Wall.Levels.LevelsCreation;
 

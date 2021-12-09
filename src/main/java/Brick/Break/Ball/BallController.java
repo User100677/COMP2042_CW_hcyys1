@@ -30,7 +30,6 @@ public abstract class BallController implements Move {
         ballModel.setXSpeed(ballModel.getXS());
         ballModel.setYSpeed(ballModel.getYS());
 
-
     }
 
     public abstract Shape makeBall(Point2D center, int radiusA, int radiusB);
