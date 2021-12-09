@@ -14,4 +14,5 @@ class RubberBallControllerTest {
 
     BallController rubberBallController = new RubberBallController(new RubberBall(new Point(300 , 430)));
     Ellipse2D rubberBall = new Ellipse2D.Double(295,435,10,10);
+
 }
