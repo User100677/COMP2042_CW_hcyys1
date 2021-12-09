@@ -7,12 +7,28 @@ import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Point2D;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RubberBallControllerTest {
+class RubberBallControllerTest{
 
-    BallController rubberBallController = new RubberBallController(new RubberBall(new Point(300 , 430)));
-    Ellipse2D rubberBall = new Ellipse2D.Double(295,435,10,10);
+    BallController rubberBallController = new RubberBallController(new RubberBall(new Point2D.Double(300,430)));
+
+
+    @Test
+    void makeBallTest_CanCreateBall(){
+        assertNotNull(rubberBallController.makeBall(new Point2D.Double(300,430 ), 10, 10));
+    }
+    @Test
+    void canCreateBallFaceTest_AfterMoveMethod(){
+        rubberBallController.move();
+        assertNotNull(rubberBallController.getFaceBall());
+    }
+    @Test
+    void canCreateBallFaceTest_AfterMoveToMethod(){
+        rubberBallController.moveTo(new Point(200, 300));
+        assertNotNull(rubberBallController.getFaceBall());
+    }
 
 }

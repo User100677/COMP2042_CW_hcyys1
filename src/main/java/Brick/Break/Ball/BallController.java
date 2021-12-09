@@ -60,7 +60,7 @@ public abstract class BallController implements Move {
         ballModel.setBallFace(tmp);
     }
 
-    private void setPoints(double width,double height){
+    public   void setPoints(double width,double height){
         ballModel.getUp().setLocation(ballModel.getPosition().getX(),ballModel.getPosition().getY()-(height / 2));
         ballModel.getDown().setLocation(ballModel.getPosition().getX(),ballModel.getPosition().getY()+(height / 2));
 
