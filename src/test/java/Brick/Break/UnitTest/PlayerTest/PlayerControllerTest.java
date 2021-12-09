@@ -19,21 +19,22 @@ public class PlayerControllerTest {
     BallController ballController = new RubberBallController(new RubberBall(new Point(300,430)));
 
     @Test
-    public void makePlayerRectangleTest_XValue(){
+     void makePlayerRectangleTest_XValue(){
         assertEquals(225 ,playerController.makeRectangle(150, 10).getX());
     }
     @Test
-    public void makePlayerRectangleTest_YValue(){
+     void makePlayerRectangleTest_YValue(){
         assertEquals(430 ,playerController.makeRectangle(150, 10).getY() );
     }
     @Test
-    public void makePlayerRectangleTest_WidthValue(){
+     void makePlayerRectangleTest_WidthValue(){
         assertEquals(150 ,playerController.makeRectangle(150, 10).getWidth() );
     }
     @Test
-    public void makePlayerRectangleTest_HeightValue(){
+     void makePlayerRectangleTest_HeightValue(){
         assertEquals(10 ,playerController.makeRectangle(150, 10).getHeight() );
     }
+
 
     @Test
     void impactTest_GotImpact() {
