@@ -1,6 +1,5 @@
-package Brick.Break.Player.BallTest;
+package Brick.Break.Ball;
 
-import Brick.Break.Ball.BallController;
 import Brick.Break.Ball.RubberBall.RubberBall;
 import Brick.Break.Ball.RubberBall.RubberBallController;
 import org.junit.jupiter.api.Test;

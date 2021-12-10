@@ -1,4 +1,4 @@
-package Brick.Break.Player.PlayerTest;
+package Brick.Break.Player;
 
 
 import Brick.Break.Ball.BallController;

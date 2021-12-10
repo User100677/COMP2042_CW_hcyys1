@@ -1,4 +1,4 @@
-package Brick.Break.Brick.Directions;
+package Brick.Break.Brick.Crack.Directions;
 
 import Brick.Break.Brick.Crack.Directions.DirectionUp;
 import org.junit.jupiter.api.Test;

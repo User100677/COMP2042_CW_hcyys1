@@ -44,7 +44,7 @@ class WallControllerTest {
 
         assertFalse( wallController.getWallBallAmount().isBallLost());
     }
-   
+
 
 
 }
