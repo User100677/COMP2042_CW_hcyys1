@@ -56,6 +56,14 @@ public abstract class BrickController{
         brickModel.setStrength(brickModel.getStrength() - 1);
         brickModel.setBroken(brickModel.getStrength() == 0);
     }
+
+
+    public void renderBrick( Graphics2D g2d){
+        brickView.drawBrick(g2d);
+
+    }
+
+
     public Shape getBRICKFace(){
         return brickModel.getBrickFace();
     }
@@ -65,11 +73,6 @@ public abstract class BrickController{
     }
     public Color getBORDERColour(){
         return brickModel.getBorderColour();
-    }
-
-    public void renderBrick( Graphics2D g2d){
-        brickView.drawBrick(g2d);
-
     }
 
     public static int getImpactUp(){
@@ -92,5 +95,7 @@ public abstract class BrickController{
     public int getSTRENGTH(){
         return brickModel.getStrength();
     }
+
+
 
 }

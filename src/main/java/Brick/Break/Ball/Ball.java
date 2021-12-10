@@ -87,9 +87,7 @@ public class Ball extends Speed{
     public void setRight(Point2D right){
         this.right = right;
     }
-    public Point2D getCenter(){
-        return center;
-    }
+
     public int getRadiusA(){
         return radiusA;
     }
