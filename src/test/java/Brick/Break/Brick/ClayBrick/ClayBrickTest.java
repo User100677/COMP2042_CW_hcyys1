@@ -19,11 +19,12 @@ class ClayBrickTest {
         assertNotNull(clayBrickController.makeBrickFace(new Point(200, 300), new Dimension(15, 10)));
     }
     @Test
-    void setImpactTest_HaveImpact(){
+    void setClayImpactTest_HaveImpact(){
+        clayBrickController.setIsBroken(false);
         assertEquals(true, clayBrickController.setImpact(new Point(200, 300), 10));
     }
     @Test
-    void setImpactTest_NoImpact(){
+    void setClayImpactTest_NoImpact(){
         clayBrickController.setIsBroken(true);
         assertEquals(false, clayBrickController.setImpact(new Point(200, 300), 10));
     }

@@ -15,7 +15,13 @@ class CementBrickTest {
         assertNotNull(cementBrickController.makeBrickFace(new Point(200, 300), new Dimension(15, 10)));
     }
     @Test
-    void setImpactTest(){
+    void setCementImpactTest_HaveImpact(){
+        cementBrickController.setIsBroken(false);
+        cementBrickController.impact();
+        assertEquals(true, cementBrickController.setImpact(new Point(200, 300), 10));
+    }
+    @Test
+    void setCementImpactTest_NoImpact(){
         cementBrickController.setIsBroken(true);
         assertEquals(false, cementBrickController.setImpact(new Point(200, 300), 10));
     }
@@ -33,6 +39,12 @@ class CementBrickTest {
     void getStrengthTest_AfterImpact(){
         cementBrickController.impact();
         assertEquals(1, cementBrickController.getSTRENGTH());
+    }
+    @Test
+    void getStrengthTest_AfterTwoImpact(){
+        cementBrickController.impact();
+        cementBrickController.impact();
+        assertEquals(0, cementBrickController.getSTRENGTH());
     }
     @Test
     void getBrokenTest_AfterImpact(){
