@@ -85,5 +85,8 @@ public class PlayerController implements Move{
     public int getControllerMaximum(){
         return playerModel.getMaximum();
     }
+    public Point getControllerBallPoint(){
+        return playerModel.getBallPoint();
+    }
 
 }

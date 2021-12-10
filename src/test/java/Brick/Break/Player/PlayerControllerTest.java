@@ -76,4 +76,49 @@ public class PlayerControllerTest {
         playerController.stop();
         assertEquals(0, playerController.getControllerMoveAmount());
     }
+    @Test
+    void getBallXPositionTest_AfterMoveMethod(){
+        playerController.move();
+        assertEquals(300, playerController.getControllerBallPoint().getX());
+    }
+    @Test
+    void getBallYPositionTest_AfterMoveMethod(){
+        playerController.move();
+        assertEquals(430, playerController.getControllerBallPoint().getY());
+    }
+    @Test
+    void getPlayerFaceXTest_AfterMoveMethod(){
+        playerController.move();
+        assertEquals(225, playerController.getPlayerControllerFace().getX());
+
+    }
+    @Test
+    void getPlayerFaceYTest_AfterMoveMethod(){
+        playerController.move();
+        assertEquals(430, playerController.getPlayerControllerFace().getY());
+
+    }
+
+    @Test
+    void getBallXPositionTest_AfterMoveToAPosition(){
+        playerController.moveTo(new Point(100,150));
+        assertEquals(100, playerController.getControllerBallPoint().getX());
+    }
+    @Test
+    void getBallYPositionTest_AfterMoveToAPosition(){
+        playerController.moveTo(new Point(100,150));
+        assertEquals(150, playerController.getControllerBallPoint().getY());
+    }
+    @Test
+    void getPlayerFaceXTest_AfterMoveToAPosition(){
+        playerController.moveTo(new Point(100,150));
+        assertEquals(25, playerController.getPlayerControllerFace().getX());
+
+    }
+    @Test
+    void getPlayerFaceYTest_AfterMoveToAPosition(){
+        playerController.moveTo(new Point(100,150));
+        assertEquals(150, playerController.getPlayerControllerFace().getY());
+
+    }
 }
