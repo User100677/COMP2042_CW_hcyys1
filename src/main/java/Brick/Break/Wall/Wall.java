@@ -30,7 +30,7 @@ import java.awt.*;
 
 public class Wall{
 
-    private static final int LEVELS_COUNT = 6;
+    private static final int LEVELS_COUNT = 7;
     private static final int CLAY = 1;
     private static final int STEEL = 2;
     private static final int CEMENT = 3;

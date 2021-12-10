@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Point2D;
 
-public class CrackController{
+public class  CrackController{
     private Crack crackModel;
     private CrackView crackView;
 
@@ -93,7 +93,8 @@ public class CrackController{
 
     public int randomInBounds(int bound) {
         int n = (bound * 2) + 1;
-        return crackModel.getRnd().nextInt(n) - bound;
+        int s = crackModel.getRnd().nextInt(n) & Integer.MAX_VALUE;
+        return s - bound;
     }
 
     public boolean inMiddle(int i, int steps, int divisions) {
@@ -104,7 +105,6 @@ public class CrackController{
     }
 
     private int jumps(int bound, double probability) {
-
         if (crackModel.getRnd().nextDouble() > probability)
             return randomInBounds(bound);
         return 0;
@@ -118,11 +118,11 @@ public class CrackController{
 
 
             if(direction ==  crackModel.getHorizontal()) {
-                pos = crackModel.getRnd().nextInt(to.x - from.x) + from.x;
+                pos = crackModel.getRnd().nextInt(to.x - from.x) + from.x & Integer.MAX_VALUE;
                 out.setLocation(pos, to.y);
             }
             else if(direction == crackModel.getVertical() ) {
-                pos = crackModel.getRnd().nextInt(to.y - from.y) + from.y;
+                pos = crackModel.getRnd().nextInt(to.y - from.y) + from.y & Integer.MAX_VALUE;
                 out.setLocation(to.x, pos);
             }
 

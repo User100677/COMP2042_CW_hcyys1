@@ -17,7 +17,7 @@ public class CementBrick extends Brick {
     private static final Color DEF_BORDER = new Color(217, 199, 175);
     private static final int CEMENT_STRENGTH = 2;
 
-    private CrackController crackController;
+
     private Shape brickFace;
 
     private static final int DEF_CRACK_DEPTH = 1;

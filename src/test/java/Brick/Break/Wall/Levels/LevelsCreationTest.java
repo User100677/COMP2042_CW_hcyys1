@@ -20,7 +20,11 @@ class LevelsCreationTest {
     }
     @Test
     void makeLevelsMethodTest_TotalLevels(){
-        assertEquals(6, levelsCreation.makeLevels(new Rectangle(0,0,600,450),30,3,6/2).length);
+        assertEquals(7, levelsCreation.makeLevels(new Rectangle(0,0,600,450),30,3,6/2).length);
+    }
+    @Test
+    void totalBricksInChessboardTypeInLastLevelTest(){
+        assertEquals(52, levelsCreation.makeChessboardLevel(new Rectangle(0,0,600,450),50,5,6/2, 4, 4).length);
     }
 
 }

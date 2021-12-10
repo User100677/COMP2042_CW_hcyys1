@@ -105,6 +105,7 @@ public class LevelsCreation {
         tmp[3] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getSteel(),Wall.getCement());
         tmp[4] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getSteel(),Wall.getSteel());
         tmp[5] = makeChessboardLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getGold(),Wall.getSteel());
+        tmp[6] = makeChessboardLevel(drawArea,50,5,brickDimensionRatio,Wall.getGold(),Wall.getGold());
         return tmp;
     }
 

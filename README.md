@@ -134,14 +134,17 @@ to draw PauseMenu.
 
 
 1)Added instruction menu.
-2)Added two new level.
+2)Added three new level.
 -one is full steel.
 -another one is gold brick and steel brick and gold brick is the new brick I
  created.
+-last level is the hardest level. Added 5 layers of full goldbrick to the level.
 3) I change the reset ball speed to fix value.
 -change because the speed is randomized
 4) added crack onto steel brick.
 -doesn't show crack
 5) change the start ball speed to fix value.
  -change because the speed is randomized
+6)Change the randomizer to only ramdomize positive integer in "CrackController" class
+ by adding "& Integer.MAX_VALUE". 
 

@@ -46,9 +46,6 @@ public class SteelBrick extends Brick {
 
 
 
-    public CrackController getCrackController(){
-        return crackController;
-    }
 
     public Shape getSteelBrickFace(){
         return brickFace;
@@ -63,6 +60,7 @@ public class SteelBrick extends Brick {
     public static int getDefSteps(){
         return DEF_STEPS;
     }
+
 
 
 

@@ -23,11 +23,6 @@ public class GoldBrick extends Brick{
         super(NAME, point, size, DEF_BORDER, DEF_INNER, CEMENT_STRENGTH);
     }
 
-
-    public CrackController getCrackController(){
-        return crackController;
-    }
-
     public Shape getGoldBrickFace(){
         return brickFace;
     }
