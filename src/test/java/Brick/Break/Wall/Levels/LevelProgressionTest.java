@@ -21,7 +21,7 @@ class LevelProgressionTest {
         assertTrue(levelProgression.hasLevel());
     }
     @Test
-    void NoLevelTest(){
+    void noLevelTest(){
         levelProgression.setLevel(6);
         assertFalse(levelProgression.hasLevel());
     }

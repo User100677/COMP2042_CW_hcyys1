@@ -43,7 +43,8 @@ class RubberBallControllerTest{
     @Test
     void getYBallDownTest(){
         assertEquals(435, rubberBallController.getBallDown().getY());
-    }@Test
+    }
+    @Test
     void getXBallRightTest(){
         assertEquals(305, rubberBallController.getBallRight().getX());
     }

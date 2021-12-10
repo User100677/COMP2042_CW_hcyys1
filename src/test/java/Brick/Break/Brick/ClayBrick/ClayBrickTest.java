@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ClayBrickTest {
 
-    ClayBrickController clayBrickController = new ClayBrickController(new ClayBrick(new Point(200, 300), new Dimension(15, 10)));
+    ClayBrickController clayBrickController = new ClayBrickController(new ClayBrick(new Point(300, 430), new Dimension(15, 10)));
 
     @Test
     void makeBrickTest_CanCreateBrick(){
@@ -48,5 +48,6 @@ class ClayBrickTest {
         clayBrickController.impact();
         assertEquals(true, clayBrickController.isBroken());
     }
+
 
 }

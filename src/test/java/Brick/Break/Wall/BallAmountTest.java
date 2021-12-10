@@ -8,28 +8,28 @@ class BallAmountTest {
     BallAmount ballAmount = new BallAmount(3, true);
 
     @Test
-    void BallGotLostTest(){
+    void ballGotLostTest(){
         ballAmount.setBallLost(true);
         assertTrue(ballAmount.isBallLost());
     }
     @Test
-    void BallNoLostTest(){
+    void ballNoLostTest(){
         ballAmount.setBallLost(false);
         assertFalse(ballAmount.isBallLost());
     }
 
     @Test
-    void AllBallLostTest(){
+    void allBallLostTest(){
         ballAmount.setBallCount(0);
         assertTrue(ballAmount.ballEnd());
     }
     @Test
-    void NotAllBallLostTest(){
+    void notAllBallLostTest(){
         ballAmount.setBallCount(2);
         assertFalse(ballAmount.ballEnd());
     }
     @Test
-    void ResetBallTest(){
+    void resetBallTest(){
         ballAmount.resetBallCount();
         assertEquals(3, ballAmount.getBallCount());
     }

@@ -27,22 +27,13 @@ public class LevelProgression {
         return level < levels.length;
     }
 
-    public BrickController[] getLevelsBrick(){
-        return wallModel.getBricks();
-    }
+
     public void setLevel(int level){
         this.level = level;
     }
-    public int getLevel(){
-        return level;
-    }
-    public int getLevelBrickAmount(){
-        return wallModel.getBrickAmount().getBrickCount();
-    }
+
     public BrickController[][] getLevels(){
         return levels;
     }
-    public void setLevelBrickAmount(int brickAmount){
-        wallModel.getBrickAmount().setBrickCount(brickAmount);
-    }
+
 }

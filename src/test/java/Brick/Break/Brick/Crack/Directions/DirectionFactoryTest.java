@@ -10,19 +10,19 @@ class DirectionFactoryTest {
     DirectionFactory directionFactory = new DirectionFactory();
 
     @Test
-    void AbleToProduceLeftDirectionTest(){
+    void ableToProduceLeftDirectionTest(){
         assertNotNull(directionFactory.getDirection(10));
     }
     @Test
-    void AbleToProduceRightDirectionTest(){
+    void ableToProduceRightDirectionTest(){
         assertNotNull(directionFactory.getDirection(20));
     }
     @Test
-    void AbleToProduceUpDirectionTest(){
+    void ableToProduceUpDirectionTest(){
         assertNotNull(directionFactory.getDirection(30));
     }
     @Test
-    void AbleToProduceDownDirectionTest(){
+    void ableToProduceDownDirectionTest(){
         assertNotNull(directionFactory.getDirection(40));
     }
 

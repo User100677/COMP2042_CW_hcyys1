@@ -167,5 +167,8 @@ public class WallController implements Move {
     public LevelProgression getWallLeveProgress(){
         return wallModel.getLevelProgress();
     }
+    public Point getWallStartPoint(){
+        return wallModel.getStartPoint();
+    }
 
 }

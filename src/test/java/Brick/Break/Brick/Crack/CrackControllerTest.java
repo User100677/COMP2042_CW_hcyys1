@@ -28,7 +28,7 @@ class CrackControllerTest {
     }
 
     @Test
-    void MakeCrackTest_AbleToMakeLeftCrack() {
+    void makeCrackTest_AbleToMakeLeftCrack() {
         crackController.makeCrack(new Point(10,20), new Point (20,30));
         assertNotNull(crackController.getControllerCrack());
     }
