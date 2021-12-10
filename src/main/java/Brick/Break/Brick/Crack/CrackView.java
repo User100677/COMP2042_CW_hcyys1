@@ -3,13 +3,13 @@ package Brick.Break.Brick.Crack;
 import java.awt.geom.GeneralPath;
 
 public class CrackView {
-    private Crack crackModel;
+    private CrackController crackController;
 
-    CrackView(Crack crackModel){
-        this.crackModel = crackModel;
+    CrackView(CrackController crackController){
+        this.crackController = crackController;
     }
     public GeneralPath drawCrack() {
 
-        return crackModel.getCrack();
+        return crackController.getControllerCrack();
     }
 }

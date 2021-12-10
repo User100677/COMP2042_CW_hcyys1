@@ -1,6 +1,8 @@
 package Brick.Break.Brick.CementBrick;
 
 import Brick.Break.Brick.BrickController;
+import Brick.Break.Brick.Crack.Crack;
+import Brick.Break.Brick.Crack.CrackController;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
@@ -12,6 +14,7 @@ public class CementBrickController extends BrickController {
     public CementBrickController(CementBrick cementModel){
         super(cementModel);
         this.cementModel = cementModel;
+        cementModel.setCrackController(new CrackController( new Crack(this, CementBrick.getDefCrackDepth(),CementBrick.getDefSteps())));
         cementModel.setCementBrickFace(super.getBRICKFace());
     }
 

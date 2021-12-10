@@ -1,6 +1,9 @@
 package Brick.Break.Brick.GoldBrick;
 
 import Brick.Break.Brick.BrickController;
+import Brick.Break.Brick.CementBrick.CementBrick;
+import Brick.Break.Brick.Crack.Crack;
+import Brick.Break.Brick.Crack.CrackController;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
@@ -13,6 +16,7 @@ public class GoldBrickController extends BrickController {
     public GoldBrickController(GoldBrick goldBrickModel){
         super(goldBrickModel);
         this.goldBrickModel = goldBrickModel;
+        goldBrickModel.setCrackController(new CrackController( new Crack(this, GoldBrick.getDefCrackDepth(),GoldBrick.getDefSteps())));
         goldBrickModel.setGoldBrickFace(super.getBRICKFace());
     }
 
@@ -54,4 +58,5 @@ public class GoldBrickController extends BrickController {
         goldBrickModel.getCrackController().reset();
         goldBrickModel.setGoldBrickFace(super.getBRICKFace());
     }
+
 }

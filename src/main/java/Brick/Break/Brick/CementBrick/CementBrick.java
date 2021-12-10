@@ -25,15 +25,11 @@ public class CementBrick extends Brick {
 
     public CementBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,CEMENT_STRENGTH);
-        crackController = new CrackController(new Crack(this, DEF_CRACK_DEPTH,DEF_STEPS));
+
 
     }
 
 
-
-    public CrackController getCrackController(){
-        return crackController;
-    }
 
     public Shape getCementBrickFace(){
         return brickFace;
@@ -41,5 +37,12 @@ public class CementBrick extends Brick {
 
     public void setCementBrickFace(Shape brickFace){
         this.brickFace = brickFace;
+    }
+
+    public static int getDefSteps(){
+        return DEF_STEPS;
+    }
+    public static int getDefCrackDepth(){
+        return DEF_CRACK_DEPTH;
     }
 }

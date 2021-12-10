@@ -13,7 +13,7 @@ public class CrackController{
 
     public CrackController(Crack crackModel){
         this.crackModel = crackModel;
-        crackView = new CrackView(crackModel);
+        crackView = new CrackView(this);
     }
 
     public GeneralPath renderCrack() {
@@ -26,7 +26,7 @@ public class CrackController{
     }
 
     public void makeCrack(Point2D point, int direction) {
-        Rectangle bounds = crackModel.getCrackBrick().getBrickFace().getBounds();
+        Rectangle bounds = crackModel.getCrackBrick().getBRICKFace().getBounds();
 
         Point impact = new Point((int) point.getX(), (int) point.getY());
         Point start = new Point();
@@ -91,12 +91,12 @@ public class CrackController{
         crackModel.getCrack().append(path, true);
     }
 
-    private int randomInBounds(int bound) {
+    public int randomInBounds(int bound) {
         int n = (bound * 2) + 1;
         return crackModel.getRnd().nextInt(n) - bound;
     }
 
-    private boolean inMiddle(int i, int steps, int divisions) {
+    public boolean inMiddle(int i, int steps, int divisions) {
         int low = (steps / divisions);
         int up = low * (divisions - 1);
 
@@ -144,6 +144,12 @@ public class CrackController{
     public static int getLEFT(){
         return Crack.getLeft();
 
+    }
+    public GeneralPath getControllerCrack(){
+        return crackModel.getCrack();
+    }
+    public double getControllerJumpProbability(){
+        return crackModel.getJumpProbability();
     }
 
 

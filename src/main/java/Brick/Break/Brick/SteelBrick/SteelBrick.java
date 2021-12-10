@@ -41,7 +41,6 @@ public class SteelBrick extends Brick {
 
     public SteelBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
-        crackController = new CrackController(new Crack(this, DEF_CRACK_DEPTH, DEF_STEPS));
     }
 
 
@@ -58,6 +57,13 @@ public class SteelBrick extends Brick {
     public void setSteelBrickFace(Shape brickFace){
         this.brickFace = brickFace;
     }
+    public static int getDefCrackDepth(){
+        return DEF_CRACK_DEPTH;
+    }
+    public static int getDefSteps(){
+        return DEF_STEPS;
+    }
+
 
 
 

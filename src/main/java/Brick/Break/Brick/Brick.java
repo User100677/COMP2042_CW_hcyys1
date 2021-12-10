@@ -1,7 +1,7 @@
 package Brick.Break.Brick;
 
 import Brick.Break.Attribute.Colour;
-
+import Brick.Break.Brick.Crack.CrackController;
 
 
 import java.awt.*;
@@ -35,6 +35,7 @@ public class Brick extends Colour {
     private int strength;
 
     private boolean broken;
+    private CrackController crackController;
 
 
     public Brick(String name, Point pos,Dimension size,Color border,Color inner,int strength){
@@ -98,6 +99,13 @@ public class Brick extends Colour {
     }
     public Dimension getSize(){
         return size;
+    }
+
+    public void setCrackController(CrackController crackController){
+        this.crackController = crackController;
+    }
+    public CrackController getCrackController(){
+        return crackController;
     }
 
 

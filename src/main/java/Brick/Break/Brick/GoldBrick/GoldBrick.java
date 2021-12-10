@@ -21,7 +21,6 @@ public class GoldBrick extends Brick{
 
     public GoldBrick(Point point, Dimension size) {
         super(NAME, point, size, DEF_BORDER, DEF_INNER, CEMENT_STRENGTH);
-        crackController = new CrackController(new Crack(this, DEF_CRACK_DEPTH, DEF_STEPS));
     }
 
 
@@ -36,4 +35,11 @@ public class GoldBrick extends Brick{
     public void setGoldBrickFace(Shape brickFace){
         this.brickFace = brickFace;
     }
+    public static int getDefCrackDepth(){
+        return DEF_CRACK_DEPTH;
+    }
+    public static int getDefSteps(){
+        return DEF_STEPS;
+    }
+
 }

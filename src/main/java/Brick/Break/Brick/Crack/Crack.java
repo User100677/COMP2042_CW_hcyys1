@@ -1,11 +1,11 @@
 package Brick.Break.Brick.Crack;
 
-import Brick.Break.Brick.Brick;
-import Brick.Break.Brick.Directions.*;
 
-import java.awt.*;
+import Brick.Break.Brick.BrickController;
+
+
+
 import java.awt.geom.GeneralPath;
-import java.awt.geom.Point2D;
 import java.util.Random;
 
 public class Crack {
@@ -22,16 +22,16 @@ public class Crack {
     private static final int HORIZONTAL = 200;
 
     private static Random rnd;
-    private final Brick brick;
+    private final BrickController brickController;
     private GeneralPath crack;
 
     private int crackDepth;
     private int steps;
 
 
-    public Crack(Brick brick, int crackDepth, int steps) {
+    public Crack(BrickController brickController, int crackDepth, int steps) {
         rnd = new Random();
-        this.brick = brick;
+        this.brickController = brickController;
 
         crack = new GeneralPath();
         this.crackDepth = crackDepth;
@@ -76,8 +76,8 @@ public class Crack {
         return rnd;
    }
 
-   public Brick getCrackBrick(){
-        return brick;
+   public BrickController getCrackBrick(){
+        return brickController;
    }
 
    public GeneralPath getCrack(){

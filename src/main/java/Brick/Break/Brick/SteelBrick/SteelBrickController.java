@@ -1,6 +1,9 @@
 package Brick.Break.Brick.SteelBrick;
 
 import Brick.Break.Brick.BrickController;
+import Brick.Break.Brick.Crack.Crack;
+import Brick.Break.Brick.Crack.CrackController;
+import Brick.Break.Brick.GoldBrick.GoldBrick;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
@@ -12,6 +15,7 @@ public class SteelBrickController extends BrickController {
     public SteelBrickController(SteelBrick steelModel){
         super(steelModel);
         this.steelModel = steelModel;
+        steelModel.setCrackController(new CrackController( new Crack(this, SteelBrick.getDefCrackDepth(),SteelBrick.getDefSteps())));
         steelModel.setSteelBrickFace(super.getBRICKFace());
     }
 
