@@ -1,5 +1,6 @@
 package Brick.Break.Brick.Directions;
 
+import Brick.Break.Brick.Crack.Directions.DirectionDown;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;

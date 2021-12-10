@@ -1,4 +1,4 @@
-package Brick.Break.Brick.Directions;
+package Brick.Break.Brick.Crack.Directions;
 
 public class DirectionFactory {
 

@@ -1,25 +1,24 @@
-package Brick.Break.Brick.Directions;
+package Brick.Break.Brick.Crack.Directions;
 
 import java.awt.*;
-import java.awt.Point;
 
-
-public class DirectionUp implements Direction {
+public class DirectionRight implements Direction {
     private Point start = new Point();
     private Point end = new Point();
-
     @Override
     public Point setStartLocation(Point start, Rectangle bounds){
-        start.setLocation(bounds.x, bounds.y + bounds.height);
-        return start;
+        start.setLocation(bounds.getLocation());
+       return start;
+
 
 
     }
 
     @Override
     public Point setEndLocation(Point end, Rectangle bounds){
-        end.setLocation(bounds.x + bounds.width, bounds.y + bounds.height);
-        return end;
+        end.setLocation(bounds.x, bounds.y + bounds.height);
+       return end;
+
     }
 
     @Override
@@ -30,5 +29,4 @@ public class DirectionUp implements Direction {
     public Point getEndLocation() {
         return end;
     }
-
 }

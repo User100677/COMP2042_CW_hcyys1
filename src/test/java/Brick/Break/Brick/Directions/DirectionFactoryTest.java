@@ -1,5 +1,6 @@
 package Brick.Break.Brick.Directions;
 
+import Brick.Break.Brick.Crack.Directions.DirectionFactory;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

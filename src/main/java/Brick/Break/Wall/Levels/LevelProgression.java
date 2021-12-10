@@ -9,6 +9,7 @@ public class LevelProgression {
     private BrickController[][] levels;
     private int level;
     private Wall wallModel;
+
     public LevelProgression(Wall wallModel){
         this.wallModel = wallModel;
         levelsCreation = new LevelsCreation();
@@ -24,5 +25,24 @@ public class LevelProgression {
 
     public boolean hasLevel(){
         return level < levels.length;
+    }
+
+    public BrickController[] getLevelsBrick(){
+        return wallModel.getBricks();
+    }
+    public void setLevel(int level){
+        this.level = level;
+    }
+    public int getLevel(){
+        return level;
+    }
+    public int getLevelBrickAmount(){
+        return wallModel.getBrickAmount().getBrickCount();
+    }
+    public BrickController[][] getLevels(){
+        return levels;
+    }
+    public void setLevelBrickAmount(int brickAmount){
+        wallModel.getBrickAmount().setBrickCount(brickAmount);
     }
 }

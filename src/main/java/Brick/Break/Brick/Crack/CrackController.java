@@ -1,7 +1,7 @@
 package Brick.Break.Brick.Crack;
 
-import Brick.Break.Brick.Directions.Direction;
-import Brick.Break.Brick.Directions.DirectionFactory;
+import Brick.Break.Brick.Crack.Directions.Direction;
+import Brick.Break.Brick.Crack.Directions.DirectionFactory;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
