@@ -46,7 +46,7 @@ public class WallController implements Move {
 
 
 
-    private void makeBall(Point2D ballPos){
+    public void makeBall(Point2D ballPos){
         wallModel.setBallController(new RubberBallController(new RubberBall(ballPos)));
     }
 
@@ -78,7 +78,7 @@ public class WallController implements Move {
         }
     }
 
-    private boolean impactWall(){
+    public boolean impactWall(){
         for(BrickController b : wallModel.getBricks()){
             //Vertical Impact
             if (b.findImpact(wallModel.getBallController()) == BrickController.getImpactUp()){
@@ -101,7 +101,7 @@ public class WallController implements Move {
         return false;
     }
 
-    private boolean impactBorder(){
+    public boolean impactBorder(){
         Point2D p =  wallModel.getBallController().getBallPosition();
         return ((p.getX() < wallModel.getArea().getX()) ||(p.getX() > (wallModel.getArea().getX() + wallModel.getArea().getWidth())));
     }
@@ -137,6 +137,12 @@ public class WallController implements Move {
 
     public void setBallYSpeed(int s){
         wallModel.getBallController().setSpeedY(s);
+    }
+    public int getBallXSpeed(){
+        return wallModel.getBallController().getXSpeed();
+    }
+    public int getBallYSpeed(){
+        return wallModel.getBallController().getYSpeed();
     }
 
 
