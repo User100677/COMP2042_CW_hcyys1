@@ -6,7 +6,8 @@ import java.awt.*;
 
 
 /**
- * This is the Controller of Model class(Player Class) in Player MVC design pattern
+ * This is the Controller of Model class(Player Class) in Player MVC design pattern.
+ * This class implement the methods from "Move" interface class.
  */
 public class PlayerController implements Move{
 
@@ -15,7 +16,7 @@ public class PlayerController implements Move{
 
     /**
      * This is the constructor of "PlayerController" class.
-     * This constructor will set the default value of Player model once it is called by another class;
+     * This constructor will set the default value for the data in Player model once it is called by another class.
      * @param playerModel This parameter is the object of model class(Player class).
      */
     public PlayerController(Player playerModel){

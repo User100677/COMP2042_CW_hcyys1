@@ -7,8 +7,8 @@ import java.awt.geom.Point2D;
 import java.awt.geom.RectangularShape;
 
 /**
- * Created by filippo on 04/09/16.
- *
+ *This the Model of Ball in the Ball MVC design pattern.
+ * This class extends from "Speed" abstract class.
  */
 public class Ball extends Speed{
 
@@ -32,7 +32,13 @@ public class Ball extends Speed{
 
 
     /**
-     * This constructor is to initialize the default ball placement.
+     * This is the constructor of "Ball" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param center This parameter is the position of the ball.
+     * @param radiusA This parameter is the radius of the ball.
+     * @param radiusB This parameter is the radius of the ball.
+     * @param inner This parameter is the inner colour of the ball.
+     * @param border This parameter is the border colour of the ball.
      */
     public Ball(Point2D center,int radiusA,int radiusB,Color inner,Color border){
         this.center = center;

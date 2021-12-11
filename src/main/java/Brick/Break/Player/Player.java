@@ -25,7 +25,8 @@ import java.awt.*;
 
 
 /**
- * This the Model of Player in the Player MVC design pattern
+ * This the Model of Player in the Player MVC design pattern.
+ * This class extends from "Colour" abstract class.
  */
 public class Player extends Colour {
 
