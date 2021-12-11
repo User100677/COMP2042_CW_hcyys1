@@ -83,7 +83,7 @@ public class CementBrickController extends BrickController {
     }
 
     /**
-     * This method repair the cement brick to it original conditional.
+     * This method repair the cement brick to it original conditiona.
      */
     public void repair(){
         super.repair();

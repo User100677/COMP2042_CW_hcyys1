@@ -18,15 +18,13 @@
 package Brick.Break.Brick.SteelBrick;
 
 import Brick.Break.Brick.Brick;
-import Brick.Break.Brick.Crack.Crack;
-import Brick.Break.Brick.Crack.CrackController;
-
 import java.awt.*;
-import java.awt.geom.GeneralPath;
-import java.awt.geom.Point2D;
-import java.util.Random;
 
 
+/**
+ *This is the Model of SteelBrick in the SteelBrick MVC design pattern.
+ * This class extends from "Brick" class.
+ */
 public class SteelBrick extends Brick {
 
     private static final String NAME = "Steel Brick";
@@ -36,9 +34,15 @@ public class SteelBrick extends Brick {
     public static final int DEF_CRACK_DEPTH = 2;
     public static final int DEF_STEPS = 35;
 
-    private CrackController crackController;
+
     private Shape brickFace;
 
+    /**
+     * This is the constructor of "SteelBrick" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param point This parameter is the position of the steel brick.
+     * @param size This parameter is the size of the brick.
+     */
     public SteelBrick(Point point, Dimension size){
         super(NAME,point,size,DEF_BORDER,DEF_INNER,STEEL_STRENGTH);
     }

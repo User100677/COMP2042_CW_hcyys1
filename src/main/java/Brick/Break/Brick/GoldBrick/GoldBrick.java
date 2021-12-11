@@ -1,11 +1,13 @@
 package Brick.Break.Brick.GoldBrick;
 import Brick.Break.Brick.Brick;
 
-import Brick.Break.Brick.Crack.Crack;
-import Brick.Break.Brick.Crack.CrackController;
-
 import java.awt.*;
 
+/**
+ *This is the Model of GoldBrick in the Goldbrick MVC design pattern.
+ * This class extends from "Brick" class.
+ * This is the new Brick type I created.
+ */
 public class GoldBrick extends Brick{
 
     private static final String NAME = "Gold Brick";
@@ -13,12 +15,17 @@ public class GoldBrick extends Brick{
     private static final Color DEF_BORDER = DEF_INNER.darker().darker().darker();
     private static final int CEMENT_STRENGTH = 4;
 
-    private CrackController crackController;
     private Shape brickFace;
 
     private static final int DEF_CRACK_DEPTH = 3;
     private static final int DEF_STEPS = 35;
 
+    /**
+     * This is the constructor of "GoldBrick" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param point This parameter is the position of the gold brick.
+     * @param size This parameter is the size of the brick.
+     */
     public GoldBrick(Point point, Dimension size) {
         super(NAME, point, size, DEF_BORDER, DEF_INNER, CEMENT_STRENGTH);
     }

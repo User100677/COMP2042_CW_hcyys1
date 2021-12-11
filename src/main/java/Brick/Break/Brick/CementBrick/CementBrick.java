@@ -5,7 +5,7 @@ import java.awt.*;
 
 
 /**
- *This the Model of CementBrick in the CementBrick MVC design pattern.
+ *This is the Model of CementBrick in the CementBrick MVC design pattern.
  * This class extends from "Brick" class.
  */
 public class CementBrick extends Brick {

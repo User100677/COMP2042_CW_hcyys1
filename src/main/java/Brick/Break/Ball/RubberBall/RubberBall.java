@@ -23,7 +23,7 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 
 /**
- *This the Model of RubberBall in the RubberBall MVC design pattern.
+ *This is the Model of RubberBall in the RubberBall MVC design pattern.
  * This class extends from "Ball" class.
  */
 public class RubberBall extends Ball {
