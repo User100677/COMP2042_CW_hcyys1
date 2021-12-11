@@ -6,9 +6,18 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * This is the Controller of Model class(HomeMenu Class) in HomeMenu MVC design pattern
+ */
 public class HomeMenuController extends JComponent implements MouseListener, MouseMotionListener {
     private HomeMenu homeMenuModel;
     private HomeMenuView homeMenuView;
+
+    /**
+     * This is the constructor of "HouseMenuController" class.
+     * This constructor will set the default value for the data in model class(HomeMenu class) once it is called by another class.
+     * @param homeMenuModel This parameter is the object of model class(HomeMenu class).
+     */
 
     public HomeMenuController(HomeMenu homeMenuModel){
         this.setFocusable(true);
@@ -28,9 +37,19 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
 
 
     }
+
+    /**
+     * This method get the "drawMenu" method from "HomeMenuView" class and draw out the HomeMenuScreen.
+     */
     public void paint(Graphics g){
         homeMenuView.drawMenu((Graphics2D)g);
     }
+
+
+    /**
+     * This method determined and show what should the button do when it is clicked.
+     * For example, when the start button is clicked the screen will change from home menu screen to game screen.
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -48,6 +67,10 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
         }
     }
 
+    /**
+     * This method determined and show what should the button do when it is pressed.
+     * For example, if the start button is pressed without letting go, it doesn't do anything.
+     */
     @Override
     public void mousePressed(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -67,6 +90,10 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
         }
     }
 
+    /**
+     * This method determined and show what should the button do when it is pressed and release.
+     * For example, if the start button is pressed but was released outside the button, the button will not do anything.
+     */
     @Override
     public void mouseReleased(MouseEvent mouseEvent) {
         if(homeMenuModel.getStartClicked() ){
@@ -100,6 +127,10 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
 
     }
 
+    /**
+     * This method determined what should the mouse do when it is moved to the button.
+     * In this case, the mouse cursor will change to hand cursor when the mouse touches the button.
+     */
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -110,24 +141,58 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
 
     }
 
+    /**
+     * This is a getter method which get the start button  from the model class(HomeMenu class).
+     * @return "startButton" from model class (HomeMenu class)
+     */
     public Rectangle getControllerStartButton(){
         return homeMenuModel.getStartButton();
     }
+
+    /**
+     * This is a getter method which get the face of the menu from the model class(HomeMenu class).
+     * @return "menuFace" from model class (HomeMenu class)
+     */
     public Rectangle getControllerMenuFace(){
         return homeMenuModel.getMenuFace();
     }
+
+    /**
+     * This is a getter method which get the instruction button  from the model class(HomeMenu class).
+     * @return "instructionButton" from model class (HomeMenu class)
+     */
     public Rectangle getControllerInstructionButton(){
         return homeMenuModel.getInstructionButton();
     }
+
+    /**
+     * This is a getter method which get the menu button  from the model class(HomeMenu class).
+     * @return "menuButton" from model class (HomeMenu class)
+     */
     public Rectangle getControllerMenuButton(){
         return homeMenuModel.getMenuButton();
     }
+
+    /**
+     * This is a getter method which get the start clicked  from the model class(HomeMenu class).
+     * @return "startClicked" from model class (HomeMenu class)
+     */
     public boolean getControllerStartClicked(){
         return homeMenuModel.getStartClicked();
     }
+
+    /**
+     * This is a getter method which get the instruction clicked  from the model class(HomeMenu class).
+     * @return "instructionClicked" from model class (HomeMenu class)
+     */
     public boolean getControllerInstructionClicked(){
         return homeMenuModel.getInstructionClicked();
     }
+
+    /**
+     * This is a getter method which get the menu clicked  from the model class(HomeMenu class).
+     * @return "menuClicked" from model class (HomeMenu class)
+     */
     public boolean getControllerMenuClicked(){
         return homeMenuModel.getMenuClicked();
     }

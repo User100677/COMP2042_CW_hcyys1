@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * This is the View of Model class(HomeMenu class) in the HomeMenu MVC Design Pattern.
+ */
 public class HomeMenuView {
     private static final String GREETINGS = "Welcome to:";
     private static final String GAME_TITLE = "Brick Destroy";
@@ -32,6 +35,11 @@ public class HomeMenuView {
 
     private HomeMenuController homeMenuController;
 
+    /**
+     * This is the constructor of "HomeMenuView" class.
+     * This constructor get the data from the controller class(HomeMenuController class).
+     * @param homeMenuController This parameter is the object of controller class(HomeMenuController class).
+     */
     HomeMenuView(HomeMenuController homeMenuController){
 
         this.homeMenuController = homeMenuController;
@@ -44,6 +52,9 @@ public class HomeMenuView {
     }
 
 
+    /**
+     * This method draw out the whole home menu screen.
+     */
     public void drawMenu(Graphics2D g2d){
 
         drawContainer(g2d);
@@ -71,6 +82,9 @@ public class HomeMenuView {
         g2d.setColor(prevColor);
     }
 
+    /**
+     * This method draw out the container of the home menu screen.
+     */
     private void drawContainer(Graphics2D g2d){
         Color prev = g2d.getColor();
 
@@ -92,6 +106,9 @@ public class HomeMenuView {
         g2d.setColor(prev);
     }
 
+    /**
+     * This method draw out the text onto the home menu screen.
+     */
     private void drawText(Graphics2D g2d){
 
         g2d.setColor(TEXT_COLOR);
@@ -125,6 +142,9 @@ public class HomeMenuView {
 
     }
 
+    /**
+     * This method draw out the button onto the home menu screen.
+     */
     private void drawButton(Graphics2D g2d){
 
         FontRenderContext frc = g2d.getFontRenderContext();

@@ -17,12 +17,13 @@
  */
 package Brick.Break.MenuPage.HomeMenu;
 
-import Brick.Break.GameFrame.GameFrame;
 import Brick.Break.GameFrame.GameFrameController;
 
 import java.awt.*;
 
-
+/**
+ *This is the Model of HomeMenu in the HomeMenu MVC design pattern.
+ */
 public class HomeMenu {
 
 
@@ -40,7 +41,12 @@ public class HomeMenu {
     private boolean instructionClicked;
     private boolean menuClicked;
 
-
+    /**
+     * This is the constructor of "HomeMenu" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param owner This parameter is the object of "GameFrameController" class.
+     * @param area This parameter is the frame of the home menu screen.
+     */
     public HomeMenu(GameFrameController owner, Dimension area){
 
         this.owner = owner;
