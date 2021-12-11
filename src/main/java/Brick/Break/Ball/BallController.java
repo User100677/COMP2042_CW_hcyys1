@@ -17,7 +17,7 @@ public abstract class BallController implements Move {
 
     /**
      * This is the constructor of "BallController" class.
-     * This constructor will set the default value for the data in Ball model once it is called by another class.
+     * This constructor will set the default value for the data in model class(Ball class) once it is called by another class.
      * @param ballModel This parameter is the object of model class(Ball class).
      */
     public BallController(Ball ballModel){

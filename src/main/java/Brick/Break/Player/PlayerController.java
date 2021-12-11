@@ -16,7 +16,7 @@ public class PlayerController implements Move{
 
     /**
      * This is the constructor of "PlayerController" class.
-     * This constructor will set the default value for the data in Player model once it is called by another class.
+     * This constructor will set the default value for the data in model class(Player class) once it is called by another class.
      * @param playerModel This parameter is the object of model class(Player class).
      */
     public PlayerController(Player playerModel){

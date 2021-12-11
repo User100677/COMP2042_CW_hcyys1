@@ -17,8 +17,6 @@
  */
 package Brick.Break.Player;
 
-
-
 import Brick.Break.Attribute.Colour;
 
 import java.awt.*;

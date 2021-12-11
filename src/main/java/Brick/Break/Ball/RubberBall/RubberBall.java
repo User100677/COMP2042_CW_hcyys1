@@ -20,9 +20,12 @@ package Brick.Break.Ball.RubberBall;
 import Brick.Break.Ball.Ball;
 
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 
+/**
+ *This the Model of RubberBall in the RubberBall MVC design pattern.
+ * This class extends from "Ball" class.
+ */
 public class RubberBall extends Ball {
 
 
@@ -30,7 +33,11 @@ public class RubberBall extends Ball {
     private static final Color DEF_INNER_COLOR = new Color(255, 219, 88);
     private static final Color DEF_BORDER_COLOR = DEF_INNER_COLOR.darker().darker();
 
-
+    /**
+     * This is the constructor of "RubberBall" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param center This parameter is the position of the rubber ball.
+     */
     public RubberBall(Point2D center){
         super(center,DEF_RADIUS,DEF_RADIUS,DEF_INNER_COLOR,DEF_BORDER_COLOR);
     }

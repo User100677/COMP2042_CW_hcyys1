@@ -1,10 +1,9 @@
 package Brick.Break.Ball;
-import Brick.Break.Attribute.Move;
 import Brick.Break.Attribute.Speed;
 
 import java.awt.*;
 import java.awt.geom.Point2D;
-import java.awt.geom.RectangularShape;
+
 
 /**
  *This the Model of Ball in the Ball MVC design pattern.
