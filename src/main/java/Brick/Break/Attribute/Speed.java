@@ -3,6 +3,7 @@ package Brick.Break.Attribute;
 
 /**
  * This class is an abstract class which contains the method related to the speed of ball class.
+ * The methods in this class was extracted from "Ball" class.
  * This class is extended by "Ball" class.
  */
 public abstract class Speed extends Colour {

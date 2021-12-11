@@ -6,7 +6,7 @@ import java.awt.geom.Point2D;
 
 
 /**
- *This the Model of Ball in the Ball MVC design pattern.
+ *This is the Model of Ball in the Ball MVC design pattern.
  * This class extends from "Speed" abstract class which also extends from "Colour" abstract class.
  */
 public class Ball extends Speed{

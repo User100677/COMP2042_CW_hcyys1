@@ -18,7 +18,7 @@ class GoldBrickControllerTest {
     }
     @Test
     void setGoldImpactTest_HaveImpact(){
-        GoldBrickController.setIsBroken(false);
+        GoldBrickController.setBROKEN(false);
         GoldBrickController.impact();
         GoldBrickController.impact();
         GoldBrickController.impact();
@@ -26,7 +26,7 @@ class GoldBrickControllerTest {
     }
     @Test
     void setGoldImpactTest_NoImpact(){
-        GoldBrickController.setIsBroken(true);
+        GoldBrickController.setBROKEN(true);
         assertEquals(false, GoldBrickController.setImpact(new Point(200, 300), 10));
     }
     @Test

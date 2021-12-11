@@ -20,12 +20,12 @@ class ClayBrickTest {
     }
     @Test
     void setClayImpactTest_HaveImpact(){
-        clayBrickController.setIsBroken(false);
+        clayBrickController.setBROKEN(false);
         assertEquals(true, clayBrickController.setImpact(new Point(200, 300), 10));
     }
     @Test
     void setClayImpactTest_NoImpact(){
-        clayBrickController.setIsBroken(true);
+        clayBrickController.setBROKEN(true);
         assertEquals(false, clayBrickController.setImpact(new Point(200, 300), 10));
     }
     @Test

@@ -10,13 +10,11 @@ import java.awt.Point;
 
 
 /**
- * Created by filippo on 04/09/16.
- *
+ *This is the Model of Brick in the Brick MVC design pattern.
+ * This class extends from "Colour" abstract class.
+ * Originally, there was a crack inner class in this class, but I extracted it into it own class.
  */
 public class Brick extends Colour {
-
-
-
 
     private static final int UP_IMPACT = 100;
     private static final int DOWN_IMPACT = 200;
@@ -38,6 +36,16 @@ public class Brick extends Colour {
     private CrackController crackController;
 
 
+    /**
+     * This is the constructor of "Brick" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param name This parameter is the name of the brick
+     * @param pos This parameter is the position of the bricks.
+     * @param size This parameter is the size of the bricks.
+     * @param inner This parameter is the inner colour of the brick.
+     * @param border This parameter is the border colour of the brick.
+     * @param strength This parameter is the strength of the bricks.
+     */
     public Brick(String name, Point pos,Dimension size,Color border,Color inner,int strength){
         this.name = name;
         this.pos = pos;

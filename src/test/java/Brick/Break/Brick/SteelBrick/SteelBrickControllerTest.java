@@ -16,14 +16,14 @@ class SteelBrickControllerTest {
     }
     @Test
     void setSteelImpactTest_HaveImpact(){
-        steelBrickController.setIsBroken(false);
+        steelBrickController.setBROKEN(false);
         steelBrickController.impact();
         steelBrickController.impact();
         assertEquals(true, steelBrickController.setImpact(new Point(200, 300), 10));
     }
     @Test
     void setSteelImpactTest_NoImpact(){
-        steelBrickController.setIsBroken(true);
+        steelBrickController.setBROKEN(true);
         assertEquals(false, steelBrickController.setImpact(new Point(200, 300), 10));
     }
     @Test

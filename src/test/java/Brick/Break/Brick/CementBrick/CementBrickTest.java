@@ -16,13 +16,13 @@ class CementBrickTest {
     }
     @Test
     void setCementImpactTest_HaveImpact(){
-        cementBrickController.setIsBroken(false);
+        cementBrickController.setBROKEN(false);
         cementBrickController.impact();
         assertEquals(true, cementBrickController.setImpact(new Point(200, 300), 10));
     }
     @Test
     void setCementImpactTest_NoImpact(){
-        cementBrickController.setIsBroken(true);
+        cementBrickController.setBROKEN(true);
         assertEquals(false, cementBrickController.setImpact(new Point(200, 300), 10));
     }
     @Test

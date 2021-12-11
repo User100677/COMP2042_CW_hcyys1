@@ -28,7 +28,7 @@ vi) GameBoard Class:
 
 
 2)New Classes:
--Extracted move method from Player class and Brick class to one
+-Extracted move method from "Player" class, "Brick" class and "Wall" class to one
  interface class called Move.
 -Added a Speed abstract class and extract "setSpeed", "setXSpeed",
  "setYSpeed", "reverseX", "reverseY", "getSpeedX" and "getSpeedY" methods

@@ -4,6 +4,7 @@ import java.awt.*;
 
 /**
  * This an abstract class which contains the methods related to inner colour and border colour.
+ * The methods in this class was extracted from "Player" class and "Brick" class.
  * This class is extended by "Speed" abstract class, "Brick" class  and "Player" class.
  */
 public abstract class Colour {
