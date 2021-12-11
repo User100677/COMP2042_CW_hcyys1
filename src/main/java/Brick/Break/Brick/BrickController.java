@@ -27,7 +27,7 @@ public abstract class BrickController{
 
 
     /**
-     * This method is to see if the brick have impact from the ball or not, if had, the brick strength will deducted by 1.
+     * This method is to see if the brick have impact from the ball or not, if had, the brick strength will deduct by 1.
      * @return either "true" or "false"
      */
     public  boolean setImpact(Point2D point , int dir){

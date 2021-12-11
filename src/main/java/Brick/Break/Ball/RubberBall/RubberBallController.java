@@ -7,8 +7,8 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Point2D;
 
 /**
- * This is the Controller of Model class(Rubber Ball Class) in RubberBall MVC design pattern
- * This class extends from "Ball" class.
+ * This is the Controller of Model class(RubberBall Class) in RubberBall MVC design pattern
+ * This class extends from "BallController" class.
  */
 public class RubberBallController extends BallController {
 
