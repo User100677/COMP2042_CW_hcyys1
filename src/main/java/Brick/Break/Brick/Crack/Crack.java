@@ -2,12 +2,13 @@ package Brick.Break.Brick.Crack;
 
 
 import Brick.Break.Brick.BrickController;
-
-
-
 import java.awt.geom.GeneralPath;
 import java.util.Random;
 
+/**
+ *This is the Model of Crack in the Crack MVC design pattern.
+ * This class was extracted from the "Brick" class.
+ */
 public class Crack {
 
 
@@ -28,7 +29,13 @@ public class Crack {
     private int crackDepth;
     private int steps;
 
-
+    /**
+     * This is the constructor of "Crack" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param brickController This parameter is the object  of "BrickController" class.
+     * @param crackDepth This parameter is the depth of the crack.
+     * @param steps This parameter is the steps of the crack.
+     */
     public Crack(BrickController brickController, int crackDepth, int steps) {
         rnd = new Random();
         this.brickController = brickController;
