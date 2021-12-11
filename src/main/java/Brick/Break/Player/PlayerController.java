@@ -55,6 +55,7 @@ public class PlayerController implements Move{
 
     /**
      * This method is used to make the ball move whenever the player start the game.
+     * This method comes from "Move" interface class.
      */
     @Override
     public void move(){

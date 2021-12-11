@@ -18,6 +18,8 @@ public abstract class BallController implements Move {
     /**
      * This is the constructor of "BallController" class.
      * This constructor will set the default value for the data in model class(Ball class) once it is called by another class.
+     * The method from "Speed"abstract class and "Colour" abstract class is used in this constructor which are "setInnerColour(innerColor)",
+     * "setBorderColour(borderColor)", "setXSpeed(speedX)" and "setYSpeed(speedY)".
      * @param ballModel This parameter is the object of model class(Ball class).
      */
     public BallController(Ball ballModel){
@@ -54,6 +56,7 @@ public abstract class BallController implements Move {
 
     /**
      * This method is used to make the ball start moving whenever the player start the game.
+     * This method comes from "Move" interface class.
      */
     @Override
     public void move(){
@@ -152,53 +155,51 @@ public abstract class BallController implements Move {
     }
 
     /**
-     * This is a getter method which get the reverse speed of y of the ball from the model class(Ball class).
-     * @return "speedY *= -1" from model class (Ball class)
+     * This method get the reverse Y speed of the ball from the model class(Ball class).
      */
     public void ReverseY(){
         ballModel.reverseY();
     }
 
     /**
-     * This is a getter method which get reverse speed of x of the ball from the model class(Ball class).
-     * @return "speedX *= -1" from model class (Ball class)
+     * This method get the reverse X speed of the ball from the model class(Ball class).
      */
     public void ReverseX(){
         ballModel.reverseX();
     }
 
     /**
-     * This is a setter method which set the ball x and y speed from the model class(Ball class).
+     * This is a setter method which set the ball X and Y speed from the model class(Ball class).
      */
     public void setSPEED(int x, int y){
         ballModel.setSpeed(x,y);
     }
 
     /**
-     * This is a setter method which set the ball x speed from the model class(Ball class).
+     * This is a setter method which set the ball X speed from the model class(Ball class).
      */
     public void setSpeedX(int x){
         ballModel.setXSpeed(x);
     }
 
     /**
-     * This is a setter method which set the ball y speed from the model class(Ball class).
+     * This is a setter method which set the ball Y speed from the model class(Ball class).
      */
     public void setSpeedY(int y){
         ballModel.setYSpeed(y);
     }
 
     /**
-     * This is a getter method which get the ball x speed from the model class(Ball class).
-     * @return "speedX" from model class (Ball class)
+     * This is a setter method which set the ball X speed from the model class(Ball class).
+     * @return "int X speed" from model class (Ball class)
      */
     public int getXSpeed(){
         return ballModel.getSpeedX();
     }
 
     /**
-     * This is a getter method which get the ball y speed from the model class(Ball class).
-     * @return "speedY" from model class (Ball class)
+     * This is a getter method which get the ball Y speed from the model class(Ball class).
+     * @return "int Y speed" from model class (Ball class)
      */
     public int getYSpeed(){
         return ballModel.getSpeedY();

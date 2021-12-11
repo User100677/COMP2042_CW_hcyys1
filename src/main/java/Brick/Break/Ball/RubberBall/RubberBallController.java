@@ -32,7 +32,6 @@ public class RubberBallController extends BallController {
      * @param center  This parameter is the position of the rubber ball.
      * @param radiusA This parameter is the radius of the rubber ball.
      * @param radiusB This parameter is the radius of the rubber ball.
-     * @return
      */
     @Override
     public Shape makeBall(Point2D center, int radiusA, int radiusB) {
