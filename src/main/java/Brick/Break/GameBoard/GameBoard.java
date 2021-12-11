@@ -89,12 +89,6 @@ public class GameBoard{
     public  void setShowPauseMenu(boolean showPauseMenu){
         this.showPauseMenu = showPauseMenu;
     }
-    public PauseMenu getPauseMenu(){
-        return pauseMenu;
-    }
-    public void setPauseMenu(PauseMenu pauseMenu){
-        this.pauseMenu = pauseMenu;
-    }
     public DebugConsoleController getDebugConsoleController(){
         return debugConsoleController;
     }

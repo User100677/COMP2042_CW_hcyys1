@@ -24,6 +24,9 @@ import Brick.Break.Attribute.Colour;
 import java.awt.*;
 
 
+/**
+ * This the Model of Player in the Player MVC design pattern
+ */
 public class Player extends Colour {
 
 
@@ -42,6 +45,14 @@ public class Player extends Colour {
     private int height;
 
 
+    /**
+     * This is the constructor of "Player" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param ballPoint This parameter is the location of the ball.
+     * @param width This parameter is the width of the rectangle(player).
+     * @param height This parameter is the height of the rectangle(player).
+     * @param container This parameter is the size of the game.
+     */
     public Player(Point ballPoint,int width,int height,Rectangle container) {
         this.ballPoint = ballPoint;
         this.container = container;
@@ -50,22 +61,17 @@ public class Player extends Colour {
 
     }
 
+
+
     public int getDefMoveAmount(){
         return DEF_MOVE_AMOUNT;
     }
-
-
-
     public Rectangle getPlayerFace(){
         return  playerFace;
     }
-
     public void setPlayerFace(Rectangle playerFace){
         this.playerFace = playerFace;
     }
-
-
-
 
     public Point getBallPoint(){
         return ballPoint;
@@ -87,8 +93,6 @@ public class Player extends Colour {
     public void setMinimum(int min){
         this.min = min;
     }
-
-
 
     public int getMaximum(){
         return max;
