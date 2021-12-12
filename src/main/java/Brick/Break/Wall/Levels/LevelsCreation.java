@@ -8,10 +8,24 @@ import Brick.Break.Wall.Wall;
 
 import java.awt.*;
 
+/**
+ * This class is used to create types of level.
+ * The methods in this class was extracted from the "Wall" class.
+ */
 public class LevelsCreation {
     private CreateBrickType createBrickType = new CreateBrickType();
 
 
+    /**
+     * This method is to design the layout of the bricks in a level.
+     * In this case, there is only one brick type that is needed in this level.
+     * Therefore, there is no pattern on how the bricks is placed in this level.
+     * @param drawArea The size of the game.
+     * @param brickCnt The total amount of the bricks in a level.
+     * @param lineCnt The total layer of the bricks in a level.
+     * @param brickSizeRatio The ratio size of each brick.
+     * @param type The types of the brick.
+     */
     public BrickController[] makeSingleTypeLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int type){
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
@@ -52,6 +66,17 @@ public class LevelsCreation {
 
     }
 
+    /**
+     * This method is to design the layout of the bricks in a level.
+     * In this case, there will be two brick type that is needed in a level.
+     * Therefore, the bricks will be placed in chessboard pattern in a level.
+     * @param drawArea The size of the game.
+     * @param brickCnt The total amount of the bricks in a level.
+     * @param lineCnt The total layer of the bricks in a level.
+     * @param brickSizeRatio The ratio size of each brick.
+     * @param typeA The types of the first brick.
+     * @param typeB The second type of the brick.
+     */
     public BrickController[] makeChessboardLevel(Rectangle drawArea, int brickCnt, int lineCnt, double brickSizeRatio, int typeA, int typeB){
         /*
           if brickCount is not divisible by line count,brickCount is adjusted to the biggest
@@ -97,6 +122,17 @@ public class LevelsCreation {
         return tmp;
     }
 
+    /**
+     * This method is used to lay out the bricks onto each level.
+     * I added three more levels in this method for this game.
+     * The fifth level will be all steel bricks.
+     * The sixth level will be steel bricks and gold bricks which will be placed in a chessboard pattern.
+     * The seventh level is all gold bricks and additional two layers.
+     * @param drawArea The size of the game.
+     * @param brickCount The total amount of the bricks in a level.
+     * @param lineCount The total layer of bricks in a level.
+     * @param brickDimensionRatio The ratio of brick size in a level.
+     */
     protected BrickController[][] makeLevels(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio){
         BrickController[][] tmp = new BrickController[Wall.getLevelsCount()][];
         tmp[0] = makeSingleTypeLevel(drawArea,brickCount,lineCount,brickDimensionRatio,Wall.getClay());

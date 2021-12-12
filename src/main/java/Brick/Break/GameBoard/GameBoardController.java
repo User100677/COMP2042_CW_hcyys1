@@ -176,9 +176,6 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
     public String getControllerMessage(){
         return gameBoardModel.getMessage();
     }
-    public Timer getControllerGameTimer(){
-        return gameBoardModel.getGameTimer();
-    }
     public WallController getControllerWallController(){
         return gameBoardModel.getWallController();
     }

@@ -23,6 +23,9 @@ import Brick.Break.GameFrame.GameFrameController;
 import java.awt.*;
 
 
+/**
+ * This class activate the whole game program
+ */
 public class GraphicsMain {
 
     public static void main(String[] args){

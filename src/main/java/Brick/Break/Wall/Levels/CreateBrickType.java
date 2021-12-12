@@ -13,8 +13,19 @@ import Brick.Break.Wall.Wall;
 
 import java.awt.*;
 
+/**
+ * This class is used to create the bricks type that the level need(produce instances of the brick type class).
+ * The method in this class was extracted from "Wall" class.
+ */
 public class CreateBrickType {
 
+    /**
+     * This method is used to create any types of bricks from the "Brick" class(produce instances of the brick type class).
+     * @param point This is the position of the bricks.
+     * @param size This parameter is the size of the bricks.
+     * @param type This parameter is the type of brick that the level want.
+     * @return any instances from "Brick" child classes.
+     */
     protected BrickController makeBrick(Point point, Dimension size, int type){
         BrickController out;
         if (type == Wall.getClay()) {
