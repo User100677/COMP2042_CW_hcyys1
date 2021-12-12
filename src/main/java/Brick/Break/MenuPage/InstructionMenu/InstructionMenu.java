@@ -6,7 +6,8 @@ import Brick.Break.GameFrame.GameFrameController;
 import java.awt.*;
 
 /**
- * This the class where I create the Instruction Menu page
+ *This is the Model of InstructionMenu in the InstructionMenu MVC design pattern.
+ * This is a new addition I added. This class show the player on how to play the game.
  */
 public class InstructionMenu {
 
@@ -18,7 +19,12 @@ public class InstructionMenu {
     private GameFrameController owner;
     private Dimension area;
 
-
+    /**
+     * This is the constructor of "InstructionMenu" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param owner This parameter is the object of "GameFrameController" class.
+     * @param area This parameter is the frame of the instruction menu screen.
+     */
     public InstructionMenu(GameFrameController owner, Dimension area) {
 
 
@@ -26,6 +32,7 @@ public class InstructionMenu {
         this.area = area;
 
     }
+
     public Rectangle getInstructionMenuFace(){
         return instructionMenuFace;
     }

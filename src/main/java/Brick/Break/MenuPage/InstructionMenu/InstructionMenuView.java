@@ -4,6 +4,9 @@ import java.awt.*;
 import java.awt.font.FontRenderContext;
 import java.awt.geom.Rectangle2D;
 
+/**
+ * This is the View of Model class(InstructionMenu class) in the InstructionMenu MVC Design Pattern.
+ */
 public class InstructionMenuView {
 
     private static final String moveLeft = "a : Move left";
@@ -31,6 +34,11 @@ public class InstructionMenuView {
 
     private InstructionMenuController instructionMenuController;
 
+    /**
+     * This is the constructor of "InstructionMenuView" class.
+     * This constructor get the data from the controller class(InstructionMenuController class).
+     * @param instructionMenuController This parameter is the object of controller class(instructionMenuController class).
+     */
     InstructionMenuView(InstructionMenuController instructionMenuController){
         this.instructionMenuController = instructionMenuController;
 
@@ -41,7 +49,9 @@ public class InstructionMenuView {
     }
 
 
-
+    /**
+     * This method draw out the whole instruction menu screen.
+     */
     public void drawInstructionMenu(Graphics2D g2d) {
 
         drawContainer(g2d);
@@ -64,6 +74,9 @@ public class InstructionMenuView {
         g2d.setColor(prevColor);
     }
 
+    /**
+     * This method draw out the frame of the instruction menu screen.
+     */
     private void drawContainer(Graphics2D g2d) {
         Color prev = g2d.getColor();
 
@@ -85,6 +98,9 @@ public class InstructionMenuView {
         g2d.setColor(prev);
     }
 
+    /**
+     * This method draw out the text onto the instruction menu screen.
+     */
     private void drawText(Graphics2D g2d) {
 
         g2d.setColor(TEXT_COLOR);
@@ -132,6 +148,9 @@ public class InstructionMenuView {
 
     }
 
+    /**
+     * This method draw out the button onto the instruction menu screen.
+     */
     private void drawButton(Graphics2D g2d) {
 
         FontRenderContext frc = g2d.getFontRenderContext();

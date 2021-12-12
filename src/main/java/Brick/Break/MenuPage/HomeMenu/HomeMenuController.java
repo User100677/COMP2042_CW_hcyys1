@@ -39,7 +39,7 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
     }
 
     /**
-     * This method get the "drawMenu" method from "HomeMenuView" class and draw out the HomeMenuScreen.
+     * This method get the "drawMenu" method from "HomeMenuView" class and draw out the home menu screen.
      */
     public void paint(Graphics g){
         homeMenuView.drawMenu((Graphics2D)g);

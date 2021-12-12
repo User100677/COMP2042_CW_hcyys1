@@ -83,7 +83,7 @@ public class HomeMenuView {
     }
 
     /**
-     * This method draw out the container of the home menu screen.
+     * This method draw out the frame of the home menu screen.
      */
     private void drawContainer(Graphics2D g2d){
         Color prev = g2d.getColor();
