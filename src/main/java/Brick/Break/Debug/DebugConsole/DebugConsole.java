@@ -24,7 +24,9 @@ import Brick.Break.Wall.WallController;
 
 import javax.swing.*;
 
-
+/**
+ *This is the Model of DebugConsole in the DebugConsole MVC design pattern.
+ */
 public class DebugConsole{
 
     private static final String TITLE = "Debug Console";
@@ -35,7 +37,13 @@ public class DebugConsole{
     private GameBoardController gameBoardController;
     private WallController wallController;
 
-
+    /**
+     * This is the constructor of "DebugConsole" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param wallController This parameter is the object of  "WallController" class.
+     * @param owner This parameter is the object of "JFrame" class.
+     * @param gameBoardController This parameter is the object of "gameBoardController" class.
+     */
     public DebugConsole(JFrame owner,WallController wallController,GameBoardController gameBoardController){
 
         this.wallController = wallController;

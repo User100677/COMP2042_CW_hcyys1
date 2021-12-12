@@ -16,14 +16,14 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package Brick.Break.Debug.DebugPanel;
-
-import Brick.Break.Wall.Wall;
 import Brick.Break.Wall.WallController;
 
 import javax.swing.*;
 import java.awt.*;
 
-
+/**
+ *This is the Model of DebugPanel in the DebugPanel MVC design pattern.
+ */
 public class DebugPanel extends JPanel {
 
     private static final Color DEF_BKG = Color.WHITE;
@@ -37,7 +37,11 @@ public class DebugPanel extends JPanel {
 
     private WallController wallController;
 
-
+    /**
+     * This is the constructor of "DebugPanel" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param wallController This parameter is the object of  "WallController" class.
+     */
     public DebugPanel(WallController wallController) {
         this.wallController = wallController;
 
