@@ -118,6 +118,7 @@ public class  CrackController{
 
     /**
      * This method is to randomize the boundary of the crack appearance.
+     * I change the randomizer to only produce positive integer number because in the original code, the randomizer can produce negative umber.
      * @param bound This parameter is the boundary of the crack.
      */
     public int randomInBounds(int bound) {
@@ -145,7 +146,8 @@ public class  CrackController{
     }
 
     /**
-     * This method make th crack appear in a random point.
+     * This method make the crack appear in a random point in the brick.
+     * I change the randomizer to only produce positive integer number because in the original code, the randomizer can produce negative umber.
      * @param from  This parameter is the start of a point.
      * @param to This parameter is the end of the point.
      * @param direction This parameter is the direction of the crack.

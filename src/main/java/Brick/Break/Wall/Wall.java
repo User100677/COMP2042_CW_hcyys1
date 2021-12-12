@@ -27,7 +27,9 @@ import java.awt.*;
 
 
 
-
+/**
+ *This is the Model of Wall in the Wall MVC design pattern.
+ */
 public class Wall{
 
     private static final int LEVELS_COUNT = 7;
@@ -59,7 +61,15 @@ public class Wall{
     private LevelsCreation levelsCreate;
 
 
-
+    /**
+     * This is the constructor of "Wall" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param drawArea This parameter is the size of the game.
+     * @param brickCount This parameter is the total amount of bricks.
+     * @param lineCount This parameter is the total layer of bricks.
+     * @param brickDimensionRatio This parameter is the ratio size of each brick in a level.
+     * @param ballPos This parameter is the position of the ball.
+     */
     public Wall(Rectangle drawArea, int brickCount, int lineCount, double brickDimensionRatio, Point ballPos){
        this.drawArea = drawArea;
         this.brickCount = brickCount;
