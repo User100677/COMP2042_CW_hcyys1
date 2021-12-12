@@ -17,20 +17,14 @@
  */
 package Brick.Break.GameFrame;
 
-import Brick.Break.GameBoard.GameBoard;
+
 import Brick.Break.GameBoard.GameBoardController;
-import Brick.Break.MenuPage.HomeMenu.HomeMenu;
 import Brick.Break.MenuPage.HomeMenu.HomeMenuController;
-import Brick.Break.MenuPage.InstructionMenu.InstructionMenu;
 import Brick.Break.MenuPage.InstructionMenu.InstructionMenuController;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowFocusListener;
-
-
-
+/**
+ *This is the Model of GameFrame in the GameFrame design pattern.
+ */
 public class GameFrame {
 
     private static final String DEF_TITLE = "Brick Destroy";
@@ -41,9 +35,11 @@ public class GameFrame {
 
     private boolean gaming;
 
-    public GameFrame(){
+    /**
+     * This is the constructor of "GameFrame" class.
+     */
+    public GameFrame(){}
 
-    }
     public GameBoardController getGameBoardController(){
         return gameBoardController;
     }

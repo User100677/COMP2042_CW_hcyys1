@@ -12,9 +12,17 @@ import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 
+/**
+ * This is the Controller of Model class(GameFrame Class) in GameFrame MVC design pattern
+ */
 public class GameFrameController extends JFrame implements WindowFocusListener {
     private GameFrame gameFrameModel;
 
+    /**
+     * This is the constructor of "GameFrameController" class.
+     * This constructor will set the default value for the data in model class(GameFrame class) once it is called by another class.
+     * @param gameFrameModel This parameter is the object of model class(GameFrame class).
+     */
     public GameFrameController(GameFrame gameFrameModel){
         super();
         this.gameFrameModel = gameFrameModel;
@@ -31,6 +39,10 @@ public class GameFrameController extends JFrame implements WindowFocusListener {
 
     }
 
+
+    /**
+     * This method initialize the function and design of the frame of the game.
+     */
     public void initialize(){
         this.setTitle(GameFrame.getDefTitle());
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -39,6 +51,9 @@ public class GameFrameController extends JFrame implements WindowFocusListener {
         this.setVisible(true);
     }
 
+    /**
+     * This method is used to open the game screen when the player clicked the start button in the home menu screen.
+     */
     public void enableGameBoard(){
         this.dispose();
         this.remove(gameFrameModel.getHomeMenuController());
@@ -50,6 +65,9 @@ public class GameFrameController extends JFrame implements WindowFocusListener {
 
     }
 
+    /**
+     * This method is used to open the instruction menu screen when the player clicked the instruction button in the home menu screen.
+     */
     public void openInstructionMenu(){
         this.dispose();
         this.remove(gameFrameModel.getHomeMenuController());
@@ -59,6 +77,10 @@ public class GameFrameController extends JFrame implements WindowFocusListener {
         this.addWindowFocusListener(this);
 
     }
+
+    /**
+     * This method is used to open the home menu screen when the player clicked the back button in the instruction menu screen.
+     */
     public void openMainMenu(){
         this.dispose();
         this.remove(gameFrameModel.getInstructionMenuController());
@@ -69,6 +91,9 @@ public class GameFrameController extends JFrame implements WindowFocusListener {
 
     }
 
+    /**
+     * This method set the location of the game window in your computer.
+     */
     private void autoLocate(){
         Dimension size = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (size.width - this.getWidth()) / 2;
@@ -77,6 +102,9 @@ public class GameFrameController extends JFrame implements WindowFocusListener {
     }
 
 
+    /**
+     * This method is make window gain focus when the player clicked inside the game window.
+     */
     @Override
     public void windowGainedFocus(WindowEvent windowEvent) {
         /*
@@ -90,6 +118,9 @@ public class GameFrameController extends JFrame implements WindowFocusListener {
         gameFrameModel.setGaming(true);
     }
 
+    /**
+     * This method is make window lose focus and print out "Lost focus" message when the player clicked outside the game window.
+     */
     @Override
     public void windowLostFocus(WindowEvent windowEvent) {
         if(gameFrameModel.getGaming())
