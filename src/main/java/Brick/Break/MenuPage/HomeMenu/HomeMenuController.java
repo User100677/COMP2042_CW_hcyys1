@@ -36,7 +36,6 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
         homeMenuModel.setStartButton(new Rectangle(btnDim));
         homeMenuModel.setInstructionButton(new Rectangle(btnDim));
         homeMenuModel.setMenuButton(new Rectangle(btnDim));
-        homeMenuModel.setScoreButton(new Rectangle(btnDim));
         homeMenuView = new HomeMenuView(this);
 
 
@@ -64,8 +63,6 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
         else if(homeMenuModel.getInstructionButton().contains(p)){
             homeMenuModel.getOwner().openInstructionMenu();
 
-        }
-        else if(homeMenuModel.getScoreButton().contains(p)){
         }
         else if(homeMenuModel.getMenuButton().contains(p)){
             System.out.println("Goodbye " + System.getProperty("user.name"));
@@ -179,6 +176,7 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
     public Rectangle getControllerMenuButton(){
         return homeMenuModel.getMenuButton();
     }
+
 
     /**
      * This is a getter method which get the start clicked  from the model class(HomeMenu class).

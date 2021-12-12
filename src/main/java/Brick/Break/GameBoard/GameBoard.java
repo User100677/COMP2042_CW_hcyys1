@@ -28,7 +28,7 @@ import java.awt.*;
 /**
  *This is the Model of GameBoard in the GameBoard MVC design pattern.
  */
-public class GameBoard{
+public class  GameBoard{
 
 
 
@@ -102,5 +102,6 @@ public class GameBoard{
     public JFrame getOwner(){
         return owner;
     }
+
 
 }

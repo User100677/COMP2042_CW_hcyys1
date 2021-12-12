@@ -234,8 +234,5 @@ public class HomeMenuView {
             g2d.drawString(MENU_TEXT,x,y);
         }
 
-
-
-
     }
 }

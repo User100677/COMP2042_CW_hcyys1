@@ -44,6 +44,7 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
                 if(gameBoardModel.getWallController().getWallBallAmount().ballEnd()){
                     gameBoardModel.getWallController().wallReset();
                     gameBoardModel.setMessage(String.format(" Game over (Your Score: %d)", gameBoardModel.getWallController().getControllerScore()));
+
                 }
                 gameBoardModel.getWallController().ballReset();
                 gameBoardModel.getGameTimer().stop();
