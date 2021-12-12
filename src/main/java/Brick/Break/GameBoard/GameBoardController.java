@@ -9,10 +9,19 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * This is the Controller of Model class(GameBoard Class) in GameBoard MVC design pattern
+ */
 public class GameBoardController extends JComponent implements KeyListener, MouseListener, MouseMotionListener {
     private GameBoard gameBoardModel;
     private GameBoardView gameBoardView;
 
+    /**
+     * This is the constructor of "GameBoardController" class.
+     * This constructor will set the default value for the data in model class(Ball class) once it is called by another class.
+     * This constructor will print out message when all bricks are destroyed, all balls are lost and all bricks are destroyed but there is another level.
+     * @param gameBoardModel This parameter is the object of model class(GameBoard class).
+     */
     public GameBoardController(GameBoard gameBoardModel){
         super();
         this.gameBoardModel = gameBoardModel;
@@ -56,6 +65,9 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
         }));
     }
 
+    /**
+     * This method initialize the JComponent for the game board.
+     */
     private void initialize(){
         this.setPreferredSize(new Dimension(GameBoard.getDefWidth(),GameBoard.getDefHeight()));
         this.setFocusable(true);
@@ -65,14 +77,22 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
         this.addMouseMotionListener(this);
     }
 
+    /**
+     * This method get all the draw method from "GameBoardView" class and draw out all the things to the screen.
+     */
     public void paint(Graphics g){
         gameBoardView.paint(g);
     }
+
 
     @Override
     public void keyTyped(KeyEvent keyEvent) {
     }
 
+    /**
+     * This method determined what should the game do when the player pressed a key.
+     * For example, the player pressed the "A" key, the rectangle in the game will move left.
+     */
     @Override
     public void keyPressed(KeyEvent keyEvent) {
         switch(keyEvent.getKeyCode()){
@@ -102,11 +122,19 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
         }
     }
 
+    /**
+     * This method determined what should the game do when the player release a key.
+     * For example, if the player pressed the "A" key and the release it, the rectangle in the game stop moving.
+     */
     @Override
     public void keyReleased(KeyEvent keyEvent) {
         gameBoardModel.getWallController().getWallPlayerController().stop();
     }
 
+    /**
+     * This method determined and show what should the button in the pause menu do when it is clicked.
+     * For example, when the restart button is clicked the game will reset and a "Restarting Game..." message will pop up.
+     */
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -154,6 +182,10 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
 
     }
 
+    /**
+     * This method determined what should the mouse do when it is moved to the button.
+     * In this case, the mouse cursor will change to hand cursor when the mouse touches the button.
+     */
     @Override
     public void mouseMoved(MouseEvent mouseEvent) {
         Point p = mouseEvent.getPoint();
@@ -168,20 +200,43 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
         }
     }
 
+    /**
+     * This method is used to stop the game and print out "Focus Lost" when the player clicked outside the game window.
+     */
     public void onLostFocus(){
         gameBoardModel.getGameTimer().stop();
         gameBoardModel.setMessage("Focus Lost");
         repaint();
     }
+
+    /**
+     * This is a getter method which get the message  from the model class(GameBoard class).
+     * @return "message" from model class (GameBoard class)
+     */
     public String getControllerMessage(){
         return gameBoardModel.getMessage();
     }
+
+    /**
+     * This is a getter method which get the wall controller  from the model class(GameBoard class).
+     * @return "wallController" from model class (GameBoard class)
+     */
     public WallController getControllerWallController(){
         return gameBoardModel.getWallController();
     }
+
+    /**
+     * This is a getter method which get the show pause menu from the model class(GameBoard class).
+     * @return "showPauseMenu" from model class (GameBoard class)
+     */
     public boolean getControllerShowPauseMenu(){
         return gameBoardModel.getShowPauseMenu();
     }
+
+    /**
+     * This is a getter method which get the background colour from the model class(GameBoard class).
+     * @return "Color.white" from model class (GameBoard class)
+     */
     public static Color getBGColour(){
         return GameBoard.getBackGroundColour();
     }

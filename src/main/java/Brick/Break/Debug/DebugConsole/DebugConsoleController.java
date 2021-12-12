@@ -78,7 +78,9 @@ public class DebugConsoleController extends JDialog implements WindowListener {
     @Override
     public void windowDeiconified(WindowEvent windowEvent) {}
 
-    
+    /**
+     * The method activate the debug console.
+     */
     @Override
     public void windowActivated(WindowEvent windowEvent) {
         setLocation();

@@ -25,7 +25,9 @@ import Brick.Break.Wall.WallController;
 import javax.swing.*;
 import java.awt.*;
 
-
+/**
+ *This is the Model of GameBoard in the GameBoard MVC design pattern.
+ */
 public class GameBoard{
 
 
@@ -48,7 +50,11 @@ public class GameBoard{
     private DebugConsoleController debugConsoleController;
     private JFrame owner;
 
-
+    /**
+     * This is the constructor of "Ball" class.
+     * This constructor holds the data that required initialization once its object is created.
+     * @param owner This parameter is the object of "JFrame" class.
+     */
     public GameBoard(JFrame owner){
         super();
         this.owner = owner;

@@ -3,6 +3,10 @@ package Brick.Break.GameBoard;
 import java.awt.*;
 import java.awt.font.FontRenderContext;
 
+/**
+ * This class draw out the pause menu page.
+ * The method in this class was extracted from the "GameBoard" class.
+ */
 public class PauseMenu {
     private static final String CONTINUE = "Continue";
     private static final String RESTART = "Restart";
@@ -20,17 +24,28 @@ public class PauseMenu {
 
     private GameBoardController gameBoardController;
 
+    /**
+     * This is the constructor of "PauseMenu" class.
+     * This constructor initializes the font of the text in the pause menu screen when it is called by another class.
+     * @param gameBoardController This parameter is the object of "gameBoardController" class.
+     */
     PauseMenu (GameBoardController gameBoardController){
         this.gameBoardController = gameBoardController;
         menuFont = new Font("Monospaced",Font.PLAIN,TEXT_SIZE);
         strLen = 0;
     }
 
+    /**
+     * This method draw out the whole pause menu screen.
+     */
     public void drawMenu(Graphics2D g2d){
         obscureGameBoard(g2d);
         drawPauseMenu(g2d);
     }
 
+    /**
+     * This method shade the background of the pause menu to black.
+     */
     private void obscureGameBoard(Graphics2D g2d){
 
         Composite tmp = g2d.getComposite();
@@ -46,6 +61,9 @@ public class PauseMenu {
         g2d.setColor(tmpColor);
     }
 
+    /**
+     * This method draw out the text and button to the pause menu screen.
+     */
     private void drawPauseMenu(Graphics2D g2d){
         Font tmpFont = g2d.getFont();
         Color tmpColor = g2d.getColor();
@@ -99,6 +117,7 @@ public class PauseMenu {
         g2d.setFont(tmpFont);
         g2d.setColor(tmpColor);
     }
+
 
     public Rectangle getContinueButtonRect(){
         return continueButtonRect;
