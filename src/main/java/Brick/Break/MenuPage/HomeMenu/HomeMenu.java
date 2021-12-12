@@ -31,6 +31,7 @@ public class HomeMenu {
     private Rectangle startButton;
     private Rectangle instructionButton;
     private Rectangle menuButton;
+    private Rectangle scoreButton;
 
 
 
@@ -40,6 +41,7 @@ public class HomeMenu {
     private boolean startClicked;
     private boolean instructionClicked;
     private boolean menuClicked;
+
 
     /**
      * This is the constructor of "HomeMenu" class.
@@ -80,6 +82,12 @@ public class HomeMenu {
     public void setMenuButton(Rectangle menuButton){
         this.menuButton = menuButton;
     }
+    public Rectangle getScoreButton(){
+        return scoreButton;
+    }
+    public void setScoreButton(Rectangle scoreButton){
+        this.scoreButton = scoreButton;
+    }
 
     public GameFrameController getOwner(){
         return owner;
@@ -102,10 +110,9 @@ public class HomeMenu {
     public boolean getMenuClicked(){
         return menuClicked;
     }
-    public void setMenuClicked(boolean menuClicked){
+    public void setMenuClicked(boolean menuClicked) {
         this.menuClicked = menuClicked;
     }
-
 
 
 

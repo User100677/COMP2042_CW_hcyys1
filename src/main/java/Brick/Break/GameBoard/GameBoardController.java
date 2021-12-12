@@ -38,25 +38,26 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
         gameBoardModel.setGameTimer(new Timer(10,e ->{
             gameBoardModel.getWallController().move();
             gameBoardModel.getWallController().findImpacts();
-            gameBoardModel.setMessage(String.format("Bricks: %d Balls %d",gameBoardModel.getWallController().getWallBrickAmount().getBrickCount(),gameBoardModel.getWallController().getWallBallAmount().getBallCount()));
+            gameBoardModel.setMessage(String.format("Bricks: %d Balls: %d Score: %d",gameBoardModel.getWallController().getWallBrickAmount().getBrickCount(),gameBoardModel.getWallController().getWallBallAmount().getBallCount(),
+                    gameBoardModel.getWallController().getControllerScore()));
             if(gameBoardModel.getWallController().getWallBallAmount().isBallLost()){
                 if(gameBoardModel.getWallController().getWallBallAmount().ballEnd()){
                     gameBoardModel.getWallController().wallReset();
-                    gameBoardModel.setMessage( "Game over");
+                    gameBoardModel.setMessage(String.format(" Game over (Your Score: %d)", gameBoardModel.getWallController().getControllerScore()));
                 }
                 gameBoardModel.getWallController().ballReset();
                 gameBoardModel.getGameTimer().stop();
             }
             else if(gameBoardModel.getWallController().getWallBrickAmount().isDone()){
                 if(gameBoardModel.getWallController().getWallLeveProgress().hasLevel()){
-                    gameBoardModel.setMessage( "Go to Next Level");
+                    gameBoardModel.setMessage(String.format("Go to Next Level (Your current score: %d)", gameBoardModel.getWallController().getControllerScore()));
                     gameBoardModel.getGameTimer().stop();
                     gameBoardModel.getWallController().ballReset();
                     gameBoardModel.getWallController().wallReset();
                     gameBoardModel.getWallController().getWallLeveProgress().nextLevel();
                 }
                 else{
-                   gameBoardModel.setMessage("ALL WALLS DESTROYED");
+                   gameBoardModel.setMessage(String.format("ALL WALLS DESTROYED (Your final score: %d", gameBoardModel.getWallController().getControllerScore()));
                    gameBoardModel.getGameTimer().stop();
                 }
             }
@@ -240,6 +241,7 @@ public class GameBoardController extends JComponent implements KeyListener, Mous
     public static Color getBGColour(){
         return GameBoard.getBackGroundColour();
     }
+
 
 
 

@@ -45,7 +45,6 @@ public class GameBoard{
     private String message;
 
     private boolean showPauseMenu;
-    private PauseMenu pauseMenu;
 
     private DebugConsoleController debugConsoleController;
     private JFrame owner;
@@ -58,7 +57,6 @@ public class GameBoard{
     public GameBoard(JFrame owner){
         super();
         this.owner = owner;
-
 
     }
 

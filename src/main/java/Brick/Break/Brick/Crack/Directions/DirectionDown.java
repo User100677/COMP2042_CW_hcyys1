@@ -1,7 +1,4 @@
 package Brick.Break.Brick.Crack.Directions;
-
-
-
 import java.awt.*;
 
 /**

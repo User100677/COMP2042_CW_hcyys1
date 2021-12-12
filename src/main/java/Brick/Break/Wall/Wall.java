@@ -59,6 +59,8 @@ public class Wall{
     private int ballCount;
     private boolean ballLost;
     private LevelsCreation levelsCreate;
+    private int score;
+
 
 
     /**
@@ -176,6 +178,14 @@ public class Wall{
 
     public void setLevelsCreation(LevelsCreation levelsCreate){
         this.levelsCreate = levelsCreate;
+    }
+
+    public int getScore(){
+        return score;
+    }
+
+    public void setScore(int score){
+        this.score = score;
     }
 
 }

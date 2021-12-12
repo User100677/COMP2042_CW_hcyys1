@@ -32,8 +32,10 @@ public class WallController implements Move {
      */
     public WallController(Wall wallModel){
         this.wallModel = wallModel;
+
         wallModel.setLevelsCreation(new LevelsCreation());
         wallModel.setLevelProgress(new LevelProgression(wallModel));
+        wallModel.setScore(0);
         makeBall(wallModel.getBallPos());
         wallModel.setStartPoint(new Point(wallModel.getBallPos()));
         wallModel.setBallAmount(new BallAmount(wallModel.getBallCount(), wallModel.getBallLost()));
@@ -92,6 +94,7 @@ public class WallController implements Move {
              * because for every brick program checks for horizontal and vertical impacts
              */
             wallModel.getBrickAmount().setBrickCount(wallModel.getBrickAmount().getBrickCount() - 1);
+            wallModel.setScore(wallModel.getScore() + 10);
         }
         else if(impactBorder()) {
             wallModel.getBallController().ReverseX();
@@ -257,6 +260,14 @@ public class WallController implements Move {
      */
     public Point getWallStartPoint(){
         return wallModel.getStartPoint();
+    }
+
+    /**
+     * This is a getter method which get the score from the model class(Wall class).
+     * @return "score" from model class (Wall class)
+     */
+    public int getControllerScore(){
+        return wallModel.getScore();
     }
 
 }

@@ -1,5 +1,8 @@
 package Brick.Break.MenuPage.HomeMenu;
 
+import Brick.Break.GameBoard.GameBoard;
+import Brick.Break.GameBoard.GameBoardController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -33,6 +36,7 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
         homeMenuModel.setStartButton(new Rectangle(btnDim));
         homeMenuModel.setInstructionButton(new Rectangle(btnDim));
         homeMenuModel.setMenuButton(new Rectangle(btnDim));
+        homeMenuModel.setScoreButton(new Rectangle(btnDim));
         homeMenuView = new HomeMenuView(this);
 
 
@@ -61,10 +65,13 @@ public class HomeMenuController extends JComponent implements MouseListener, Mou
             homeMenuModel.getOwner().openInstructionMenu();
 
         }
+        else if(homeMenuModel.getScoreButton().contains(p)){
+        }
         else if(homeMenuModel.getMenuButton().contains(p)){
             System.out.println("Goodbye " + System.getProperty("user.name"));
             System.exit(0);
         }
+
     }
 
     /**
