@@ -101,6 +101,9 @@ by adding "& Integer.MAX_VALUE".
 *Reasons of changing the speed to a fixed value is because in the original code, the speed value of the ball is randomized, so everytime the player open the game the ball is in different
 speed.
 
+###7)Unit Test
+I did unit test for each classes.
+
 
 ------------------------------ADDITION-------------------------------------------------
 
