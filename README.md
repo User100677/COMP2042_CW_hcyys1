@@ -1,1 +1,1 @@
-# COMP2042_CW_hcyys1
+# Manage the brick break game
